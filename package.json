@@ -1,7 +1,7 @@
 {
   "name": "@mapbox/evilmvt",
-  "version": "0.0.3",
-  "description": "Get general information and stats about a particular vector tile buffer.",
+  "version": "0.0.1",
+  "description": "Create dastardly, non-MVT compliant vector tiles for nasty tests",
   "main": "./lib/index.js",
   "scripts": {
     "test": "tape test/*.test.js",
