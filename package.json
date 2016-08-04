@@ -23,6 +23,7 @@
   "devDependencies": {
     "@mapbox/vtinfo": "0.0.4",
     "aws-sdk": "^2.4.6",
+    "mapnik": "^3.5.13",
     "tape": "^4.5.1"
   },
   "binary": {

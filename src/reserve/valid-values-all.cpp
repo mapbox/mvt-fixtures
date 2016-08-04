@@ -76,7 +76,7 @@ NAN_METHOD(create)
         }
         { // sint64
             protozero::pbf_writer value_writer_string(layer_writer, 4);
-            std::int64_t sint64_value = 9223372036854775807;
+            std::int64_t sint64_value = 9123372036854775807;
             value_writer_string.add_sint64(6, sint64_value);
         }
         { // bool
