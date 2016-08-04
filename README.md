@@ -1,8 +1,10 @@
 # evilmvt
 
+**This library is currently under heavy development. We do not recommend relying on the fixtures or module until an official release has been tagged!**
+
 This library is two things:
 
-1. A set of valid & invalid vector tile fixtures for testing Mapbox Vector Tile decoding. Located in `fixtures`.
+1. A set of valid & invalid vector tile fixtures for testing Mapbox Vector Tile decoding. Located in `fixtures` and [`require()`able](#require-fixtures).
 1. A low-level Node.js library for encoding Mapbox Vector Tile buffers using Protozero.
 
 # Fixture suite
@@ -28,3 +30,13 @@ Fixture name | Description
 `valid-GeomType-single-point.mvt` | Single layer with a valid [point geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4351-example-point) from the spec docs.
 `valid-GeomType-single-polygon.mvt` | Single layer with a valid [polygon geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4355-example-polygon) from the spec docs.
 `valid-Values-all.mvt` | A buffer with all possible [`Value` types](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L17-L28) encoded in the layer and single Feature.
+
+### `require` fixtures
+
+You can require the fixtures directly from the `evilmvt` module using the name of the fixture.
+
+```javascript
+var evilmvt = require('evilmvt');
+var buffer = evilmvt.fixtures['invalid-Tags-nonexistant-values'];
+// do something with bufer
+```

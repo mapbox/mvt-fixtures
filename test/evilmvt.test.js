@@ -33,20 +33,14 @@ var fixturesPath = '../fixtures/';
 // });
 
 test('valid-Values-all.mvt', function(t) {
-  var buffer = fs.readFileSync(path.resolve(__dirname, '..', 'fixtures', 'valid-Values-all.mvt'));
-  console.log(vtinfo(buffer));
+  var buffer = evilmvt.fixtures['valid-Values-all'];
   
   var vt = new mapnik.VectorTile(0, 0, 0);
   vt.addDataSync(buffer, {validate:true});
+
+  console.log(vtinfo(buffer));
   console.log(vt.toJSON()[0].features);
   console.log(vt.toGeoJSONSync('layer_name'));
 
   t.end();
 });
-
-// test('valid: single line', function(t) {
-//   var buffer = evilmvt.validSingleLine();
-//   if (process.env.UPDATE) fs.writeFileSync(path.resolve(__dirname, fixturesPath, 'valid-single-line.mvt'), buffer);
-//   var info = vtinfo(buffer);
-//   t.end();
-// });
