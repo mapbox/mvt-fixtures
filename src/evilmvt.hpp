@@ -7,4 +7,4 @@
 #pragma GCC diagnostic pop
 
 // evilmvt solo method
-NAN_METHOD(evil);
+NAN_METHOD(create);
