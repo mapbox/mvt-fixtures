@@ -59,9 +59,11 @@ NAN_METHOD(evil)
             std::vector<uint32_t> tags = { 0, 0 }; // 'hello': 'world'
             feature_writer.add_packed_int32(1, std::begin(tags), std::end(tags)); // feature tags 
 
-            std::uint32_t geom_type = 3; // POLYGON
-            protozero::pbf_writer enum_writer(feature_writer, 3); // GeomType enum
-            enum_writer.add_enum(3, geom_type); // feature geometry type
+            {
+                std::uint32_t geom_type = 1; // POINT
+                protozero::pbf_writer enum_writer(feature_writer, 3); // GeomType enum
+                enum_writer.add_enum(3, geom_type); // feature geometry type
+            }
 
             std::vector<uint32_t> geom = { 9, 50, 34 }; // single point
             feature_writer.add_packed_int32(4, std::begin(geom), std::end(geom)); // feature geometry
