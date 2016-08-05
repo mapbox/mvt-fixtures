@@ -4,7 +4,7 @@
   "description": "Create dastardly, non-MVT compliant vector tiles for nasty tests",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "tape test/*.test.js",
+    "test": "tape test/*.test.js"
   },
   "homepage": "https://github.com/mapbox/evilmvt",
   "repository": {
@@ -21,7 +21,6 @@
   "devDependencies": {
     "@mapbox/vtinfo": "0.0.4",
     "aws-sdk": "^2.4.6",
-    "mapnik": "^3.5.13",
     "tape": "^4.5.1"
   },
   "binary": {
