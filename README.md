@@ -42,7 +42,7 @@ Fixture name | Description
 You can require the fixtures directly from the `evilmvt` module using the name of the fixture.
 
 ```javascript
-var evilmvt = require('evilmvt');
-var buffer = evilmvt.fixtures['invalid-Tags-nonexistant-values'];
+var fixtures = require('evilmvt').fixtures;
+var buffer = fixtures['invalid-Tags-nonexistant-values'];
 // do something with bufer
 ```

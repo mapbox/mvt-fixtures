@@ -67,7 +67,7 @@ NAN_METHOD(create)
             
             {
                 protozero::pbf_writer value_writer_string(layer_writer, 4);
-                value_writer_string.add_string(1, "world");
+                value_writer_string.add_string(10, "world");
             }
 
             // extent
@@ -80,7 +80,7 @@ NAN_METHOD(create)
                 std::uint64_t id = 123;
                 feature_writer.add_uint64(1, id); // feature id
                 
-                std::vector<uint32_t> tags = { 0 }; // 'hello': 'world'
+                std::vector<uint32_t> tags = { 0, 0 }; // 'hello': 'world'
                 feature_writer.add_packed_int32(2, std::begin(tags), std::end(tags)); // feature tags 
 
                 // std::uint32_t geom_type = 0; // UNKNOWN
@@ -95,9 +95,6 @@ NAN_METHOD(create)
                 // std::vector<uint32_t> geom = { 9, 4, 4, 18, 0, 16, 16, 0, 9, 17, 17, 10, 4, 8 }; // multilinestring
                 // std::vector<uint32_t> geom = { 9, 6, 12, 18, 10, 12, 24, 44, 15 }; // polygon
                 feature_writer.add_packed_int32(4, std::begin(geom), std::end(geom)); // feature geometry
-
-                std::uint32_t waka = 3;
-                feature_writer.add_uint32(10, waka);
             }
         }
 
