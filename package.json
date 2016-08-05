@@ -5,8 +5,6 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "tape test/*.test.js",
-    "preinstall": "npm install node-pre-gyp",
-    "install": "node-pre-gyp install --fallback-to-build"
   },
   "homepage": "https://github.com/mapbox/evilmvt",
   "repository": {
