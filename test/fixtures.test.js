@@ -1,5 +1,5 @@
 var test = require('tape');
-var fixtures = require('../lib/').fixtures;
+var fixtures = require('..').fixtures;
 
 for (f in fixtures) {
   test(f + ' is a buffer', function(t) {

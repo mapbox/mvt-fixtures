@@ -2,7 +2,7 @@
   "name": "@mapbox/evilmvt",
   "version": "0.0.1",
   "description": "Create dastardly, non-MVT compliant vector tiles for nasty tests",
-  "main": "./lib/index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "tape test/*.test.js"
   },
@@ -15,5 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "pbf": "^2.0.1"
   }
 }
