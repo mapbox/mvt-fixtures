@@ -26,6 +26,9 @@ test('success: evilmvt.create()', function(t) {
     }
   ];
   var buffer = evilmvt.create(layers);
+  console.log(buffer);
+
+
   // console.log(vtinfo(buffer));
   // var info = vtinfo(buffer);
   // console.log(info);
