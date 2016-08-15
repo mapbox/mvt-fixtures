@@ -1,7 +1,7 @@
 {
   "name": "@mapbox/evilmvt",
-  "version": "0.0.1",
-  "description": "Create dastardly, non-MVT compliant vector tiles for nasty tests",
+  "version": "1.0.0",
+  "description": "A require-able suite of non-MVT compliant vector tiles for nasty tests",
   "main": "./lib/index.js",
   "scripts": {
     "test": "tape test/*.test.js"
