@@ -1,5 +1,7 @@
 # evilmvt
 
+https://travis-ci.org/mapbox/evilmvt.svg?branch=master
+
 A require-able suite of valid & invalid vector tile fixtures for testing Mapbox Vector Tile decoding. Located in `fixtures` and [`require()`able](#require-fixtures).
 
 # Fixture suite
