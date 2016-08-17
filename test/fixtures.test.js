@@ -1,9 +1,16 @@
 var test = require('tape');
 var fixtures = require('../lib/').fixtures;
 
-for (f in fixtures) {
-  test(f + ' is a buffer', function(t) {
-    t.ok(Buffer.isBuffer(fixtures[f]), 'is a buffer');
-    t.end();
-  });
-}
+test('valid fixtures are buffers', function(t) {
+  for (f in fixtures.valid) {
+    t.ok(Buffer.isBuffer(fixtures.valid[f]), f + ' is a buffer');
+  }
+  t.end();
+});
+
+test('invalid fixtures are buffers', function(t) {
+  for (f in fixtures.invalid) {
+    t.ok(Buffer.isBuffer(fixtures.invalid[f]), f + ' is a buffer');
+  }
+  t.end();
+});
