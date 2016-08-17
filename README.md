@@ -1,18 +1,16 @@
 # mvt-fixtures
 
-https://travis-ci.org/mapbox/evilmvt.svg?branch=master
+![](https://travis-ci.org/mapbox/evilmvt.svg?branch=master)
 
-A require-able suite of valid & invalid vector tile fixtures for testing [Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec) decoding. Located in `fixtures` and [`require()`able](#require-fixtures). 
+A [`require()`able](#require-fixtures) suite of [valid](#valid-fixtures) & [invalid](#invalid-fixtures) vector tile fixtures for testing [Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec) decoding. *Previously called `evilmvt` but eventually `happymvt` prevailed.*
 
-*Previously called `evilmvt` but eventually `happymvt` prevailed.*
-
-# Fixture suite
-
-The fixtures below are include in `/fixtures`. They are named to be as descriptive as possible, but the table below gives us more space to describe the underlying data. These are considered "invalid" according to the [Mapbox Vector Tile Specification version 2.1](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto). 
+All fixtures are included in the `/fixtures` directory. They are named to be as descriptive as possible, but the tables below gives us more space to describe the underlying data.
 
 **Version**: The version of `mvt-fixtures` stays in sync with the version of the Mapbox Vector Tile Specification. For instance `mvt-fixtures@2.1.0` references the Mapbox `vector-tile-spec@2.1`, reserving the patch versions for any unexpected bug fixes in this project.
 
-# `require` fixtures
+# Usage
+
+### `require('@mapbox/mvt-fixtures')`
 
 Install
 
@@ -28,7 +26,11 @@ var buffer = fixtures.invalid['Tags-nonexistant-values'];
 // do something with bufer
 ```
 
-### Invalid fixtures
+### Vendor or Submodule
+
+Alternatively, you can [download the repository](https://github.com/mapbox/evilmvt/archive/master.zip) and use the fixtures manually, OR include this repository as a [Git Submodule](https://github.com/blog/2104-working-with-submodules).
+
+# Invalid fixtures `fixtures/invalid`
 
 Fixture name | Description
 ---|---
@@ -57,7 +59,7 @@ Fixture name | Description
 `Value-string-mistyped_int64.mvt` | A Layer value property is listed as "string" but encoded as `std::int64_t`.
 `Value-unknown-field-type.mvt` | The [`Value`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) has a field with an [unknown type](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L17-L28).
 
-### Valid fixtures
+# Valid fixtures `fixtures/valid`
 
 Fixture name | Description
 ---|---
