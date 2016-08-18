@@ -63,10 +63,17 @@ Fixture name | Description
 
 Fixture name | Description
 ---|---
-`GeomType-single-linestring.mvt` | Single layer with a valid [linestring geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4353-example-linestring) from the spec docs.
-`GeomType-single-multilinestring.mvt` | Single layer with a valid [multilinestring geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4354-example-multi-linestring) from the spec docs.
-`GeomType-single-multipoint.mvt` | Single layer with a valid [multipoint geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4352-example-multi-point) from the spec docs.
-`GeomType-single-point.mvt` | Single layer with a valid [point geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4351-example-point) from the spec docs.
-`GeomType-single-polygon.mvt` | Single layer with a valid [polygon geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4355-example-polygon) from the spec docs.
-`GeomType-unknown.mvt` | Single geometry with [`UNKNOWN` type](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L9). This is considered "valid" in the lens of the specification. Encoders/decoders can choose to use or throw on this goemetry type.
+`Feature-single-linestring.mvt` | Single layer with a valid [linestring geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4353-example-linestring) from the spec docs.
+`Feature-single-multilinestring.mvt` | Single layer with a valid [multilinestring geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4354-example-multi-linestring) from the spec docs.
+`Feature-single-multipoint.mvt` | Single layer with a valid [multipoint geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4352-example-multi-point) from the spec docs.
+`Feature-single-point.mvt` | Single layer with a valid [point geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4351-example-point) from the spec docs.
+`Feature-single-polygon.mvt` | Single layer with a valid [polygon geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4355-example-polygon) from the spec docs.
+`Feature-unknown-GeomType.mvt` | Single geometry with [`UNKNOWN` type](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L9). This is considered "valid" in the lens of the specification. Encoders/decoders can choose to use or throw on this goemetry type.
+`Value-single-bool-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `bool` type and a single Point feature.
+`Value-single-double-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `double` type and a single Point feature.
+`Value-single-float-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `float` type and a single Point feature.
+`Value-single-int64-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `int64` type and a single Point feature.
+`Value-single-sint64-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `sint64` type and a single Point feature.
+`Value-single-string-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `string` type and a single Point feature.
+`Value-single-uint64-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `uint64` type and a single Point feature.
 `Values-all.mvt` | A buffer with all possible [`Value` types](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L17-L28) encoded in the layer and single Feature.

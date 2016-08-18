@@ -1,0 +1,35 @@
+{
+  "name": "@mapbox/mvt-fixtures",
+  "version": "2.1.0-rc1",
+  "description": "A require-able suite of non-MVT compliant vector tiles for nasty tests",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "tape test/*.test.js",
+    "preinstall": "npm install node-pre-gyp",
+    "install": "node-pre-gyp install --fallback-to-build"
+  },
+  "homepage": "https://github.com/mapbox/mvt-fixtures",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mapbox/mvt-fixtures.git"
+  },
+  "author": "Mapbox",
+  "license": "ISC",
+  "devDependencies": {
+    "tape": "^4.5.1"
+  },
+  "bin": {
+    "mvt-create": "./bin/create.js"
+  },
+  "binary": {
+    "module_name": "evilmvt",
+    "module_path": "./lib/binding/",
+    "host": "https://mapbox-node-binary.s3.amazonaws.com",
+    "remote_path": "./{name}/v{version}/{configuration}/",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz"
+  },
+  "dependencies": {
+    "@mapbox/vtinfo": "0.0.4",
+    "protozero": "^1.4.0"
+  }
+}
