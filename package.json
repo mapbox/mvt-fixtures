@@ -1,7 +1,7 @@
 {
   "name": "@mapbox/mvt-fixtures",
-  "version": "2.1.0-rc1",
-  "description": "A require-able suite of non-MVT compliant vector tiles for nasty tests",
+  "version": "2.1.0",
+  "description": "A require-able test fixture suite of valid and invalid Mapbox Vector Tiles",
   "main": "./lib/index.js",
   "scripts": {
     "test": "tape test/*.test.js"
