@@ -1,15 +1,15 @@
 {
-  "name": "@mapbox/evilmvt",
-  "version": "1.0.0",
+  "name": "@mapbox/mvt-fixtures",
+  "version": "2.1.0-rc1",
   "description": "A require-able suite of non-MVT compliant vector tiles for nasty tests",
   "main": "./lib/index.js",
   "scripts": {
     "test": "tape test/*.test.js"
   },
-  "homepage": "https://github.com/mapbox/evilmvt",
+  "homepage": "https://github.com/mapbox/mvt-fixtures",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mapbox/evilmvt.git"
+    "url": "git://github.com/mapbox/mvt-fixtures.git"
   },
   "author": "Mapbox",
   "license": "ISC",

@@ -27,16 +27,52 @@ NAN_METHOD(create)
         std::uint32_t version = 2; // default to 2
         layer_writer.add_uint32(15, version); // version
 
-        std::string name = "layer_name";
+        std::string name = "single_point";
         layer_writer.add_string(1, name.data(), name.size()); // name
 
         // keys
-        layer_writer.add_string(3, "hello");
+        // layer_writer.add_string(3, "string");
+        // layer_writer.add_string(3, "float");
+        // layer_writer.add_string(3, "double");
+        // layer_writer.add_string(3, "int64");
+        // layer_writer.add_string(3, "uint64");
+        // layer_writer.add_string(3, "sint64");
+        layer_writer.add_string(3, "bool");
 
-        // values
-        {
+        
+        // { // string
+        //     protozero::pbf_writer value_writer_string(layer_writer, 4);
+        //     value_writer_string.add_string(1, "hello");
+        // }
+        // { // float
+        //     protozero::pbf_writer value_writer_string(layer_writer, 4);
+        //     float float_value = 9.000023;
+        //     value_writer_string.add_float(2, float_value);
+        // }
+        // { // double
+        //     protozero::pbf_writer value_writer_string(layer_writer, 4);
+        //     double double_value = 8.99999999999996;
+        //     value_writer_string.add_double(3, double_value);
+        // }
+        // { // int64
+        //     protozero::pbf_writer value_writer_string(layer_writer, 4);
+        //     std::int64_t int64_value = 9223372036854775807;
+        //     value_writer_string.add_int64(4, int64_value);
+        // }
+        // { // uint64
+        //     protozero::pbf_writer value_writer_string(layer_writer, 4);
+        //     std::uint64_t uint64_value = -922337203685477580;
+        //     value_writer_string.add_uint64(5, uint64_value);
+        // }
+        // { // sint64
+        //     protozero::pbf_writer value_writer_string(layer_writer, 4);
+        //     std::int64_t sint64_value = 9123372036854775807;
+        //     value_writer_string.add_sint64(6, sint64_value);
+        // }
+        { // bool
             protozero::pbf_writer value_writer_string(layer_writer, 4);
-            value_writer_string.add_string(1, "world");
+            bool bool_value = true;
+            value_writer_string.add_bool(7, bool_value);
         }
 
         // extent
