@@ -40,7 +40,7 @@ Fixture name | Description
 `Feature-odd_number_tags.mvt` | Only has a single [`tag`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L38) where multiples of 2 are required.
 `Feature-unknown_field_type.mvt` | Has a field value of `10`, which is [not listed as an enum](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L8-L13) and therefore invalid.
 `GeomType-type.mvt` | The tag for GeomType is `10`, which is invalid.
-`Key-mistyped_uint32.mvt` | Has a [`key`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L63) property incorrectly encoded as a type `std::uint32_t`. | n/a 
+`Key-mistyped_uint32.mvt` | Has a [`key`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L63) property incorrectly encoded as a type `std::uint32_t`. | n/a
 `Layer-extent-mistyped_string.mvt` | Layer [`extent`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L70) is incorrectly encoded as a type `std::string`.
 `Layer-extent-none.mvt` | Missing the [`extent`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L70) type
 `Layer-name-duplicates.mvt` | Includes two layer [`name`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L57)s with the same value: "layer_name".
@@ -55,7 +55,6 @@ Fixture name | Description
 `Tags-nonexistant-values.mvt` | Feature has [`tags`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L38) that point to non-existent [`Keys`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L63) and [`Values`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) in the layer.
 `Tile-unknown-tag.mvt` | Tile message has an unknown tag value. The only accepted tag value here is `3`, but this tile encodes a `Feature` with the tag value of `10`.
 `Value-no-fields.mvt` | includes a [`Value`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) without any fields encoded within it.
-`Value-multiple-fields.mvt` | The [`Value`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) message has two entries, both strings, where there should only be one.
 `Value-string-mistyped_int64.mvt` | A Layer value property is listed as "string" but encoded as `std::int64_t`.
 `Value-unknown-field-type.mvt` | The [`Value`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) has a field with an [unknown type](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L17-L28).
 
@@ -69,6 +68,7 @@ Fixture name | Description
 `Feature-single-point.mvt` | Single layer with a valid [point geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4351-example-point) from the spec docs.
 `Feature-single-polygon.mvt` | Single layer with a valid [polygon geometry](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4355-example-polygon) from the spec docs.
 `Feature-unknown-GeomType.mvt` | Single geometry with [`UNKNOWN` type](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L9). This is considered "valid" in the lens of the specification. Encoders/decoders can choose to use or throw on this goemetry type.
+`Value-multiple-fields.mvt` | The [`Value`](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) message has two different string entries.
 `Value-single-bool-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `bool` type and a single Point feature.
 `Value-single-double-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `double` type and a single Point feature.
 `Value-single-float-point.mvt` | Single [Value](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66) with `float` type and a single Point feature.
