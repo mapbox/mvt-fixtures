@@ -1,6 +1,6 @@
 # mvt-fixtures
 
-![](https://travis-ci.org/mapbox/evilmvt.svg?branch=master)
+[![Build Status](https://travis-ci.org/mapbox/mvt-fixtures.svg?branch=master)](https://travis-ci.org/mapbox/mvt-fixtures)
 
 A [`require()`able](#require-fixtures) suite of [valid](#valid-fixtures) & [invalid](#invalid-fixtures) vector tile fixtures for testing [Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec) decoding. *Previously called `evilmvt` but eventually `happymvt` prevailed.*
 
