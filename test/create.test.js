@@ -5,7 +5,7 @@ const mvtf = require('..');
 const schema = require('protocol-buffers-schema');
 const Compile = require('pbf/compile');
 
-const mvt_proto = schema.parse(fs.readFileSync('../vector-tile-spec/2.1/vector_tile.proto', 'utf8'));
+const mvt_proto = schema.parse(fs.readFileSync(__dirname + '/../vector-tile-spec/2.1/vector_tile.proto', 'utf8'));
 
 test('[create] failure, throws error when no spec is provided', (assert) => {
   try {
