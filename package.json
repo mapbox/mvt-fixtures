@@ -2,9 +2,10 @@
   "name": "@mapbox/mvt-fixtures",
   "version": "2.1.0",
   "description": "A require-able test fixture suite of valid and invalid Mapbox Vector Tiles",
-  "main": "./lib/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "tape test/*.test.js"
+    "test": "tape test/*.test.js",
+    "docs": "documentation readme index.js --section=API --shallow && documentation build lib/fixtures.js -f md > FIXTURES.md"
   },
   "homepage": "https://github.com/mapbox/mvt-fixtures",
   "repository": {
@@ -14,6 +15,11 @@
   "author": "Mapbox",
   "license": "ISC",
   "devDependencies": {
+    "@mapbox/vtinfo": "^0.1.2",
     "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "pbf": "^3.0.5",
+    "protocol-buffers-schema": "^3.3.1"
   }
 }

@@ -1,16 +1,13 @@
-var test = require('tape');
-var fixtures = require('../lib/').fixtures;
+'use strict';
 
-test('valid fixtures are buffers', function(t) {
-  for (f in fixtures.valid) {
-    t.ok(Buffer.isBuffer(fixtures.valid[f]), f + ' is a buffer');
-  }
-  t.end();
-});
+const test = require('tape');
+const mvtf = require('..');
+const fixtures = require('../lib/fixtures');
 
-test('invalid fixtures are buffers', function(t) {
-  for (f in fixtures.invalid) {
-    t.ok(Buffer.isBuffer(fixtures.invalid[f]), f + ' is a buffer');
+test('loads all fixtures as buffers', (assert) => {
+  for (var f in fixtures) {
+    let buffer = mvtf.load(f);
+    assert.equal(typeof buffer, 'object', 'is a buffer object');
   }
-  t.end();
+  assert.end();
 });
