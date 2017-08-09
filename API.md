@@ -58,14 +58,6 @@ mvtf.each(function(fixture) {
 });
 ```
 
-# generateBuffer
-
-create a buffer representing a Mapbox Vector Tile from a JSON object
-
-**Parameters**
-
--   `json`  
-
 # get
 
 Get a fixture by name

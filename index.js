@@ -10,9 +10,6 @@ const Compile = require('pbf/compile');
 const proto_mvt = schema.parse(fs.readFileSync('vector-tile-spec/2.1/vector_tile.proto', 'utf8'));
 const mvt = Compile(proto_mvt);
 
-/**
- * create a buffer representing a Mapbox Vector Tile from a JSON object
- */
 function generateBuffer(json) {
   const pbf = new Pbf();
   mvt.Tile.write(json, pbf);
