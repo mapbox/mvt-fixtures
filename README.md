@@ -17,7 +17,14 @@ npm install @mapbox/mvt-fixtures --save-dev
 ```
 
 ```javascript
-const mvtf = require('@mapbox/mvt-fixtures')
+const mvtf = require('@mapbox/mvt-fixtures');
+const decoder = require('your-mvt-decoder');
+
+mvtf.each(function(fixture) {
+  let output = decoder(fixture.buffer);
+  assert.equal(output.layers.length, fixture.json.layers.length, 'expected number of layers');
+  // ... more tests
+});
 ```
 
 ### Non-JS interface
