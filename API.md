@@ -64,7 +64,7 @@ Get a fixture by name
 
 **Parameters**
 
--   `name` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the name of the fixture
+-   `name` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the name of the fixture as specified in [FIXTURES.md](FIXTURES.md)
 
 **Examples**
 
@@ -72,11 +72,11 @@ Get a fixture by name
 const mvtf = require('mvt-fixtures');
 
 const fixture = mvtf.get('valid-single-point-no-id');
-console.log(fixture);
 console.log(fixture.name); // => 'valid-single-point-no-id'
 console.log(fixture.description); // => '... description ...''
 console.log(fixture.specification_reference); // => url to Mapbox Vector Tile specification reference
 console.log(fixture.buffer); // => Buffer object
+console.log(fixture.json); // => json representation of the fixture
 ```
 
-Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** fixture - a fixture object, including information and the actual buffer
+Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** fixture - a fixture object

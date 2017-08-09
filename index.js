@@ -18,17 +18,17 @@ function generateBuffer(json) {
 
 /**
  * Get a fixture by name
- * @param {String} name - the name of the fixture
- * @returns {Object} fixture - a fixture object, including information and the actual buffer
+ * @param {String} name - the name of the fixture as specified in [FIXTURES.md](FIXTURES.md)
+ * @returns {Object} fixture - a fixture object
  * @example
  * const mvtf = require('mvt-fixtures');
  *
  * const fixture = mvtf.get('valid-single-point-no-id');
- * console.log(fixture);
  * console.log(fixture.name); // => 'valid-single-point-no-id'
  * console.log(fixture.description); // => '... description ...''
  * console.log(fixture.specification_reference); // => url to Mapbox Vector Tile specification reference
  * console.log(fixture.buffer); // => Buffer object
+ * console.log(fixture.json); // => json representation of the fixture
  */
 function get(name) {
   if (!name) throw new Error('No fixture name provided');
