@@ -10,6 +10,12 @@ All fixtures are included in the `/fixtures` directory. They are named to be as 
 
 # Usage
 
+The mvt-fixtures can be used in two distinct ways, either by using the Javascript interface to generate fixtures on the fly or by using the raw fixtures directly via the /fixtures directory. The JS api is recommended if you are working in Javascript or Node.js. The raw fixtures are provided for those using this outside of a Javascript application.
+
+### Javascript usage
+
+Check out the full Javascript interface over at [API.md](API.md)
+
 ```shell
 npm install @mapbox/mvt-fixtures --save
 ```
@@ -18,61 +24,6 @@ npm install @mapbox/mvt-fixtures --save
 const mvtf = require('@mapbox/mvt-fixtures')
 ```
 
-# API
+### Non-JS interface
 
-## create
-
-Create a tile fixture from a protocol buffer schema object representing the
-Mapbox Vector Tile schema.
-
-**Parameters**
-
--   `json` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the json schema object to generate against the Mapbox Vector Tile Specification protocol
-
-**Examples**
-
-```javascript
-const mvtf = require('@mapbox/mvt-fixtures');
-
-const fixture = {
-  layers: [
-    {
-      version: 2,
-      name: 'hello',
-      features: [
-        {
-          id: 1,
-          tags: [],
-          type: 1,
-          geometry: [ 9, 50, 34 ]
-        }
-      ],
-      keys: {},
-      values: {},
-      extent: 4096
-    }
-  ]
-}
-
-const buffer = mvtf.create(fixture);
-```
-
-Returns **[Buffer](https://nodejs.org/api/buffer.html)** buffer - a protocol buffer representing a Mapbox Vector Tile
-
-## load
-
-Load a pre-generated tile fixture as a buffer. All fixtures are located
-in lib/fixtures.js and documented in [FIXTURES.md](/FIXTURES.md)
-
-**Parameters**
-
--   `name` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the name of the fixture to load
-
-**Examples**
-
-```javascript
-const mvtf = require('@mapbox/mvt-fixtures');
-const buffer = mvtf('valid-single-point-no-id');
-```
-
-Returns **[Buffer](https://nodejs.org/api/buffer.html)** buffer - a protocol buffer representing a Mapbox Vector Tile
+Write a loop on the file system to run tiles through your encoder/decoder ... TODO

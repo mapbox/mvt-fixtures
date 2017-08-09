@@ -1,0 +1,5 @@
+{
+  "name": "valid-single-point-no-id",
+  "description": "Has a single feature without an ID.",
+  "specification_reference": "https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#42-features"
+}
