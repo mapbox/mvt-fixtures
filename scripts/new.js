@@ -9,7 +9,23 @@ const template = `module.exports = function(schema) {
     description: 'DESCRIPTION',
     specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
     json: {
-      layers: [ ... ]
+      layers: [
+        {
+          version: 2,
+          name: 'hello',
+          features: [
+            {
+              id: 1,
+              tags: [],
+              type: schema.Tile.GeomType.POINT.value,
+              geometry: [ 9, 50, 34 ]
+            }
+          ],
+          keys: {},
+          values: {},
+          extent: 4096
+        }
+      ]
     },
     manipulate: function(buffer) {
       // stuff here

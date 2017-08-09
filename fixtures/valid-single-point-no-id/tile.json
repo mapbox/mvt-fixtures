@@ -1,1 +1,22 @@
-undefined
+{
+  "layers": [
+    {
+      "version": 2,
+      "name": "hello",
+      "features": [
+        {
+          "tags": [],
+          "type": 1,
+          "geometry": [
+            9,
+            50,
+            34
+          ]
+        }
+      ],
+      "keys": {},
+      "values": {},
+      "extent": 4096
+    }
+  ]
+}

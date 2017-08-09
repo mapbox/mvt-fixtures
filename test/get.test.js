@@ -26,6 +26,12 @@ test('[get] failure, throws reror if fixture does not exist', (assert) => {
 
 test('[get] success, gets a fixture and its properties/buffer', (assert) => {
   var fixture = mvtf.get('valid-single-point-no-id');
+  assert.ok(fixture.buffer);
+  assert.ok(fixture.name);
+  assert.ok(fixture.json);
+  assert.ok(fixture.description);
+  assert.ok(fixture.specification_reference);
+  assert.notOk(fixture.manipulate);
   assert.equal(typeof fixture.buffer, 'object', 'returns a buffer');
 
   var info = vtinfo(fixture.buffer);

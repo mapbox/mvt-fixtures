@@ -47,6 +47,7 @@ function get(name) {
   final.name = fixture.name;
   final.description = fixture.description;
   final.specification_reference = fixture.specification_reference;
+  final.json = fixture.json;
   final.buffer = generateBuffer(fixture.json);
   if (fixture.manipulate) {
     final.buffer = fixture.manipulate(final.buffer);
