@@ -2,11 +2,16 @@
 
 [![Build Status](https://travis-ci.org/mapbox/mvt-fixtures.svg?branch=master)](https://travis-ci.org/mapbox/mvt-fixtures)
 
-A [`require()`able](#require-fixtures) suite of [valid](#valid-fixtures) & [invalid](#invalid-fixtures) vector tile fixtures for testing [Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec) encoders and decoders. You can view a list of all fixtures at [FIXTURES.md](FIXTURES.md).
+A `require()`able suite of valid and invalid vector tile fixtures for testing [Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec) encoders and decoders. You can view a list of all fixtures at [FIXTURES.md](FIXTURES.md).
 
 # Usage
 
-mvt-fixtures can be used in two distinct ways, either by using the Javascript interface to generate fixtures on the fly or by using the raw fixtures directly via the /fixtures directory. The JS api is recommended if you are working in Javascript or Node.js. The raw fixtures are provided for those using this outside of a Javascript application. The general recommended workflow is to have your encoder or decoder loop through every fixture and either expect to successfully decode/encode valid fixtures, or fail to decode/encode invalid fixtures. When new fixtures are added to this repository, you simply need to update the version of the module (or your submodule) and re-run tests.
+mvt-fixtures can be used in two distinct ways
+
+1. **javascript interface**: use the javascript interface to generate fixtures on the fly
+1. **raw fixtures** use the raw fixtures directly via the /fixtures directory.
+
+The Javascript API is recommended if you are working in Javascript or Node.js. The raw fixtures are provided for those using this outside of a Javascript application. The recommended workflow is to have your encoder or decoder loop through every fixture and either expect to successfully decode/encode valid fixtures, or fail to decode/encode invalid fixtures. When new fixtures are added to this repository, you simply need to update the version of the module (or your submodule) to get the new fixtures and re-run tests.
 
 ### Javascript usage
 
