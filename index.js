@@ -23,9 +23,9 @@ function generateBuffer(json) {
  * @example
  * const mvtf = require('mvt-fixtures');
  *
- * const fixture = mvtf.get('valid-single-point-no-id');
- * console.log(fixture.name); // => 'valid-single-point-no-id'
- * console.log(fixture.description); // => '... description ...''
+ * const fixture = mvtf.get('001');
+ * console.log(fixture.id); // => '001'
+ * console.log(fixture.description); // => ...
  * console.log(fixture.specification_reference); // => url to Mapbox Vector Tile specification reference
  * console.log(fixture.buffer); // => Buffer object
  * console.log(fixture.json); // => json representation of the fixture

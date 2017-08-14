@@ -1,4 +1,4 @@
-## 2.1.0 (release candidate 1)
+## 2.1.0 (work in progress)
 
 - Rename project to `mvt-fixtures`
 - Break fixtures into `valid` and `invalid` directories
