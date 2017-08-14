@@ -17,7 +17,7 @@
   "author": "Mapbox",
   "license": "ISC",
   "devDependencies": {
-    "@mapbox/vtinfo": "^0.1.2",
+    "@mapbox/vector-tile": "^1.3.0",
     "tape": "^4.5.1"
   },
   "dependencies": {

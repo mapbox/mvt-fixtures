@@ -1,5 +1,6 @@
 const test = require('tape');
-const vtinfo = require('@mapbox/vtinfo');
+const vt = require('@mapbox/vector-tile').VectorTile;
+const pbf = require('pbf');
 const mvtf = require('..');
 
 test('[get] failure, throws error if no string provided', (assert) => {
@@ -25,7 +26,7 @@ test('[get] failure, throws reror if fixture does not exist', (assert) => {
 });
 
 test('[get] success, gets a fixture and its properties/buffer', (assert) => {
-  var fixture = mvtf.get('valid-single-point-no-id');
+  const fixture = mvtf.get('valid-single-point-no-id');
   assert.ok(fixture.buffer);
   assert.ok(fixture.name);
   assert.ok(fixture.json);
@@ -34,8 +35,8 @@ test('[get] success, gets a fixture and its properties/buffer', (assert) => {
   assert.notOk(fixture.manipulate);
   assert.equal(typeof fixture.buffer, 'object', 'returns a buffer');
 
-  var info = vtinfo(fixture.buffer);
-  assert.equal(info.layers.length, 1, 'expected number of layers');
-  assert.equal(info.layers[0].name, 'hello', 'expected layer name');
+  const info = new vt(new pbf(fixture.buffer));
+  assert.equal(Object.keys(info.layers).length, 1, 'expected number of layers');
+  assert.ok(info.layers.hello, 'expected layer name');
   assert.end();
 });

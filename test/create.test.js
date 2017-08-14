@@ -1,9 +1,10 @@
 const test = require('tape');
 const fs = require('fs');
-const vtinfo = require('@mapbox/vtinfo');
-const mvtf = require('..');
+const vt = require('@mapbox/vector-tile').VectorTile;
+const pbf = require('pbf');
 const schema = require('protocol-buffers-schema');
 const Compile = require('pbf/compile');
+const mvtf = require('..');
 
 const mvt_proto = schema.parse(fs.readFileSync(__dirname + '/../vector-tile-spec/2.1/vector_tile.proto', 'utf8'));
 
@@ -35,8 +36,8 @@ test('[create] success, creates a protocol that is not compliant with the MVT sp
   const buffer = mvtf.create(template);
   assert.ok(Buffer.isBuffer(buffer), 'is a buffer');
 
-  const info = vtinfo(buffer);
-  assert.notOk(info.layers.length, 'no layers');
+  const info = new vt(new pbf(buffer));
+  assert.notOk(Object.keys(info.layers).length, 'no layers');
   assert.end();
 });
 
@@ -65,8 +66,8 @@ test('[create] success, creates a compliant protocol buffer', (assert) => {
   const buffer = mvtf.create(template);
   assert.equal(typeof buffer, 'object', 'returns a buffer');
 
-  const info = vtinfo(buffer);
-  assert.equal(info.layers.length, 1, 'expected number of layers');
-  assert.equal(info.layers[0].name, 'hello', 'expected layer name');
+  const info = new vt(new pbf(buffer));
+  assert.equal(Object.keys(info.layers).length, 1, 'expected number of layers');
+  assert.ok(info.layers.hello, 'expected layer name');
   assert.end();
 });
