@@ -10,7 +10,7 @@ test('[each] loads all fixtures', (assert) => {
   let count = 0;
   mvtf.each(function(fixture) {
     count++;
-    assert.ok(fixture.name);
+    assert.ok(fixture.id);
     assert.ok(fixture.description);
     assert.ok(fixture.buffer);
     assert.ok(fixture.specification_reference);

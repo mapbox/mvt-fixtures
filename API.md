@@ -64,7 +64,7 @@ Get a fixture by name
 
 **Parameters**
 
--   `name` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** the name of the fixture as specified in [FIXTURES.md](FIXTURES.md)
+-   `id` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)\|[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number))** the id of the fixture as specified in [FIXTURES.md](FIXTURES.md)
 
 **Examples**
 

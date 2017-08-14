@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const exec = require('child_process').exec;
 
-test('FIXTURES.md and API.md have been generated', (assert) => {
+test('[docs] FIXTURES.md and API.md have been generated', (assert) => {
   const apiBefore = fs.readFileSync(path.resolve('./API.md'));
   const fixBefore = fs.readFileSync(path.resolve('./FIXTURES.md'));
   const script = path.resolve('./scripts/docs.js');

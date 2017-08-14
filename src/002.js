@@ -1,7 +1,6 @@
 module.exports = function(schema) {
   return {
-    name: 'valid-single-point-no-id',
-    description: 'Has a single feature without an ID.',
+    description: 'A single layer with a single point feature that has no id field. According to the specification, "A feature MAY contain an id field. If a feature has an id field, the value of the id SHOULD be unique among the features of the parent layer."',
     specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#42-features',
     json: {
       layers: [

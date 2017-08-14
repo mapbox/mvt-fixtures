@@ -3,16 +3,12 @@
 const fs = require('fs');
 const mvtf = require('..');
 
-let docs = ``;
-
-mvtf.each(function(fixture) {
-
-  docs+=`### ${fixture.name}
-${fixture.description}
-[Reference](${fixture.specification_reference})
-
+let docs = `id|description|reference
+---|---|---
 `;
 
+mvtf.each(function(fixture) {
+  docs+=`${fixture.id}|${fixture.description}|[link](${fixture.specification_reference})\n`;
 });
 
 fs.writeFileSync('./FIXTURES.md', docs);

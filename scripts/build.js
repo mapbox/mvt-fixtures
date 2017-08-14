@@ -6,7 +6,7 @@ const mvtf = require('..');
 
 mvtf.each(function(fixture) {
 
-  let dir = path.resolve('./fixtures/' + fixture.name);
+  let dir = path.resolve('./fixtures/' + fixture.id);
   if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
   }
@@ -17,7 +17,6 @@ mvtf.each(function(fixture) {
   fs.writeFileSync(mvt, fixture.buffer);
   fs.writeFileSync(json, JSON.stringify(fixture.json, null, 2));
   fs.writeFileSync(info, JSON.stringify({
-    name: fixture.name,
     description: fixture.description,
     specification_reference: fixture.specification_reference
   }, null, 2));

@@ -18,7 +18,7 @@ function generateBuffer(json) {
 
 /**
  * Get a fixture by name
- * @param {String} name - the name of the fixture as specified in [FIXTURES.md](FIXTURES.md)
+ * @param {String|Number} id - the id of the fixture as specified in [FIXTURES.md](FIXTURES.md)
  * @returns {Object} fixture - a fixture object
  * @example
  * const mvtf = require('mvt-fixtures');
@@ -30,18 +30,21 @@ function generateBuffer(json) {
  * console.log(fixture.buffer); // => Buffer object
  * console.log(fixture.json); // => json representation of the fixture
  */
-function get(name) {
-  if (!name) throw new Error('No fixture name provided');
+function get(id) {
+  if (!id) throw new Error('No fixture id provided');
+
+  // add prefix zeros if they don't exist
+  id = (typeof id === 'number') ? getID(id) : id;
 
   let final = {};
   let fixture;
   try {
-    fixture = require(`./src/${name}.js`)(mvt);
+    fixture = require(`./src/${id}.js`)(mvt);
   } catch(err) {
-    throw new Error(`${name} is not a fixture`);
+    throw new Error(`${id} is not a fixture`);
   }
 
-  final.name = fixture.name;
+  final.id = id;
   final.description = fixture.description;
   final.specification_reference = fixture.specification_reference;
   final.json = fixture.json;
@@ -121,9 +124,20 @@ function create(json) {
   return generateBuffer(json);
 }
 
+function getID(number) {
+  if (number < 10) {
+    return `00${number}`;
+  } else if (number < 100 && number > 9) {
+    return `0${number}`;
+  } else {
+    return `${number}`;
+  }
+}
+
 module.exports = {
   get: get,
   each: each,
   create: create,
+  getID, getID,
   schema: mvt
 };

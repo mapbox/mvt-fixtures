@@ -3,18 +3,18 @@ const vt = require('@mapbox/vector-tile').VectorTile;
 const pbf = require('pbf');
 const mvtf = require('..');
 
-test('[get] failure, throws error if no string provided', (assert) => {
+test('[get] failure, throws error if no id provided', (assert) => {
   try {
     var buffer = mvtf.get();
     assert.fail();
   } catch(err) {
     assert.ok(err);
-    assert.ok(/No fixture name provided/.test(err.message));
+    assert.ok(/No fixture id provided/.test(err.message));
     assert.end();
   }
 });
 
-test('[get] failure, throws reror if fixture does not exist', (assert) => {
+test('[get] failure, throws error if fixture does not exist', (assert) => {
   try {
     var buffer = mvtf.get('beep-boop');
     assert.fail();
@@ -26,9 +26,9 @@ test('[get] failure, throws reror if fixture does not exist', (assert) => {
 });
 
 test('[get] success, gets a fixture and its properties/buffer', (assert) => {
-  const fixture = mvtf.get('valid-single-point-no-id');
+  const fixture = mvtf.get('002');
   assert.ok(fixture.buffer);
-  assert.ok(fixture.name);
+  assert.ok(fixture.id);
   assert.ok(fixture.json);
   assert.ok(fixture.description);
   assert.ok(fixture.specification_reference);
@@ -38,5 +38,9 @@ test('[get] success, gets a fixture and its properties/buffer', (assert) => {
   const info = new vt(new pbf(fixture.buffer));
   assert.equal(Object.keys(info.layers).length, 1, 'expected number of layers');
   assert.ok(info.layers.hello, 'expected layer name');
+
+  assert.ok(mvtf.get(1), 'works with a number too');
+  assert.ok(mvtf.get(2), 'works with a number too');
+
   assert.end();
 });
