@@ -1,10 +1,20 @@
-## 2.1.0 (work in progress)
+## 3.0.0-beta2 (next)
+
+- Recreate all fixtures that previously existed in 2.x
+
+## 3.0.0-beta1
+
+- Create source files for all fixtures in the src/ directory - these are node modules which include information about the fixture, including a description, validity specs, and a JSON representation of the fixture.
+- Rely on `pbf` and `protocol-buffers-schema` modules to generate fixtures based on the Mapbox Vector Tile Specification, which is now a submodule to this repository.
+- All fixtures are generated into the fixtures/ directory programmatically using `npm run build`
+- Include a javascript API with `get`, `create`, and `each` methods, described in API.md
+- Automatically generate fixture documentation from the source files, located in FIXTURES.md
+
+## 2.1.0
 
 - Rename project to `mvt-fixtures`
 - Break fixtures into `valid` and `invalid` directories
 - Match version with that of the Mapbox Vector Tile Specification
-- Fixtures only include descriptions and no names, are now ordered by numerical id
-- Include more valid fixtures: TODO
 
 ## 1.0.0
 
