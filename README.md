@@ -57,9 +57,13 @@ All fixtures have a source file in the /src directory. This file is a module tha
 ```javascript
 module.exports = function(schema) {
   return {
-    name: 'NAME',
     description: 'DESCRIPTION',
     specification_reference: 'SPECIFICATION_URL',
+    validity: {
+      v1: true,
+      v2: false,
+      error: 'ERROR_TYPE'
+    },
     json: {...},
     manipulate: function(buffer) {
       // function to further manipulate the buffer
@@ -69,14 +73,11 @@ module.exports = function(schema) {
 };
 ```
 
-A new fixture template, which will exist in /src, can be created by running:
+A new fixture can be created by running the command, which will auto-increment the ID:
 
-```
-usage:
-  npm run new <name>
-
-example:
-  npm run new invalid-no-layers
+```shell
+npm run new
+# New file created: /src/003.js.
 ```
 
 ### Building fixtures
