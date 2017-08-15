@@ -6,9 +6,13 @@ const id = getID(files.length + 1); // get the next available number
 
 const template = `module.exports = function(schema) {
   return {
-    name: '${id}',
     description: 'DESCRIPTION',
     specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
+    validity: {
+      v1: true,
+      v2: true,
+      error: 'IF INVALID, ERROR TYPE HERE'
+    },
     json: {
       layers: [
         {

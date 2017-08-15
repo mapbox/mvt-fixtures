@@ -18,6 +18,7 @@ mvtf.each(function(fixture) {
   fs.writeFileSync(json, JSON.stringify(fixture.json, null, 2));
   fs.writeFileSync(info, JSON.stringify({
     description: fixture.description,
-    specification_reference: fixture.specification_reference
+    specification_reference: fixture.specification_reference,
+    validity: fixture.validity
   }, null, 2));
 });

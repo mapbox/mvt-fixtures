@@ -13,6 +13,14 @@ mvt-fixtures can be used in two distinct ways
 
 The Javascript API is recommended if you are working in Javascript or Node.js. The raw fixtures are provided for those using this outside of a Javascript application. The recommended workflow is to have your encoder or decoder loop through every fixture and either expect to successfully decode/encode valid fixtures, or fail to decode/encode invalid fixtures. When new fixtures are added to this repository, you simply need to update the version of the module (or your submodule) to get the new fixtures and re-run tests.
 
+**Validity:** each fixture includes information about whether they are valid according to the specification versions and possible error outcomes if they are invalid. If any of the fixtures are invalid, they must include an `error` field describing how to recover (or not) from the error. These can be found in the `validity` field of the fixture and info.json files. The following checks:
+
+* `v1` (Boolean): is this fixture valid according to Version 1.x of the Mapbox Vector Tile spec
+* `v2` (Boolean): is this fixture valid according to Version 2.x of the Mapbox Vector Tile spec
+* `error` (String): describes if the encoder/decoder should recover from this error or stop completely. Values are
+  * `recoverable`: should the encoder/decoder continue move on and continue its work? For instance, if invalid geometry is found, can the encoder safely move to the next feature?
+  * `fatal`: the encoder should completely stop its process
+
 ### Javascript usage
 
 Check out the full Javascript interface over at [API.md](API.md)

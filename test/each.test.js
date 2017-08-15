@@ -14,6 +14,7 @@ test('[each] loads all fixtures', (assert) => {
     assert.ok(fixture.description);
     assert.ok(fixture.buffer);
     assert.ok(fixture.specification_reference);
+    assert.ok(fixture.validity);
   });
 
   assert.equal(numFixtures, count, 'expected number of fixtures');
