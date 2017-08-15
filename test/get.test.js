@@ -33,7 +33,6 @@ test('[get] success, gets a fixture and its properties/buffer', (assert) => {
   assert.ok(fixture.description);
   assert.ok(fixture.specification_reference);
   assert.ok(fixture.validity);
-  console.log(fixture.manipulate);
   assert.notOk(fixture.manipulate);
   assert.equal(typeof fixture.buffer, 'object', 'returns a buffer');
 

@@ -17,7 +17,7 @@ The Javascript API is recommended if you are working in Javascript or Node.js. T
 
 * `v1` (Boolean): is this fixture valid according to Version 1.x of the Mapbox Vector Tile spec
 * `v2` (Boolean): is this fixture valid according to Version 2.x of the Mapbox Vector Tile spec
-* `error` (String): describes if the encoder/decoder should recover from this error or stop completely. Values are
+* `error` (String): describes if the encoder/decoder should recover from this error or stop completely. THis is only present if the fixture is invalid according to one or more spec revisions. Values are
   * `recoverable`: should the encoder/decoder continue move on and continue its work? For instance, if invalid geometry is found, can the encoder safely move to the next feature?
   * `fatal`: the encoder should completely stop its process
 
