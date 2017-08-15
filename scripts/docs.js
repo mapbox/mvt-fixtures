@@ -4,7 +4,7 @@ const fs = require('fs');
 const mvtf = require('..');
 
 let docs = `id|description|valid v1|valid v2\n
----|---|---\n
+---|---|---|---\n
 `;
 
 mvtf.each(function(fixture) {
