@@ -4,7 +4,8 @@ const fs = require('fs');
 const mvtf = require('..');
 
 let docs = `id|description|valid v1|valid v2
----|---|---|---`;
+---|---|---|---
+`;
 
 mvtf.each(function(fixture) {
   let description = `${fixture.description} - [link](${fixture.specification_reference})`;
