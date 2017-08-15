@@ -1,8 +1,9 @@
-## 2.1.0 (release candidate 1)
+## 2.1.0 (work in progress)
 
 - Rename project to `mvt-fixtures`
 - Break fixtures into `valid` and `invalid` directories
 - Match version with that of the Mapbox Vector Tile Specification
+- Fixtures only include descriptions and no names, are now ordered by numerical id
 - Include more valid fixtures: TODO
 
 ## 1.0.0

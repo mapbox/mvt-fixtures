@@ -1,0 +1,5 @@
+id|description|valid v1|valid v2
+---|---|---|---
+001|A vector tile without any layers, which essentially results in a completely empty buffer. - [link](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L75)|true|true
+002|A single layer with a single point feature that has no id field. According to the specification, "A feature MAY contain an id field. If a feature has an id field, the value of the id SHOULD be unique among the features of the parent layer." - [link](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#42-features)|true|true
+003|A single point feature with a missing geometry type. From the spec, "A feature MUST contain a type field as described in the Geometry Types section." - [link](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L41) - recommended error handling `recoverable`|false|false
