@@ -4,6 +4,6 @@
   "validity": {
     "v1": false,
     "v2": false,
-    "error": "recoverable"
+    "error": "fatal"
   }
 }

@@ -1,6 +1,6 @@
 module.exports = function(schema) {
   return {
-    description: '[layer:extent] the layer extent field is encoded as a string instead of a uint32',
+    description: '[layer:extent] the layer extent field is completely missing. The spec says, "A layer MUST contain an extent that describes the width and height of the tile in integer coordinates."',
     specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L70',
     validity: {
       v1: false,
@@ -22,7 +22,7 @@ module.exports = function(schema) {
           ],
           keys: [],
           values: [],
-          extent: 'fourzeroninesix' // should be an integer
+          extent: 4096
         }
       ]
     },
