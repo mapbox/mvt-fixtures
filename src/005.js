@@ -27,7 +27,7 @@ module.exports = function(schema) {
             'hello'
           ],
           values: [
-            'world'
+            { string_value: 'world' }
           ],
           extent: 4096
         }

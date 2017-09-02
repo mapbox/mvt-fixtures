@@ -27,7 +27,7 @@ module.exports = function(schema) {
             1 // should be a string
           ],
           values: [
-            'two'
+            { string_value: 'two' }
           ],
           extent: 4096
         }

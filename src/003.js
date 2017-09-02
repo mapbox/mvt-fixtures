@@ -20,8 +20,8 @@ module.exports = function(schema) {
               geometry: [ 9, 50, 34 ]
             }
           ],
-          keys: {},
-          values: {},
+          keys: [],
+          values: [],
           extent: 4096
         }
       ]
