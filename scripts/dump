@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+MASON_VERSION="v0.14.2"
+PROTOBUF_VERSION="3.3.0"
+
+mkdir -p ./mason
+
+if [[ ! -f ./mason/mason ]]; then
+    curl -sSfL https://github.com/mapbox/mason/archive/${MASON_VERSION}.tar.gz | tar --gunzip --extract --strip-components=1 --exclude="*md" --exclude="test*" --directory=./mason
+fi
+
+
+if [[ ! -f ./mason_packages/.link/bin/protoc ]]; then
+    ./mason/mason install protobuf ${PROTOBUF_VERSION}
+    ./mason/mason link protobuf ${PROTOBUF_VERSION}
+fi
+
+if [[ ! ${1:-} ]] && [[ ! -f ${1:-} ]]; then
+    echo "please pass the path to a mvt fixture to decode"
+    exit 1
+fi
+
+fixture=$1
+
+./mason_packages/.link/bin/protoc \
+  vector-tile-spec/2.1/vector_tile.proto \
+  --decode vector_tile.Tile \
+  < ${fixture}
+
+
