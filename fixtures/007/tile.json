@@ -22,7 +22,9 @@
         1
       ],
       "values": [
-        "two"
+        {
+          "string_value": "two"
+        }
       ],
       "extent": 4096
     }
