@@ -1,4 +1,3 @@
-const fs = require('fs');
 const util = require('../lib/util');
 
 module.exports = {
