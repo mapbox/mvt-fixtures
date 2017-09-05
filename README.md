@@ -88,6 +88,45 @@ To rebuild all of the raw fixtures (including the tile.mvt, tile.json, and info.
 npm run build
 ```
 
+### Debugging fixtures
+
+There are couple scripts included for debugging the fixtures as you create them.
+
+**protoc dump** allows you to dump mvt fixtures to the text-based representation supported by the google protoc tool. This can be very useful for debugging fixtures to ensure you've created what you expected (particularly for tiles designed to be invalid to parse).
+
+```bash
+$ ./scripts/dump fixtures/002/tile.mvt
+layers {
+  name: "hello"
+  features {
+    type: POINT
+    geometry: 9
+    geometry: 50
+    geometry: 34
+  }
+  extent: 4096
+  version: 2
+}
+```
+
+**raw protoc dump** allows you to dump the raw contents of a buffer. This particularly useful for tiles that don't match the vector_tile.proto format.
+
+```bash
+$ ./mason_packages/.link/bin/protoc --decode_raw < fixtures/002/tile.mvt
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  5: 4096
+}
+````
+
+
+
 ### Building docs
 
 Documentation takes two forms...

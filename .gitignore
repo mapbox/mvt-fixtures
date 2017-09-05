@@ -3,3 +3,5 @@ node_modules
 build
 lib/binding
 npm-debug.log
+mason
+mason_packages
