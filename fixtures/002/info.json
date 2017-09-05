@@ -4,5 +4,6 @@
   "validity": {
     "v1": true,
     "v2": true
-  }
+  },
+  "proto": "2.1"
 }

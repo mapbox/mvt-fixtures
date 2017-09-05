@@ -22,6 +22,7 @@ mvtf.each(function(fixture) {
   fs.writeFileSync(info, JSON.stringify({
     description: fixture.description,
     specification_reference: fixture.specification_reference,
-    validity: fixture.validity
+    validity: fixture.validity,
+    proto: fixture.proto
   }, null, 2));
 });

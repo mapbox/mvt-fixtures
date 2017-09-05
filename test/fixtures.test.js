@@ -36,7 +36,7 @@ test('[fixtures] validate all raw fixtures info matches that of the source fixtu
 test('[fixtures] validate all source fixtures to make sure they have all required properties', (assert) => {
   const files = fs.readdirSync(path.resolve(`${__dirname}/../src`));
   files.forEach(function(file) {
-    let fixture = require(path.resolve(`src/${file}`))(mvtf.schema);
+    let fixture = require(path.resolve(`src/${file}`));
     assert.ok(fixture.description, `${file} has property description`);
     assert.ok(fixture.specification_reference, `${file} has property specification_reference`);
     assert.ok(fixture.json, `${file} has property json`);

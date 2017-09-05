@@ -1,6 +1,8 @@
-## 3.0.0-beta2 (next)
+## 3.0.0-betaNext
 
 - Recreate all fixtures that previously existed in 2.x
+- Add protoc scripts to dump raw text form of buffers to stdout for debugging
+- Update generateBuffer to run specific versions of the Mapbox Vector Tile Specification, or custom proto files
 
 ## 3.0.0-beta1
 
@@ -14,7 +16,7 @@
 
 - Rename project to `mvt-fixtures`
 - Break fixtures into `valid` and `invalid` directories
-- Match version with that of the Mapbox Vector Tile Specification
+- Match version with that of the Mapbox Vector Tile Specification (no longer true as of version 3.x)
 
 ## 1.0.0
 
