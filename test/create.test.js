@@ -2,11 +2,7 @@ const test = require('tape');
 const fs = require('fs');
 const vt = require('@mapbox/vector-tile').VectorTile;
 const pbf = require('pbf');
-const schema = require('protocol-buffers-schema');
-const Compile = require('pbf/compile');
 const mvtf = require('..');
-
-const mvt_proto = schema.parse(fs.readFileSync(__dirname + '/../vector-tile-spec/2.1/vector_tile.proto', 'utf8'));
 
 test('[create] failure, throws error when no spec is provided', (assert) => {
   try {
@@ -47,7 +43,6 @@ test('[create] success, creates a protocol that is not compliant with the MVT sp
 });
 
 test('[create] success, creates a compliant protocol buffer', (assert) => {
-  const spec = Compile(mvt_proto);
   const template = {
     layers: [
       {
@@ -57,7 +52,7 @@ test('[create] success, creates a compliant protocol buffer', (assert) => {
           {
             id: 1,
             tags: [],
-            type: spec.Tile.GeomType.POINT,
+            type: 1,
             geometry: [ 9, 50, 34 ]
           }
         ],
@@ -78,7 +73,6 @@ test('[create] success, creates a compliant protocol buffer', (assert) => {
 });
 
 test('[create] success, creates a compliant protocol buffer without sending the version string', (assert) => {
-  const spec = Compile(mvt_proto);
   const template = {
     layers: [
       {
@@ -88,7 +82,7 @@ test('[create] success, creates a compliant protocol buffer without sending the 
           {
             id: 1,
             tags: [],
-            type: spec.Tile.GeomType.POINT,
+            type: 1,
             geometry: [ 9, 50, 34 ]
           }
         ],
