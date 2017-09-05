@@ -5,7 +5,11 @@
       "name": "hello",
       "features": [
         {
-          "tags": [],
+          "id": 1,
+          "tags": [
+            0,
+            0
+          ],
           "type": 1,
           "geometry": [
             9,
@@ -14,8 +18,14 @@
           ]
         }
       ],
-      "keys": [],
-      "values": [],
+      "keys": [
+        1
+      ],
+      "values": [
+        {
+          "string_value": "two"
+        }
+      ],
       "extent": 4096
     }
   ]

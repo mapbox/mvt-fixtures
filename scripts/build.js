@@ -14,6 +14,9 @@ mvtf.each(function(fixture) {
   let mvt = dir + '/tile.mvt';
   let json = dir + '/tile.json';
   let info = dir + '/info.json';
+  if (fs.existsSync(mvt) && fs.readFileSync(mvt).length != fixture.buffer.length) {
+    console.log('updating',dir);
+  }
   fs.writeFileSync(mvt, fixture.buffer);
   fs.writeFileSync(json, JSON.stringify(fixture.json, null, 2));
   fs.writeFileSync(info, JSON.stringify({

@@ -1,7 +1,7 @@
 module.exports = function(schema) {
   return {
-    description: 'A single point feature with a missing geometry type. From the spec, "A feature MUST contain a type field as described in the Geometry Types section."',
-    specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L41',
+    description: '[feature:geometry] A single point feature with an invalid GeomType enum in the "type" field. Spec says, ""',
+    specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L8-L13',
     validity: {
       v1: false,
       v2: false,
@@ -16,7 +16,7 @@ module.exports = function(schema) {
             {
               id: 1,
               tags: [],
-              // type: schema.Tile.GeomType.POINT.value,
+              type: 8, // invalid GeomType enum
               geometry: [ 9, 50, 34 ]
             }
           ],
@@ -25,10 +25,6 @@ module.exports = function(schema) {
           extent: 4096
         }
       ]
-    },
-    manipulate: function(buffer) {
-      // stuff here
-      return buffer;
     }
   }
 };

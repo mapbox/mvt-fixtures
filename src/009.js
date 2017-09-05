@@ -1,10 +1,11 @@
 module.exports = function(schema) {
   return {
-    description: 'A single layer with a single point feature that has no id field. According to the specification, "A feature MAY contain an id field. If a feature has an id field, the value of the id SHOULD be unique among the features of the parent layer."',
-    specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#42-features',
+    description: '[layer:extent] the layer extent field is completely missing. The spec says, "A layer MUST contain an extent that describes the width and height of the tile in integer coordinates."',
+    specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L70',
     validity: {
-      v1: true,
-      v2: true
+      v1: false,
+      v2: false,
+      error: 'fatal'
     },
     json: {
       layers: [
@@ -13,8 +14,7 @@ module.exports = function(schema) {
           name: 'hello',
           features: [
             {
-              // without id
-              // id: 1,
+              id: 1,
               tags: [],
               type: schema.Tile.GeomType.POINT.value,
               geometry: [ 9, 50, 34 ]
@@ -27,6 +27,7 @@ module.exports = function(schema) {
       ]
     },
     manipulate: function(buffer) {
+      // stuff here
       return buffer;
     }
   }
