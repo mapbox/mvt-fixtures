@@ -21,6 +21,7 @@ test('[fixtures] validate all raw fixtures info matches that of the source fixtu
     let info = JSON.parse(fs.readFileSync(path.resolve(`${__dirname}/../fixtures/${f.id}/info.json`)));
     assert.equal(info.description, f.description, 'descriptions match');
     assert.equal(info.specification_reference, f.specification_reference, 'specification_references match');
+    assert.equal(info.proto, f.proto, 'protos match');
 
     let buffer = fs.readFileSync(path.resolve(`${__dirname}/../fixtures/${f.id}/tile.mvt`));
     assert.deepEqual(buffer, f.buffer, 'buffers are equal');
