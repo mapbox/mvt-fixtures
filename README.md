@@ -55,21 +55,16 @@ You can access all of the fixtures and their metadata in the /fixtures directory
 All fixtures have a source file in the /src directory. This file is a module that exports an object with the following parameters:
 
 ```javascript
-module.exports = function(schema) {
-  return {
-    description: 'DESCRIPTION',
-    specification_reference: 'SPECIFICATION_URL',
-    validity: {
-      v1: true,
-      v2: false,
-      error: 'ERROR_TYPE'
-    },
-    json: {...},
-    manipulate: function(buffer) {
-      // function to further manipulate the buffer
-      return buffer;
-    }
-  }
+module.exports = {
+  description: 'DESCRIPTION',
+  specification_reference: 'SPECIFICATION_URL',
+  validity: {
+    v1: true,
+    v2: false,
+    error: 'ERROR_TYPE'
+  },
+  json: {...},
+  proto: '2.1'
 };
 ```
 

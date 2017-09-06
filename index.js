@@ -3,18 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 const d3 = require('d3-queue');
-const schema = require('protocol-buffers-schema');
-const Pbf = require('pbf');
-const Compile = require('pbf/compile');
-
-const proto_mvt = schema.parse(fs.readFileSync('vector-tile-spec/2.1/vector_tile.proto', 'utf8'));
-const mvt = Compile(proto_mvt);
-
-function generateBuffer(json) {
-  const pbf = new Pbf();
-  mvt.Tile.write(json, pbf);
-  return new Buffer(pbf.finish());
-};
+const util = require('./lib/util');
+const generateBuffer = require('./lib/generateBuffer');
 
 /**
  * Get a fixture by name
@@ -34,21 +24,24 @@ function get(id) {
   if (!id) throw new Error('No fixture id provided');
 
   // add prefix zeros if they don't exist
-  id = (typeof id === 'number') ? getID(id) : id;
+  id = (typeof id === 'number') ? util.getID(id) : id;
 
   let final = {};
   let fixture;
+
   try {
-    fixture = require(`./src/${id}.js`)(mvt);
+    fixture = require(`./src/${id}.js`);
   } catch(err) {
-    throw new Error(`${id} is not a fixture`);
+
+    throw new Error(`Error loading fixture /src/${id}.js: ${err}`);
   }
 
   final.id = id;
   final.description = fixture.description;
   final.specification_reference = fixture.specification_reference;
   final.json = fixture.json;
-  final.buffer = generateBuffer(fixture.json);
+  final.proto = fixture.proto;
+  final.buffer = generateBuffer(fixture.json, fixture.proto);
   final.validity = fixture.validity;
   if (fixture.manipulate) {
     final.buffer = fixture.manipulate(final.buffer);
@@ -88,10 +81,13 @@ function each(fn) {
     // do nothing?
   });
 }
+
 /**
  * Create a tile fixture from a protocol buffer schema object representing the
  * Mapbox Vector Tile schema.
  * @param {Object} object - the json schema object to generate against the Mapbox Vector Tile Specification protocol (see src/ for examples)
+ * @param {String} schema - a .proto file string to generate a buffer from. It can be either a version of the Mapbox Vector Tile Specification
+ * or a string representing a full and complete .proto file (to create invalid tiles)
  * @returns {Buffer} buffer - a protocol buffer representing a Mapbox Vector Tile
  * @example
  * const mvtf = require('@mapbox/mvt-fixtures');
@@ -118,27 +114,16 @@ function each(fn) {
  *
  * const buffer = mvtf.create(fixture);
  */
-function create(json) {
+function create(json, schema) {
   if (!json) throw new Error('No specification provided');
   if (typeof json !== 'object') throw new Error('Specification parameter must be an object');
+  if (schema && typeof schema !== 'string') throw new Error('Schema must be a string');
 
-  return generateBuffer(json);
-}
-
-function getID(number) {
-  if (number < 10) {
-    return `00${number}`;
-  } else if (number < 100 && number > 9) {
-    return `0${number}`;
-  } else {
-    return `${number}`;
-  }
+  return generateBuffer(json, schema);
 }
 
 module.exports = {
   get: get,
   each: each,
-  create: create,
-  getID, getID,
-  schema: mvt
+  create: create
 };

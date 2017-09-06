@@ -7,6 +7,8 @@ Mapbox Vector Tile schema.
 
 -   `object` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** the json schema object to generate against the Mapbox Vector Tile Specification protocol (see src/ for examples)
 -   `json`  
+-   `schema` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** a .proto file string to generate a buffer from. It can be either a version of the Mapbox Vector Tile Specification
+    or a string representing a full and complete .proto file (to create invalid tiles)
 
 **Examples**
 
