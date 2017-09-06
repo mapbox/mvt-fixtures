@@ -48,6 +48,9 @@ function get(id) {
   if (fixture.manipulate) {
     final.buffer = fixture.manipulate(final.buffer);
   }
+  if (fixture.test) {
+    fixture.test(final.buffer);
+  }
 
   return final;
 };
