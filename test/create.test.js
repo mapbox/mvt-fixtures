@@ -72,7 +72,7 @@ test('[create] success, creates a compliant protocol buffer', (assert) => {
   assert.end();
 });
 
-test('[create] success, creates a compliant protocol buffer without sending the version string', (assert) => {
+test('[create] errors, errors if you do not provide a proto or version string', (assert) => {
   const template = {
     layers: [
       {
@@ -93,11 +93,12 @@ test('[create] success, creates a compliant protocol buffer without sending the 
     ]
   };
 
-  const buffer = mvtf.create(template);
-  assert.equal(typeof buffer, 'object', 'returns a buffer');
-
-  const info = new vt(new pbf(buffer));
-  assert.equal(Object.keys(info.layers).length, 1, 'expected number of layers');
-  assert.ok(info.layers.hello, 'expected layer name');
-  assert.end();
+  try {
+    const buffer = mvtf.create(template);
+    assert.fail();
+  } catch (err) {
+    assert.ok(err);
+    assert.ok(/Please provide the proto file or version to generate this buffer from/.test(err.message));
+    assert.end();
+  }
 });

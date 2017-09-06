@@ -21,7 +21,7 @@ const template = `module.exports = {
           {
             id: 1,
             tags: [],
-            type: schema.Tile.GeomType.POINT.value,
+            type: 1,
             geometry: [ 9, 50, 34 ]
           }
         ],
@@ -31,9 +31,13 @@ const template = `module.exports = {
       }
     ]
   },
-  proto: '2.1'
+  proto: '2.1', // version number OR a string representation of the proto file to build from
+  manipulate: function(buffer) {
+    // manipulate the buffer here if you need, otherwise you can remove this
+    return buffer;
+  }
 };
-`
+`;
 
 fs.writeFileSync(`./src/${id}.js`, template);
 console.log(`New file created: /src/${id}.js.\nMake sure to run "npm run build" to generate the raw fixtures.`);
