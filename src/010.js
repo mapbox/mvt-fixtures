@@ -1,4 +1,6 @@
+const readBuffer = require('../lib/readBuffer');
 const util = require('../lib/util');
+const assert = require('assert');
 
 module.exports = {
   description: 'Has a key property incorrectly encoded as a type std::uint32_t.',
@@ -31,5 +33,9 @@ module.exports = {
       }
     ]
   },
-  proto: util.replace('2.1', 'repeated string keys', 'repeated uint32 keys')
+  proto: util.replace('2.1', 'repeated string keys', 'repeated uint32 keys'),
+  test: function(buffer) {
+    var tile = readBuffer(buffer,this.proto);
+    assert(tile.layers[0].keys[0] === 1);
+  }
 };
