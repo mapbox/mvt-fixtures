@@ -4,7 +4,7 @@
   "validity": {
     "v1": false,
     "v2": false,
-    "error": "IF INVALID, ERROR TYPE HERE"
+    "error": "fatal"
   },
   "proto": "2.1"
 }

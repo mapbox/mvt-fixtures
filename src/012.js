@@ -4,7 +4,7 @@ module.exports = {
   validity: {
     v1: false,
     v2: false,
-    error: 'IF INVALID, ERROR TYPE HERE'
+    error: 'fatal'
   },
   json: {
     layers: [
