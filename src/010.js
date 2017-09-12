@@ -29,7 +29,7 @@ module.exports = {
       }
     ]
   },
-  proto: util.replace('2.1', 'repeated string keys', 'repeated uint64 keys'),
+  proto: util.replace('2.1', 'optional string string_value', 'optional uint64 string_value'),
   manipulate: function (buffer) {
     // manipulate the buffer here if you need, otherwise you can remove this
     return buffer;
