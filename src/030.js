@@ -18,7 +18,8 @@ module.exports = {
             id: 1,
             tags: [],
             type: 1,
-            geometry: [ 9, 50, 34 ]
+            geometry: [ 9, 50, 34 ],
+            geometry: [ 9, 0, 0 ]
           }
         ],
         keys: [],
