@@ -56,7 +56,7 @@ git clone git@github.com:mapbox/mvt-fixtures.git
 cd mvt-fixtures
 git submodule update --init
 npm install
-npm install documentation
+npm install -g documentation
 ```
 
 ### Adding a new fixture
