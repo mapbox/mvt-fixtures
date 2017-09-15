@@ -1,5 +1,5 @@
 module.exports = {
-  description: 'DESCRIPTION',
+  description: 'The layer version is invalid and does not match any current versions of the specification',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L55',
   validity: {
     v1: false,
@@ -25,9 +25,5 @@ module.exports = {
       }
     ]
   },
-  proto: '2.1', // version number OR a string representation of the proto file to build from
-  manipulate: function(buffer) {
-    // manipulate the buffer here if you need, otherwise you can remove this
-    return buffer;
-  }
+  proto: '2.1'
 };
