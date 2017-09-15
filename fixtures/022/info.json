@@ -1,0 +1,9 @@
+{
+  "description": "valid multi-polygon geometry",
+  "specification_reference": "https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4356-example-multi-polygon",
+  "validity": {
+    "v1": true,
+    "v2": true
+  },
+  "proto": "2.1"
+}
