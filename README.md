@@ -50,6 +50,15 @@ You can access all of the fixtures and their metadata in the /fixtures directory
 
 # Develop
 
+### Setup
+```
+git clone git@github.com:mapbox/mvt-fixtures.git
+cd mvt-fixtures
+git submodule update --init
+npm install
+npm install -g documentation
+```
+
 ### Adding a new fixture
 
 All fixtures have a source file in the /src directory. This file is a module that exports an object with the following parameters:
