@@ -6,7 +6,10 @@
       "features": [
         {
           "id": 1,
-          "tags": [],
+          "tags": [
+            0,
+            1
+          ],
           "type": 1,
           "geometry": [
             9,
@@ -16,11 +19,13 @@
         }
       ],
       "keys": [
-        "key1"
+        "hello"
       ],
       "values": [
         {
-          "string_value": 1234567890123456
+          "custom_value": {
+            "name": "hello"
+          }
         }
       ],
       "extent": 4096

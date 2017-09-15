@@ -1,7 +1,7 @@
 {
   "layers": [
     {
-      "version": 2,
+      "version": 99,
       "name": "hello",
       "features": [
         {
@@ -15,14 +15,8 @@
           ]
         }
       ],
-      "keys": [
-        "key1"
-      ],
-      "values": [
-        {
-          "string_value": 1234567890123456
-        }
-      ],
+      "keys": [],
+      "values": [],
       "extent": 4096
     }
   ]

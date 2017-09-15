@@ -6,8 +6,6 @@ const d3 = require('d3-queue');
 const util = require('./lib/util');
 const generateBuffer = require('./lib/generateBuffer');
 
-const eight = require('./src/008.js');
-
 /**
  * Get a fixture by name
  * @param {String|Number} id - the id of the fixture as specified in [FIXTURES.md](FIXTURES.md)
