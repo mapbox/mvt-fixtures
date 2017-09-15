@@ -1,10 +1,10 @@
 module.exports = {
-  description: 'DESCRIPTION',
-  specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
+  description: 'Includes two layers with the same name value, which is invalid according to the specification. "A layer MUST contain a name field. A Vector Tile MUST NOT contain two or more layers whose name values are byte-for-byte identical."',
+  specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#41-layers',
   validity: {
-    v1: true,
-    v2: true,
-    error: 'IF INVALID, ERROR TYPE HERE'
+    v1: false,
+    v2: false,
+    error: 'fatal'
   },
   json: {
     layers: [
