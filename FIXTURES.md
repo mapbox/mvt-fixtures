@@ -12,4 +12,5 @@ id|description|valid v1|valid v2
 010|A Layer value property is listed as "string" but encoded as std::int64_t - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md) - recommended error handling `fatal`|:x:|:x:
 011|Has a value type not described in the spec. Should be easy for decoders to skip - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md) - recommended error handling `recoverable`|:x:|:x:
 012|The layer version is invalid and does not match any current versions of the specification - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L55) - recommended error handling `fatal`|:x:|:x:
+013|Has a key property incorrectly encoded as a type std::uint32_t. - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L63) - recommended error handling `fatal`|:x:|:x:
 030|Contains two geometry fields when there should only be one - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L46) - recommended error handling `recoverable`|:x:|:x:
