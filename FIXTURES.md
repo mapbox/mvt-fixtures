@@ -21,4 +21,5 @@ id|description|valid v1|valid v2
 021|valid multi-linestring geometry - [spec source](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4354-example-multi-linestring)|:white_check_mark:|:white_check_mark:
 022|valid multi-polygon geometry - [spec source](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4356-example-multi-polygon)|:white_check_mark:|:white_check_mark:
 023|No Layer Name - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#41-layers) - recommended error handling `fatal`|:x:|:x:
+025|Layer has no features, encoders should not create this, but decoders should read this still - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#41-layers)|:white_check_mark:|:white_check_mark:
 030|Contains two geometry fields when there should only be one - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L46) - recommended error handling `recoverable`|:x:|:x:
