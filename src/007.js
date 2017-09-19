@@ -1,7 +1,7 @@
 const util = require('../lib/util');
 
 module.exports = {
-  description: 'DESCRIPTION',
+  description: 'Layer version as string instead of int',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {
     v1: true,
