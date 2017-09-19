@@ -1,6 +1,6 @@
 module.exports = {
-  description: 'Single Value with uint64 type and a single Point feature',
-  specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L23',
+  description: 'Single Value with sint64 type and a single Point feature',
+  specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L24',
   validity: {
     v1: true,
     v2: true
@@ -22,7 +22,7 @@ module.exports = {
           'key1'
         ],
         values: [
-          { uint_value: 87948 }
+          { sint_value: 87948 }
         ],
         extent: 4096
       }
