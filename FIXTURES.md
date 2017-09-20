@@ -9,7 +9,7 @@ id|description|valid v1|valid v2
 008|[layer:extent] the layer extent field is encoded as a string instead of a uint32 - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L70) - recommended error handling `fatal`|:x:|:x:
 009|[layer:extent] the layer extent field is completely missing. The spec says, "A layer MUST contain an extent that describes the width and height of the tile in integer coordinates." - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L70) - recommended error handling `fatal`|:x:|:x:
 010|A Layer value property is listed as "string" but encoded as std::int64_t - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md) - recommended error handling `fatal`|:x:|:x:
-011|Has a value type not described in the spec. Should be easy for decoders to skip - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md) - recommended error handling `recoverable`|:x:|:x:
+011|Has a value type not described in the spec. Should be easy for decoders to skip - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md) - recommended error handling `fatal`|:x:|:x:
 012|The layer version is invalid and does not match any current versions of the specification - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L55) - recommended error handling `fatal`|:x:|:x:
 013|Has a key property incorrectly encoded as a type std::uint32_t. - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L63) - recommended error handling `fatal`|:x:|:x:
 014|A layer without a name field. "A layer MUST contain a name field." - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L57) - recommended error handling `fatal`|:x:|:x:
@@ -21,4 +21,5 @@ id|description|valid v1|valid v2
 021|valid multi-linestring geometry - [spec source](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4354-example-multi-linestring)|:white_check_mark:|:white_check_mark:
 022|valid multi-polygon geometry - [spec source](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4356-example-multi-polygon)|:white_check_mark:|:white_check_mark:
 023|No Layer Name - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#41-layers) - recommended error handling `fatal`|:x:|:x:
+025|Layer has no features, encoders should not create this, but decoders should read this still - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#41-layers)|:white_check_mark:|:white_check_mark:
 030|Contains two geometry fields when there should only be one - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L46) - recommended error handling `recoverable`|:x:|:x:
