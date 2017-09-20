@@ -22,4 +22,11 @@ id|description|valid v1|valid v2
 022|valid multi-polygon geometry - [spec source](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4356-example-multi-polygon)|:white_check_mark:|:white_check_mark:
 023|No Layer Name - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#41-layers) - recommended error handling `fatal`|:x:|:x:
 025|Layer has no features, encoders should not create this, but decoders should read this still - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#41-layers)|:white_check_mark:|:white_check_mark:
+027|Single Value with bool type and a single Point feature. - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
 030|Contains two geometry fields when there should only be one - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L46) - recommended error handling `recoverable`|:x:|:x:
+032|Single Value with string type and a single Point feature - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L19)|:white_check_mark:|:white_check_mark:
+033|Single Value with float type and a single Point feature - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L20)|:white_check_mark:|:white_check_mark:
+034|Single Value with double type and a single Point feature - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L21)|:white_check_mark:|:white_check_mark:
+035|Single Value with integer type and a single Point feature - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L22)|:white_check_mark:|:white_check_mark:
+036|Single Value with uint64 type and a single Point feature - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L23)|:white_check_mark:|:white_check_mark:
+037|Single Value with sint64 type and a single Point feature - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L24)|:white_check_mark:|:white_check_mark:
