@@ -1,0 +1,50 @@
+{
+  "layers": [
+    {
+      "version": 2,
+      "name": "hello",
+      "features": [
+        {
+          "id": 1,
+          "tags": [
+            0,
+            0
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            50,
+            34
+          ]
+        }
+      ],
+      "keys": [
+        "allvalues"
+      ],
+      "values": [
+        {
+          "string_value": "ello"
+        },
+        {
+          "bool_value": true
+        },
+        {
+          "int_value": 6
+        },
+        {
+          "double_value": 1.23
+        },
+        {
+          "float_value": 3.1
+        },
+        {
+          "sint_value": 87948
+        },
+        {
+          "uint_value": 87948
+        }
+      ],
+      "extent": 4096
+    }
+  ]
+}
