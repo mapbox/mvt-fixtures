@@ -45,7 +45,7 @@ message Tile {
                 optional GeomType type = 3 [ default = UNKNOWN ];
 
                 // Contains a stream of commands and parameters (vertices).
-                // A detailed description on geometry encoding is located in 
+                // A detailed description on geometry encoding is located in
                 // section 4.3 of the specification.
                 repeated uint32 geometry = 4 [ packed = true ];
         }
@@ -90,7 +90,7 @@ module.exports = {
   validity: {
     v1: false,
     v2: false,
-    error: 'recoverable'
+    error: 'fatal'
   },
   json: {
     layers: [
