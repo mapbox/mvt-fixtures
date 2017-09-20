@@ -3,8 +3,7 @@ module.exports = {
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {
     v1: true,
-    v2: true,
-    error: 'fatal'
+    v2: true
   },
   json: {
     layers: [
@@ -20,10 +19,10 @@ module.exports = {
           }
         ],
         keys: [],
-        values: [ 
+        values: [
           {
             bool_value: true
-          } 
+          }
         ],
         extent: 4096
       }
