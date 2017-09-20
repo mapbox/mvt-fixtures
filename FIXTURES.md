@@ -31,3 +31,4 @@ id|description|valid v1|valid v2
 035|Single Value with integer type and a single Point feature - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L22)|:white_check_mark:|:white_check_mark:
 036|Single Value with uint64 type and a single Point feature - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L23)|:white_check_mark:|:white_check_mark:
 037|Single Value with sint64 type and a single Point feature - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L24)|:white_check_mark:|:white_check_mark:
+038|A fixure with all possible value types - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L19-L25)|:white_check_mark:|:white_check_mark:
