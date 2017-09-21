@@ -87,48 +87,7 @@ function each(fn) {
   });
 }
 
-/**
- * Create a tile fixture from a protocol buffer schema object representing the
- * Mapbox Vector Tile schema.
- * @param {Object} object - the json schema object to generate against the Mapbox Vector Tile Specification protocol (see src/ for examples)
- * @param {String} schema - a .proto file string to generate a buffer from. It can be either a version of the Mapbox Vector Tile Specification
- * or a string representing a full and complete .proto file (to create invalid tiles)
- * @returns {Buffer} buffer - a protocol buffer representing a Mapbox Vector Tile
- * @example
- * const mvtf = require('@mapbox/mvt-fixtures');
- *
- * const fixture = {
- *   layers: [
- *     {
- *       version: 2,
- *       name: 'hello',
- *       features: [
- *         {
- *           id: 1,
- *           tags: [],
- *           type: 1,
- *           geometry: [ 9, 50, 34 ]
- *         }
- *       ],
- *       keys: {},
- *       values: {},
- *       extent: 4096
- *     }
- *   ]
- * }
- *
- * const buffer = mvtf.create(fixture);
- */
-function create(json, schema) {
-  if (!json) throw new Error('No specification provided');
-  if (typeof json !== 'object') throw new Error('Specification parameter must be an object');
-  if (schema && typeof schema !== 'string') throw new Error('Schema must be a string');
-
-  return generateBuffer(json, schema);
-}
-
 module.exports = {
   get: get,
-  each: each,
-  create: create
+  each: each
 };
