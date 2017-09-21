@@ -41,8 +41,13 @@ function get(id) {
   final.specification_reference = fixture.specification_reference;
   final.json = fixture.json;
   final.proto = fixture.proto;
-  final.buffer = generateBuffer(fixture.json, fixture.proto);
   final.validity = fixture.validity;
+
+  // generate buffer
+  let options = {};
+  if (fixture.syntax) options.syntax = fixture.syntax;
+  final.buffer = generateBuffer(fixture.json, fixture.proto, options);
+
   if (fixture.manipulate) {
     final.buffer = fixture.manipulate(final.buffer);
   }
