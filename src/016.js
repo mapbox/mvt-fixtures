@@ -1,5 +1,5 @@
 module.exports = {
-  description: 'Single geometry with UNKNOWN type. This is considered "valid" in the lens of the specification. Encoders/decoders can choose to use or throw on this goemetry type.',
+  description: 'Single geometry with UNKNOWN type. This is considered "valid" in the lens of the specification. Encoders/decoders can choose to use or throw on this geometry type.',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L41',
   validity: {
     v1: true,
