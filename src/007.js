@@ -4,8 +4,8 @@ module.exports = {
   description: 'Layer version as string instead of int',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {
-    v1: true,
-    v2: true,
+    v1: false,
+    v2: false,
     error: 'fatal'
   },
   json: {
