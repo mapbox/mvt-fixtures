@@ -1,17 +1,9 @@
-const fs = require('fs');
-const getID = require('../lib/util').getID;
-
-const files = fs.readdirSync('./src');
-const rawID = parseInt(files[files.length-1].replace('.js', '')) + 1;
-const id = getID(rawID);
-
-const template = `module.exports = {
-  description: 'DESCRIPTION',
+module.exports = {
+  description: 'Single Value with bool type and a single Point feature.',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {
     v1: true,
-    v2: true,
-    error: 'IF INVALID, ERROR TYPE HERE'
+    v2: true
   },
   json: {
     layers: [
@@ -27,7 +19,11 @@ const template = `module.exports = {
           }
         ],
         keys: [],
-        values: [],
+        values: [
+          {
+            bool_value: true
+          }
+        ],
         extent: 4096
       }
     ]
@@ -38,7 +34,3 @@ const template = `module.exports = {
     return buffer;
   }
 };
-`;
-
-fs.writeFileSync(`./src/${id}.js`, template);
-console.log(`New file created: /src/${id}.js.\nMake sure to run "npm run build" to generate the raw fixtures.`);
