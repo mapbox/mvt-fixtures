@@ -1,0 +1,612 @@
+- - - fixture: 001 - - -
+"A vector tile without any layers, which essentially results in a completely empty buffer."
+
+
+
+
+- - - fixture: 002 - - -
+"A single layer with a single point feature that has no id field. According to the specification, \"A feature MAY contain an id field. If a feature has an id field, the value of the id SHOULD be unique among the features of the parent layer.\""
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  5: 4096
+}
+
+
+- - - fixture: 003 - - -
+"A single point feature with a missing geometry type. From the spec, \"A feature MUST contain a type field as described in the Geometry Types section.\""
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    4: "\t2\""
+  }
+  5: 4096
+}
+
+
+- - - fixture: 004 - - -
+"[feature:geometry] A single point feature without a geometry field. The spec says, \"A feature MUST contain a geometry field.\""
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+  }
+  5: 4096
+}
+
+
+- - - fixture: 005 - - -
+"[feature:tags] the tags array has only a single tag, where multiples of two are required."
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000"
+    3: 1
+    4: "\t2\""
+  }
+  3: "hello"
+  4 {
+    1: "world"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 006 - - -
+"[feature:geometry] A single point feature with an invalid GeomType enum in the \"type\" field."
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 8
+    4: "\t2\""
+  }
+  5: 4096
+}
+
+
+./show-diff.sh: line 4: fixtures-proto2/007/tile.mvt: No such file or directory
+- - - fixture: 007 - - -
+"Layer version as string instead of int"
+
+3 {
+  15: "2"
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  5: 4096
+}
+
+
+- - - fixture: 008 - - -
+"[layer:extent] the layer extent field is encoded as a string instead of a uint32"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  5: "fourzeroninesix"
+}
+
+
+- - - fixture: 009 - - -
+"[layer:extent] the layer extent field is completely missing. The spec says, \"A layer MUST contain an extent that describes the width and height of the tile in integer coordinates.\""
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  5: 4096
+}
+
+
+- - - fixture: 010 - - -
+"A Layer value property is listed as \"string\" but encoded as std::int64_t"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  3: "key1"
+  4 {
+    1: 1234567890123456
+  }
+  5: 4096
+}
+
+
+- - - fixture: 011 - - -
+"Has a value type not described in the spec. Should be easy for decoders to skip"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\001"
+    3: 1
+    4: "\t2\""
+  }
+  3: "hello"
+  4 {
+    8 {
+      1: "hello"
+    }
+  }
+  5: 4096
+}
+
+
+- - - fixture: 012 - - -
+"The layer version is invalid and does not match any current versions of the specification"
+
+3 {
+  15: 99
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  5: 4096
+}
+
+
+- - - fixture: 013 - - -
+"Has a key property incorrectly encoded as a type std::uint32_t."
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\t2\""
+  }
+  3: "\001"
+  4 {
+    1: "hello"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 014 - - -
+"A layer without a name field. \"A layer MUST contain a name field.\""
+
+3 {
+  15: 2
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  5: 4096
+}
+
+
+- - - fixture: 015 - - -
+"Includes two layers with the same name value, which is invalid according to the specification. \"A layer MUST contain a name field. A Vector Tile MUST NOT contain two or more layers whose name values are byte-for-byte identical.\""
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  5: 4096
+}
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t1\025"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 016 - - -
+"Single geometry with UNKNOWN type. This is considered \"valid\" in the lens of the specification. Encoders/decoders can choose to use or throw on this geometry type."
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    4: "\t2\""
+  }
+  5: 4096
+}
+
+
+- - - fixture: 017 - - -
+"valid point geometry"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\t2\""
+  }
+  3: "hello"
+  4 {
+    1: "world"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 018 - - -
+"valid linestring geometry"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 2
+    4: "\t\004\004\022\000\020\020\000"
+  }
+  3: "hello"
+  4 {
+    1: "world"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 019 - - -
+"valid polygon geometry"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 3
+    4 {
+      1: 0x0f2c180c0a120c06
+    }
+  }
+  3: "hello"
+  4 {
+    1: "world"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 020 - - -
+"valid multi-point geometry"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\021\n\016\003\t"
+  }
+  3: "hello"
+  4 {
+    1: "world"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 021 - - -
+"valid multi-linestring geometry"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 2
+    4: "\t\004\004\022\000\020\020\000\t\021\021\n\004\010"
+  }
+  3: "hello"
+  4 {
+    1: "world"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 022 - - -
+"valid multi-polygon geometry"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 3
+    4: "\t\000\000\032\024\000\000\024\023\000\017\t\026\002\032\022\000\000\022\021\000\017\t\004\r\032\000\010\010\000\000\007\017"
+  }
+  3: "hello"
+  4 {
+    1: "world"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 023 - - -
+"No Layer Name"
+
+3 {
+  15: 2
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  5: 4096
+}
+
+
+- - - fixture: 025 - - -
+"Layer has no features, encoders should not create this, but decoders should read this still"
+
+3 {
+  15: 2
+  1: "hello"
+  5: 4096
+}
+
+
+- - - fixture: 027 - - -
+"Single Value with bool type and a single Point feature."
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t2\""
+  }
+  4 {
+    7: 1
+  }
+  5: 4096
+}
+
+
+- - - fixture: 030 - - -
+"Contains two geometry fields when there should only be one"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: ""
+    3: 1
+    4: "\t\000\000"
+    4: "\t\000\000"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 032 - - -
+"Single Value with string type and a single Point feature"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\t2\""
+  }
+  3: "key1"
+  4 {
+    1: "i am a string value"
+  }
+  5: 4096
+}
+
+
+- - - fixture: 033 - - -
+"Single Value with float type and a single Point feature"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\t2\""
+  }
+  3: "key1"
+  4 {
+    2: 0x40466666
+  }
+  5: 4096
+}
+
+
+- - - fixture: 034 - - -
+"Single Value with double type and a single Point feature"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\t2\""
+  }
+  3: "key1"
+  4 {
+    3: 0x3ff3ae147ae147ae
+  }
+  5: 4096
+}
+
+
+- - - fixture: 035 - - -
+"Single Value with integer type and a single Point feature"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\t2\""
+  }
+  3: "key1"
+  4 {
+    4: 6
+  }
+  5: 4096
+}
+
+
+- - - fixture: 036 - - -
+"Single Value with uint64 type and a single Point feature"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\t2\""
+  }
+  3: "key1"
+  4 {
+    5: 87948
+  }
+  5: 4096
+}
+
+
+- - - fixture: 037 - - -
+"Single Value with sint64 type and a single Point feature"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\t2\""
+  }
+  3: "key1"
+  4 {
+    6: 175896
+  }
+  5: 4096
+}
+
+
+- - - fixture: 038 - - -
+"A fixure with all possible value types"
+
+3 {
+  15: 2
+  1: "hello"
+  2 {
+    1: 1
+    2: "\000\000"
+    3: 1
+    4: "\t2\""
+  }
+  3 {
+    12: 0x7365756c61766c6c
+  }
+  4 {
+    1: "ello"
+  }
+  4 {
+    7: 1
+  }
+  4 {
+    4: 6
+  }
+  4 {
+    3: 0x3ff3ae147ae147ae
+  }
+  4 {
+    2: 0x40466666
+  }
+  4 {
+    6: 175896
+  }
+  4 {
+    5: 87948
+  }
+  5: 4096
+}
