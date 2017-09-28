@@ -14,16 +14,18 @@ module.exports = {
         features: [
           {
             id: 1,
-            tags: [0,2],
+            tags: [0, 2],
             type: 1,
             geometry: [ 9, 50, 34 ]
           }
         ],
         keys: ['type'],
-        values: [ { string_value: 'park' }],
+        values: [
+          { string_value: 'park' }
+        ],
         extent: 4096
       }
     ]
   },
-  proto: '2.1' 
+  proto: '2.1'
 };

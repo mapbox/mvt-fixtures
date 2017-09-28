@@ -16,16 +16,20 @@ module.exports = {
         features: [
           {
             id: 1,
-            tags: ['one','two'],
+            tags: [2.2391, 4.5654],
             type: 1,
             geometry: [ 9, 50, 34 ]
           }
         ],
         keys: ['type'],
-        values: [ { string_value: 'park' }, { string_value: 'lake' }],
+        values: [
+          { string_value: 'park' },
+          { string_value: 'lake' }
+        ],
         extent: 4096
       }
     ]
   },
-  proto: util.replace('2.1', 'repeated uint32 tags', 'repeated string tags')
+  proto: util.replace('2.1', 'repeated uint32 tags', 'repeated float tags'),
+  syntax: '3'
 };
