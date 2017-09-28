@@ -7,8 +7,8 @@
         {
           "id": 1,
           "tags": [
-            2,
-            1
+            0,
+            2
           ],
           "type": 1,
           "geometry": [
@@ -24,9 +24,6 @@
       "values": [
         {
           "string_value": "park"
-        },
-        {
-          "string_value": "lake"
         }
       ],
       "extent": 4096
