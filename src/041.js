@@ -1,7 +1,7 @@
 const util = require('../lib/util');
 
 module.exports = {
-  description: 'Tile message has an unknown tag value, tags are encoded as strings instead of integers',
+  description: 'Tile message has an unknown tag value, tags are encoded as floats instead of integers. Not that this is not detectable from the protobuf encoding alone. A decoder will interpret these floats as varints (which succeeds in this case) and only notice later that they point to non-existing indexes.',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L38',
   validity: {
     v1: false,
