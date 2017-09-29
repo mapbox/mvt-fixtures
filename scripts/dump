@@ -18,16 +18,41 @@ if [[ ! -f ./mason_packages/.link/bin/protoc ]]; then
     ./mason/mason link protobuf ${PROTOBUF_VERSION}
 fi
 
-if [[ ! ${1:-} ]] && [[ ! -f ${1:-} ]]; then
-    echo "please pass the path to a mvt fixture to decode"
-    exit 1
+function decode() {
+  ./mason_packages/.link/bin/protoc \
+    vector-tile-spec/2.1/vector_tile.proto \
+    --decode vector_tile.Tile \
+    < ${1}
+}
+
+function decode_raw() {
+  ./mason_packages/.link/bin/protoc --decode_raw \
+  < ${1}
+}
+
+RAW=false
+
+# https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+for i in "$@"
+do
+case $i in
+    --raw)
+    RAW=true
+    shift
+    ;;
+    *)
+    FIXTURE="$1"
+    ;;
+esac
+done
+
+if [ -z "${FIXTURE-}" ]; then
+  echo "please pass the path to a mvt fixture to decode"
+  exit 1
 fi
 
-fixture=$1
-
-./mason_packages/.link/bin/protoc \
-  vector-tile-spec/2.1/vector_tile.proto \
-  --decode vector_tile.Tile \
-  < ${fixture}
-
-
+if [[ $RAW = true ]]; then
+  decode_raw ${FIXTURE}
+else
+  decode ${FIXTURE}
+fi

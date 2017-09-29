@@ -96,7 +96,7 @@ npm run build
 
 There are couple scripts included for debugging the fixtures as you create them.
 
-**protoc dump** allows you to dump mvt fixtures to the text-based representation supported by the google protoc tool. This can be very useful for debugging fixtures to ensure you've created what you expected (particularly for tiles designed to be invalid to parse).
+**protoc specification dump** allows you to dump mvt fixtures to the text-based representation supported by the google protoc tool. This can be very useful for debugging fixtures to ensure you've created what you expected (particularly for tiles designed to be invalid to parse).
 
 ```bash
 $ ./scripts/dump fixtures/002/tile.mvt
@@ -113,10 +113,10 @@ layers {
 }
 ```
 
-**raw protoc dump** allows you to dump the raw contents of a buffer. This particularly useful for tiles that don't match the vector_tile.proto format.
+**raw protoc dump** allows you to dump the raw contents of a buffer. This particularly useful for tiles that don't match the vector_tile.proto format and you want to view which tags are generated
 
 ```bash
-$ ./mason_packages/.link/bin/protoc --decode_raw < fixtures/002/tile.mvt
+$ ./scripts/dump fixtures/002/tile.mvt --raw
 3 {
   15: 2
   1: "hello"
@@ -128,8 +128,6 @@ $ ./mason_packages/.link/bin/protoc --decode_raw < fixtures/002/tile.mvt
   5: 4096
 }
 ````
-
-
 
 ### Building docs
 
