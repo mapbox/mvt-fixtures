@@ -1,0 +1,9 @@
+{
+  "description": "A layer with a number of points that refer to different value types.",
+  "specification_reference": "https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66",
+  "validity": {
+    "v1": true,
+    "v2": true
+  },
+  "proto": "2.1"
+}
