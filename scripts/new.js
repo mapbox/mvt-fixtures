@@ -2,7 +2,8 @@ const fs = require('fs');
 const getID = require('../lib/util').getID;
 
 const files = fs.readdirSync('./src');
-const id = getID(files.length + 1); // get the next available number
+const rawID = parseInt(files[files.length-1].replace('.js', '')) + 1;
+const id = getID(rawID);
 
 const template = `module.exports = {
   description: 'DESCRIPTION',

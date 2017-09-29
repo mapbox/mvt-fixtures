@@ -68,7 +68,7 @@ module.exports = {
   description: 'DESCRIPTION',
   specification_reference: 'SPECIFICATION_URL',
   validity: {
-    v1: true,
+    v1: false,
     v2: false,
     error: 'ERROR_TYPE'
   },
