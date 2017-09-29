@@ -21,6 +21,8 @@ The Javascript API is recommended if you are working in Javascript or Node.js. T
   * `recoverable`: should the encoder/decoder continue move on and continue its work? For instance, if invalid geometry is found, can the encoder safely move to the next feature?
   * `fatal`: the encoder should completely stop its process
 
+GOTCHA: validity can be messy. In the case of the `validity` property for the fixtures, they refer to the _Mapbox Vector Tile Specification_ but depending on the protocol buffer specification we are _decoding_ with, fields that may be required by the spec and are missing can be interpreted as default values. For example: in fixture 003 where the "GeomType" tag is completely missing, any vector tile decoder using the proto2 syntax will interpret this by the default value UNKNOWN instead of a missing tag.
+
 ### Javascript usage
 
 Check out the full Javascript interface over at [API.md](API.md)
