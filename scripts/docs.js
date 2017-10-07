@@ -2,7 +2,12 @@
 
 const fs = require('fs');
 const mvtf = require('..');
+const SM = require('@mapbox/sphericalmercator');
+const rw = require('../lib/real-world-extents');
 
+/**
+ * Generate FIXTURES.md doc from source files
+ */
 let docs = `id|description|valid v1|valid v2
 ---|---|---|---
 `;
@@ -18,3 +23,21 @@ mvtf.each(function(fixture) {
 });
 
 fs.writeFileSync('./FIXTURES.md', docs);
+
+
+/**
+ * Generate REAL-WORLD.md doc from scripts/real-world.js
+ */
+const sm = new SM();
+let docsrw = `name|description|tileset|zoom|template|number of tiles
+---|---|---|---|---
+`;
+
+for (let e in rw) {
+  let ex = rw[e];
+  let xyz = sm.xyz(ex.bbox, ex.zoom);
+  let numTiles = (xyz.maxX - (xyz.minX-1)) * (xyz.maxY - (xyz.minY-1));
+  docsrw+=`${e}|${ex.type}|${ex.tileset}|z${ex.zoom}|\`real-world/${e}/{z}-{x}-{y}.mvt\`|${numTiles}\n`;
+}
+
+fs.writeFileSync('./REAL-WORLD.md', docsrw);

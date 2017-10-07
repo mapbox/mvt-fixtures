@@ -48,6 +48,10 @@ You can access all of the fixtures and their metadata in the /fixtures directory
 1. tile.json - a JSON representation of the tile and its properties
 1. info.json - information about the fixture including `name`, `description`, and `specification_reference`.
 
+# Real-world fixtures
+
+While the bulk of mvt-fixtures is focused on minimal unit tests with very specific features, it also includes a set of real-world tiles that are useful for benchmarking and running your decoder through more realisitc tiles. Learn more about each real world extent in [REAL-WORLD.md](REAL-WORLD.md).
+
 # Develop
 
 ### Setup
