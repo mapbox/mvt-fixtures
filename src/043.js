@@ -1,5 +1,5 @@
 module.exports = {
-  description: 'A layer with a number of points that refer to different value types.',
+  description: 'A layer with six points that all share the same key but each has a unique value (type string).',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L66',
   validity: {
     v1: true,

@@ -11,6 +11,7 @@ module.exports = {
   json: {
     layers: [
       {
+        name: 'howdy',
         version: 2,
         features: [
           {
