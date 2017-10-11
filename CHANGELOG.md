@@ -1,8 +1,9 @@
-## 3.0.0-betaNext
+## 3.0.0-beta2
 
 - Recreate all fixtures that previously existed in 2.x
 - Add protoc scripts to dump raw text form of buffers to stdout for debugging
 - Update generateBuffer to run specific versions of the Mapbox Vector Tile Specification, or custom proto files
+- Generate with proto2 syntax by default instead of proto3 syntax to avoid situations where default values confusion
 
 ## 3.0.0-beta1
 
