@@ -1,3 +1,7 @@
+## 3.0.0-beta3
+
+- Vendorize vector-tile-spec repository so it packages with npm publishes [#61](https://github.com/mapbox/mvt-fixtures/issues/61)
+
 ## 3.0.0-beta2
 
 - Recreate all fixtures that previously existed in 2.x
