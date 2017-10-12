@@ -1,0 +1,973 @@
+<!DOCTYPE html >
+<html>
+<head>
+  
+  
+  <meta charset='UTF-8'/>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+  <meta name='robots' content='index'/>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta name='apple-mobile-web-app-capable' content='yes' />
+  <meta name='description' content='Mapbox Vector Tile Specification'/>
+  <title> | Mapbox</title>
+
+  <meta class='swiftype' name='title' data-type='string' content='' />
+  <meta class='swiftype' name='type' data-type='enum' content='site' />
+  <meta class='swiftype' name='info' data-type='string' content='site' />
+  <meta class='swiftype' name='excerpt' data-type='string' content='Mapbox Vector Tile Specification' />
+  
+  <meta name="p:domain_verify" content="57838af58c8045c2c024bc2f9d1577f9"/>
+
+  <link href='https://www.mapbox.com/base/latest/base.css?v1.0' rel='stylesheet' />
+  <link href='https://www.mapbox.com/css/site.css' rel='stylesheet' />
+  <!--[if IE 9]><link href='https://www.mapbox.com/css/site-ie9.css' rel='stylesheet' /><![endif]-->
+  <link rel='shortcut icon' href='https://www.mapbox.com/img/favicon.ico' type='image/x-icon' />
+  <link rel='alternate' type='application/rss+xml' title='RSS' href='https://www.mapbox.com/blog/blog.rss' />
+
+  
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.5/mapbox.css' rel='stylesheet' />
+  
+
+  <!--[if lt IE 9 ]><script src='https://www.mapbox.com/js/redirect-ie.js'></script><![endif]-->
+  <script src='https://js.stripe.com/v2/'></script>
+  <script>
+  var KM_COOKIE_DOMAIN = 'www.mapbox.com';
+  var analytics=analytics||[];(function(){var e=['identify','track','trackLink','trackForm','trackClick','trackSubmit','page','pageview','ab','alias','ready','group'],t=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var n=0;n<e.length;n++)analytics[e[n]]=t(e[n])})(),analytics.load=function(e){var t=document.createElement('script');t.type='text/javascript',t.async=!0,t.src=('https:'===document.location.protocol?'https://':"http://")+'d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/'+e+'/analytics.min.js';var n=document.getElementsByTagName('script')[0];n.parentNode.insertBefore(t,n)};
+  analytics.load(window.location.hostname.indexOf('mapbox.com') !== -1 ? 'fl0c8p240n' : '0biiejpgfj');
+
+  Stripe.setPublishableKey(window.location.hostname.indexOf('mapbox.com') !== -1 ?
+    'pk_live_hI6mmOTIg7KkywK6vo3vJvpk' : 'pk_test_gmIyREg3sKzAiyMkAEeCsxUG');
+  </script>
+  
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.5/mapbox.js'></script>
+  
+
+  <script>
+  window.mapbox_api = '';
+  window.mapbox_tileApi = '';
+  window.mapbox_accessToken = '' || 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbG10dnA3NzY3OTZ0dmtwejN2ZnUycjYifQ.1W5oTOnWXQ9R1w8u3Oo1yA'
+  if (typeof L !== 'undefined' && L.mapbox.VERSION[0] === '2') {
+      L.mapbox.accessToken = window.mapbox_accessToken;
+      L.mapbox.config.FORCE_HTTPS = true;
+      L.mapbox.config.HTTPS_URL = window.mapbox_tileApi + '/v4';
+  }
+  </script>
+  <script src='https://www.mapbox.com/base.js/dist/base.js'></script>
+  
+  
+</head>
+<body class='fill-light '>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PQR37Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-PQR37Z');</script>
+<!-- End Google Tag Manager -->
+
+<div class='page-content'>
+
+
+<div class='main-subnav fill-midnight splash pin-top dark clearfix'>
+  <div class='prose dark keyline-top pad4y hover-area clearfix'>
+    <div class='limiter clearfix'>
+
+      <div class='subnav-group subnav-products clearfix'>
+        <div class='col6 clearfix'>
+          <h3><a href='/products/' class='rcon next'>Our products</a></h3>
+          <div class='col5'>
+            <a class='block pad1y icon map' href='/maps'>Maps</a>
+            <a class='block pad1y icon studio' href='/mapbox-studio'>Mapbox Studio</a>
+            <a class='block pad1y icon compass' href='/directions/'>Directions</a>
+            <a class='block pad1y icon marker' href='/geocoding/'>Geocoding</a>
+          </div>
+          <div class='col6'>
+            <a class='block pad1y icon bolt' href='/analysis/'>Analysis</a>
+            <a class='block pad1y icon mobile' href='/mobile/'>Mobile</a>
+            <a class='block pad1y icon satellite' href='/satellite/'>Satellite</a>
+            <a class='block pad1y icon globe' href='/atlas/'>Atlas Server</a>
+          </div>
+        </div>
+        <div class='col5 margin1r'>
+          <h3>Our platform</h3>
+          <a class='block pad1y icon mt' href='/enterprise/'>Enterprise ready</a>
+          <a class='block pad1y icon building' href='/platform/'>Scalable infrastructure</a>
+          <a class='block pad1y icon lock' href='/platform/security/'>Security</a>
+          <a class='block pad1y icon data' href='/data-platform/'>Curated Data</a>
+        </div>
+      </div>
+
+      <div class='subnav-group subnav-use-cases clearfix'>
+        <div class='col7 clearfix'>
+          <h3><a href='/industries/' class='rcon next'>Industries</a></h3>
+          <div class='col4'>
+            <a class='block pad0y' href='/industries/social'>Web &amp; Social</a>
+            <a class='block pad0y' href='/industries/logistics'>Logistics</a>
+            <a class='block pad0y' href='/industries/outdoors'>Fitness &amp; Outdoors</a>
+            <a class='block pad0y' href='/industries/naturalresources'>Natural Resources</a>
+            <a class='block pad0y' href='/industries/agriculture'>Agriculture</a>
+          </div>
+          <div class='col4'>
+            <a class='block pad0y' href='/industries/transportation'>Transportation</a>
+            <a class='block pad0y' href='/industries/realestate'>Real Estate</a>
+            <a class='block pad0y' href='/industries/insurance'>Insurance</a>
+            <a class='block pad0y' href='/industries/security'>Security</a>
+            <a class='block pad0y' href='/industries/finance'>Finance</a>
+          </div>
+          <div class='col4'>
+            <a class='block pad0y' href='/industries/drones'>Drones</a>
+            <a class='block pad0y' href='/industries/government'>Government</a>
+            <a class='block pad0y' href='/industries/health'>Health</a>
+            <a class='block pad0y' href='/industries/media'>Media</a>
+            <a class='block pad0y' href='/industries/travel'>Travel</a>
+          </div>
+        </div>
+        <div class='col4 margin1'>
+          <h3>Examples</h3>
+            <a class='block pad0y' href='/gallery/'>Map Gallery</a>
+            <a class='block pad0y' href='/showcase/'>Customer Showcase</a>
+        </div>
+      </div>
+
+      <div class='subnav-group subnav-documentation clearfix'>
+        <div class='col8 clearfix subnavcol'>
+          <h3><a href='/developers/' class='rcon next'>Developer tools</a></h3>
+          <div class='col4'>
+            <a class='block pad1y icon gl' href='/mapbox-gl-js/api/'>Mapbox GL JS</a>
+            <a class='block pad1y icon apple' href='/ios-sdk/'>Mapbox iOS SDK</a>
+            <a class='block pad1y icon android' href='/android-sdk/'>Mapbox Android SDK</a>
+            <a class='block pad1y icon globe' href='/mapbox.js/api/'>Mapbox.js</a>
+          </div>
+          <div class='col4'>
+            <a class='block pad1y icon marker' href='/developers/api/geocoding/'>Geocoding API</a>
+            <a class='block pad1y icon paint' href='/developers/api/styles/'>Styles API</a>
+            <a class='block pad1y icon up' href='/developers/api/uploads/'>Uploads API</a>
+            <a class='block pad1y icon inspect' href='/developers/api/surface/'>Surface API</a>
+          </div>
+          <div class='col4'>
+            <a class='block pad1y icon compass' href='/developers/api/directions/'>Directions API</a>
+            <a class='block pad1y icon point-line' href='/developers/api/distance/'>Distance API</a>
+            <a class='block pad1y icon picture' href='/developers/api/static/'>Static API</a>
+            <a class='block pad1y icon data' href='/developers/api/maps/'>Tiles API</a>
+          </div>
+        </div>
+        <div class='col3 margin1r subnavcol'>
+        <h3>References</h3>
+          <a class='block pad1y' href='/tos'>TOS</a>
+          <a class='block pad1y' href='/privacy/'>Privacy</a>
+          <a class='block pad1y' href='/about/open/'>Open source tools</a>
+          <a class='block pad1y' href='/telemetry/'>Telemetry</a>
+        </div>
+      </div>
+
+      <div class='subnav-group subnav-help clearfix'>
+        <div class='col3'>
+          <h3><a href='/help/' class='rcon next'>Help</a></h3>
+          <a class='block pad1y icon search' href='/help/'>Search</a>
+          <a class='block pad1y icon mapbox' href='/help/how-mapbox-works/'>How Mapbox works</a>
+          <a class='block pad1y icon book' href='/help/glossary/'>Glossary</a>
+        </div>
+        <div class='col8 margin1 clearfix'>
+          <h3>I would like to</h3>
+          <div class='col6'>
+            <a class='block pad1y icon paint' href='/help/#design-a-map'>Design a map</a>
+            <a class='block pad1y icon mobile' href='/help/#build-a-mobile-app'>Build a mobile app</a>
+            <a class='block pad1y icon globe' href='/help/#build-a-web-app'>Build a web app</a>
+            <a class='block pad1y icon bolt' href='/help/#extend-my-app-with-web-services'>Extend my app with web services</a>
+          </div>
+          <div class='col6'>
+            <a class='block pad1y icon satellite'  href='/help/#work-with-data-and-imagery'>Work with data &amp; Imagery</a>
+            <a class='block pad1y icon data' href='/help/#analyze-data'>Analyze Data</a>
+            <a class='block pad1y icon lock' href='/help/#learn-about-mapbox-privacy-and-policies'>Learn about privacy and policies</a>
+            <a class='block pad1y icon account' href='/help/#make-changes-to-my-account'>Make changes to my account</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class='masthead col12 clearfix fill-blue dark    ' data-swiftype-index='false'>
+  <div class='limiter clearfix'>
+    <nav class='col12 text-right navigation-padding-top contain animate clearfix noprint'>
+      <a class='fl mb-logo' href='/'></a>
+      <h4 class='logo-enterpriseaddon pin-topleft text-aqua block-in-enterprise'>Enterprise</h4>
+
+      <!-- Desktop nav -->
+      <div class='text-right z10 strong small primary hide-mobile space-top0'>
+        <div class='inline align-top'>
+         <div class='dropdown inline fl contain'  data-category='products'> <a href='/products/'     class='contain primary-nav-button fl pad1x pad0y round '>Products</a></div>
+          <div class='dropdown inline fl contain'  data-category='use-cases'> <a href='/industries/'  class='contain primary-nav-button fl pad1x pad0y round'>Industries</a></div>
+         <div class='dropdown inline fl contain'  data-category='documentation'>  <a href='/developers/'  class='contain primary-nav-button fl pad1x pad0y round '>Developers</a></div>
+         <div class='dropdown inline fl contain'  data-category='help'>  <a href='/help/'  class='contain primary-nav-button fl pad1x pad0y round '>Help &amp; Guides</a></div>
+          <div class='inline fl'> <a href='/pricing/'  class='primary-nav-button fl pad1x pad0y round quiet '>Pricing</a></div>
+          <div class='inline fl'> <a href='/blog/'   class='primary-nav-button fl pad1x pad0y round quiet '>Blog</a></div>
+        </div>
+        <!-- Hardcoded width so content doesn't jump -->
+        <div style='width:130px' class='unfloat inline align-top' id='nav'></div>
+      </div>
+
+      <!-- Mobile nav -->
+      <div class='show-mobile contain dropdown-container pin-topright'>
+        <a href='#menu' class='dark contain z1 big inline icon menu round quiet dropdown-button js-dropdown-button pin-right'></a>
+        <div id='menu' class='js-dropdown-menu scroll-v dropdown-menu offcanvas-top fill-midnight clip col12 pin-top animate'>
+          <div class='keyline-bottom clearfix'>
+            <div class='mobile-cols pad4y keyline-bottom clearfix'>
+              <a class='pad1 block strong col6' href='/products/'>Products</a>
+              <a class='pad1 block strong col6' href='/mapbox-studio/'>Mapbox Studio</a>
+              <a class='pad1 block strong col6' href='/data-platform/'>Data</a>
+              <a class='pad1 block strong col6' href='/gallery/'>Gallery</a>
+              <a class='pad1 block strong col6' href='/industries/'>Industries</a>
+              <a class='pad1 block strong col6' href='/help/'>Help</a>
+              <a class='pad1 block strong col6' href='/developers/'>Developers</a>
+              <a class='pad1 block strong col6' href='/blog/'>Blog</a>
+              <a class='pad1 block strong col6' href='/pricing/'>Pricing</a>
+            </div>
+            <div id='mobile-nav' class='pad2y clearfix mobile-cols'>
+              <a class='pad1 block strong col6 signin' href='/studio/'>Log in</a>
+              <a class='pad1 block strong col6' href='/studio/signup/'>Sign up</a>
+            </div>
+          </div>
+
+          <div class='clearfix small'>
+            <div class='col12 clearfix pad4y keyline-bottom'>
+              <h3 class='pad0y pad1x strong space-bottom1'>Products</h3>
+              <div class='col12 pad1x clearfix  mobile-cols '>
+                <a class='pad0y block quiet col6' href='/maps/'>Maps</a>
+                <a class='pad0y block quiet col6' href='/geocoding/'>Geocoding</a>
+                <a class='pad0y block quiet col6' href='/directions/'>Directions</a>
+                <a class='pad0y block quiet col6' href='/developers/'>Developer tools</a>
+                <a class='pad0y block quiet col6' href='/satellite/'>Satellite</a>
+                <a class='pad0y block quiet col6' href='/analysis/'>Analysis</a>
+                <a class='pad0y block quiet col6' href='/atlas/'>Atlas</a>
+                <a class='pad0y block quiet col6' href='/highvolume/'>High Volume</a>
+              </div>
+            </div>
+            <div class='col12 pad1x clearfix  mobile-cols pad4y '>
+              <a class='pad0y block strong quiet col6' href='/about/'>About</a>
+              <a class='pad0y block strong quiet col6' href='/about/team/'>Team</a>
+              <a class='pad0y block strong quiet col6' href='/jobs/'>Jobs</a>
+              <a class='pad0y block strong quiet col6' href='/about/press/'>Press</a>
+              <a class='pad0y block strong quiet col6' href='/tos/'>Legal</a>
+              <a class='pad0y block strong quiet col6' href='/contact/'>Contact</a>
+              <a class='pad0y block strong quiet col6' href='/education/'>Education</a>
+              <a class='pad0y block strong quiet col6' href='/security/'>Security</a>
+              <a class='pad0y block strong quiet col6' href='/about/board'>Board</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+  </div>
+</div>
+
+
+<div class=' limiter clearfix'><link href='/developers/vector-tiles/specification/css/site.css' rel='stylesheet' />
+
+<div class="pad2y">
+  <nav class="round z10 col9 margin3 fill-orange space-bottom small">
+    <div class="col3 dark round-left keyline-right pad1 center truncate">
+      <div class="pad1y">
+        <span class="icon polygon">Vector Tiles</span>
+      </div>
+    </div>
+    <div class="col9 dark tabs mobile-cols pad1"><!--
+      --><a href="/developers/vector-tiles/" class="col3 truncate">Vector Tiles</a><!--
+      --><a href="#" class="col4 truncate active">Vector Tile Specification</a>
+    </div>
+  </nav>
+</div>
+
+<div class='col12 clearfix'>
+  <div class='sidebar col3 pad2 small'>
+    <div class='space-bottom'>
+  <h3>Sections</h3>
+  <ul>
+  
+    <li><a href="#introduction">Introduction</a></li>
+  
+    <li><a href="#versioning">Versioning</a></li>
+  
+    <li><a href="#format">Format</a></li>
+  
+    <li><a href="#encoding-geom">Encoding geometry</a></li>
+  
+    <li><a href="#encoding-attr">Encoding attributes</a></li>
+  
+    <li><a href="#winding-order">Winding order</a></li>
+  
+    <li><a href="#implementations">Implementations</a></li>
+  
+    <li><a href="#not-included">What the spec doesn't cover</a></li>
+  
+  </ul>
+</div>
+
+<div class='space-bottom'>
+  <h3>Versions</h3>
+  <ul>
+  
+    <li><a href="https://github.com/mapbox/vector-tile-spec/tree/master/2.1">2.1</a></li>
+  
+    <li><a href="https://github.com/mapbox/vector-tile-spec/tree/master/2.0">2.0</a></li>
+  
+    <li><a href="https://github.com/mapbox/vector-tile-spec/tree/master/1.0.1">1.0.1</a></li>
+  
+    <li><a href="https://github.com/mapbox/vector-tile-spec/tree/master/1.0.0">1.0.0</a></li>
+  
+  </ul>
+</div>
+
+<div class='space-bottom'>
+  <h3>License</h3>
+  <p>The text of this specification is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>. However, the use of this spec in products and code is entirely free: there are no royalties, restrictions, or requirements.</p>
+</div>
+
+<div class='space-bottom'>
+  <h3>Contributing</h3>
+  <p>If you are interested in contributing please refer to the <a href="https://github.com/mapbox/vector-tile-spec/tree/master/CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a> file.</p>
+</div>
+
+<div class='space-bottom'>
+  <h3>Authors</h3>
+  <ul>
+  
+    <li>Vladimir Agafonkin</li>
+  
+    <li>John Firebaugh</li>
+  
+    <li>Eric Fischer</li>
+  
+    <li>Konstantin Käfer</li>
+  
+    <li>Charlie Loyd</li>
+  
+    <li>Tom MacWright</li>
+  
+    <li>Artem Pavlenko</li>
+  
+    <li>Dane Springmeyer</li>
+  
+    <li>Blake Thompson</li>
+  
+  </ul>
+</div>
+  </div>
+  <div class='content contain col9'>
+    <div class='pad2 fill-white round keyline-all'>
+  
+  <section id="introduction">
+    
+    <div class="post-content"><h1 id="mapbox-vector-tile-specification">Mapbox Vector Tile Specification</h1>
+
+<p>A specification for encoding tiled vector data.</p>
+
+<p><a class="github-button" href="https://github.com/mapbox/vector-tile-spec" data-icon="octicon-star" data-style="mega" data-count-href="/mapbox/vector-tile-spec/stargazers" data-count-api="/repos/mapbox/vector-tile-spec#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star mapbox/vector-tile-spec on GitHub">Star</a>
+<script async="" defer="" id="github-bjs" src="https://buttons.github.io/buttons.js"></script></p>
+
+<hr />
+
+<p>A specification is an important means of setting standards around how data are created and encoded. Just like applications make assumptions about what information exist in a database, Mapbox tools make assumptions about how data are stored in vector tiles. The specification explicitly provides information about file formats &amp; extensions, projection and bounds, and the internal structure of vector tiles. This page aims to shed some light on the specification with</p>
+
+<ol>
+  <li>how to incorporate the spec into your projects</li>
+  <li>examples of encoding geographic information into vector tiles</li>
+  <li>highlight real-world usage of the Mapbox Vector Tile Specification</li>
+  <li>keep track of specification versions</li>
+</ol>
+</div>
+  </section>
+  
+  <section id="versioning">
+    
+    <h2 class="section-header">Versioning</h2>
+    
+    <div class="post-content"><p>The specification is versioned based on <code class="highlighter-rouge">major.minor</code> notation. The <code class="highlighter-rouge">major</code> version will be incremented with any technical change to the specification format or way it should be interpreted. Changes to the <code class="highlighter-rouge">minor</code> version will be reserved for any clarification or correction of clerical errors associated with the specification language.</p>
+
+<p>The <code class="highlighter-rouge">major</code> version in the specification name is synonymous with the <code class="highlighter-rouge">version</code> field in a Mapbox Vector Tile layer. See the <code class="highlighter-rouge">3.1. Layers</code> section for more details.</p>
+
+<p>Current version: <strong>2.1</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Version</strong></td>
+      <td><strong>Date of release</strong></td>
+      <td><strong>Updates</strong></td>
+    </tr>
+    <tr>
+      <td><strong><code class="highlighter-rouge">2.1</code></strong></td>
+      <td>January 19th, 2016</td>
+      <td>Correction to the wording in a few locations of the 2.0 specification.</td>
+    </tr>
+    <tr>
+      <td><strong><code class="highlighter-rouge">2.0</code></strong></td>
+      <td>December 4th, 2015</td>
+      <td>The focus of version <code class="highlighter-rouge">2.0</code> of the Mapbox Vector Tile specification is the clarification of the intent of the intial version of the specification and the definition of interior and exterior rings within polygons. The fields within the protobuffer are more clearly defined in this version of the specification and the steps for decoders and encoders are more explicity declared.</td>
+    </tr>
+    <tr>
+      <td><strong><code class="highlighter-rouge">1.0.1</code></strong></td>
+      <td>July 28, 2014</td>
+      <td>Update <code class="highlighter-rouge">.proto</code> file to match Protobuf style guide, changed namespace</td>
+    </tr>
+    <tr>
+      <td><strong><code class="highlighter-rouge">1.0.0</code></strong></td>
+      <td>April 13, 2014</td>
+      <td>First release</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  </section>
+  
+  <section id="format">
+    
+    <h2 class="section-header">Format</h2>
+    
+    <div class="post-content"><p>Vector tiles are encoded as <a href="https://github.com/google/protobuf">Google Protobufs</a> (PBF), which allow for serializing structured data. For clarity, Mapbox Vector Tiles use the <code class="highlighter-rouge">.mvt</code> file suffix. The specification details are largely structured around the rules implemented in the base <code class="highlighter-rouge">.proto</code> file found <a href="https://github.com/mapbox/vector-tile-spec/tree/master/2.1/vector_tile.proto">here</a>.</p>
+
+<h3 id="how-are-osm-pbf-files-related-to-mapbox-vector-tiles">How are OSM PBF files related to Mapbox Vector Tiles?</h3>
+
+<p>They are not related at all. PBFs are a format, much like XML and can take many forms. Mapbox Vector Tiles and OSM PBFs are protobuf files, but conform to completely different specifications and are used in different ways.</p>
+</div>
+  </section>
+  
+  <section id="encoding-geom">
+    
+    <h2 class="section-header">Encoding geometry</h2>
+    
+    <div class="post-content"><p>To encode geographic information into a vector tile a tool must convert geographic coordinates, such as latitude and longitude, into vector tile grid coordinates. Vector tiles hold no concept of geographic information. They encode points, lines, and polygons as <code class="highlighter-rouge">x</code>,<code class="highlighter-rouge">y</code> pairs relative to the top left of the grid in a right-down manner.</p>
+
+<p>Vector tiles do not store spatial information as we know it. Each vector tile is a grid</p>
+
+<div id="js-example-encoding" class="js-example clearfix">
+  <div class="js-example-header pad2">
+    <h3>Encoding example</h3>
+    <p>This is a step-by-step example showing how a single vector tile encodes geometry in the grid. It follows the commands of the "pen" to encode two rings.</p>
+  </div>
+
+  <div class="js-example-body pad2">
+    <div id="visuals">
+      <canvas id="grid"></canvas>
+      <h4>Commands</h4>
+      <pre><code id="vt-command-steps"></code></pre>
+    </div>
+    <button id="vt-next" class="button fill-green rcon next">Next step</button>
+    <div id="vt-info">
+      <h4 id="vt-title">Step 0</h4>
+      <p id="vt-command">An empty vector tile</p>
+      <p id="vt-description">The vector tile to the left is a 10x10 grid with 2 cell buffer. Let's encode some geometry to the grid. Let's start with the <span class="poly blue">blue polygon</span>.</p>
+    </div>
+  </div>
+</div>
+
+<h3 id="how-are-geometry-clipped">How are geometry clipped?</h3>
+
+<p>Geometry clipping is not considered part of this specification.</p>
+</div>
+  </section>
+  
+  <section id="encoding-attr">
+    
+    <h2 class="section-header">Encoding attributes</h2>
+    
+    <div class="post-content"><p>Attributes are encoded in a series of <code class="highlighter-rouge">tag</code>s that exist within a feature in the vector that have integer values that reference <code class="highlighter-rouge">keys</code> and <code class="highlighter-rouge">values</code> designating the original key:value pairs from the geometry. For large geometry, this removes redundancy for attributes that have the same keys and similar values.</p>
+
+<div id="js-example-encoding" class="js-example clearfix">
+  <div class="js-example-header pad2">
+    <p>Take a look at the original geojson <code>FeatureCollection</code> on the left and see how it's individual parts are encoded into the proper <code>tags</code> of the vector tile protobuf.</p>
+
+    <p class="fallback-hide fill-darken0 round inline pad2x pad1y">Hover over the features and the properties of the GeoJSON.</p>
+  </div>
+
+  <div class="js-example-body pad2 col12">
+    <div class="col6 pad1"><strong>Original geojson</strong><br /><br /><pre><code>{
+  "type": "FeatureCollection",
+    "features": [
+    <span class="feature" data-feat="1">{
+  "geometry": { ... },
+  "type": "Feature",
+  "properties": {
+    <span class="attr gj" data-attr="1" data-key="hello" data-value="world">"hello": "world",</span>
+    <span class="attr gj" data-attr="2" data-key="h" data-value="world">"h": "world",</span>
+    <span class="attr gj" data-attr="3" data-key="count" data-value="1.23">"count": 1.23</span>
+  }
+},</span>
+    <span class="feature" data-feat="2">{
+  "geometry": { ... },
+  "type": "Feature",
+  "properties": {
+    <span class="attr gj" data-attr="4" data-key="hello" data-value="again">"hello": "again",</span>
+    <span class="attr gj" data-attr="5" data-key="count" data-value="2">"count": 2</span>
+  }
+}</span>
+  ]
+}
+</code></pre></div>
+    <div class="col6 pad1"><strong>Final vector tile<br /><br /></strong><pre><code>layers {
+  version: 2
+  name: "points"
+  <span class="feat" id="feat1">features: {
+    id: 1
+    <span class="tagset" id="attr1"><span class="tag-key">tags: 0</span>
+<span class="tag-value">tags: 0</span></span>
+    <span class="tagset" id="attr2"><span class="tag-key">tags: 1</span>
+<span class="tag-value">tags: 0</span></span>
+    <span class="tagset" id="attr3"><span class="tag-key">tags: 2</span>
+<span class="tag-value">tags: 1</span></span>
+    type: Point
+    geometry: ...
+  }</span>
+  <span class="feat" id="feat2">features {
+    id: 1
+    <span class="tagset" id="attr4"><span class="tag-key">tags: 0</span>
+<span class="tag-value">tags: 2</span></span>
+    <span class="tagset" id="attr5"><span class="tag-key">tags: 2</span>
+<span class="tag-value">tags: 3</span></span>
+    type: Point
+    geometry: ...
+  }</span>
+  <span class="key" id="key-hello">keys: "hello"</span>
+  <span class="key" id="key-h">keys: "h"</span>
+  <span class="key" id="key-count">keys: "count"</span>
+  <span class="value" id="value-world">values: {
+    string_value: "world"
+  }</span>
+  <span class="value" id="value-1.23">values: {
+    double_value: 1.23
+  }</span>
+  <span class="value" id="value-again">values: {
+    string_value: "again"
+  }</span>
+  <span class="value" id="value-2">values: {
+    int_value: 2
+  }</span>
+  extent: 4096
+}
+      
+</code></pre></div>
+  </div>
+</div>
+</div>
+  </section>
+  
+  <section id="winding-order">
+    
+    <h2 class="section-header">Winding order</h2>
+    
+    <div class="post-content"><p>Winding order refers to the direction a ring is drawn in a vector tile, either clockwise or counter-clockwise. Many geometries are multipolygons with “holes”, which are also represented as polygon rings. It is important to be able to infer winding order to extract source data from a vector tile and understand if the geometry is part of a multipolygon or a unique polygon.</p>
+
+<p>In order for renderers to appropriately distinguish which polygons are holes and which are unique geometries, the specification clarifies any polygon interior rings must be oriented with the opposite winding order than their parent exterior rings and all interior rings must directly follow the exterior ring they belong to. Exterior rings must be oriented clockwise and interior rings must be oriented counter-clockwise (when viewed in screen coordinates).</p>
+
+<div id="js-example-encoding" class="js-example clearfix">
+  <div class="js-example-header pad2">
+    <h3>The importance of winding order</h3>
+    <p>The following example geometries show how encoding a ring's winding order can affect the rendered result. Each example assumes all rings are part of the same multipolygon.</p>
+  </div>
+
+  <div class="js-example-body pad2">
+    <div class="wo-block col12 clearfix">
+      <div class="col6 pad1"><strong>Description</strong></div>
+      <div class="col3 pad1" style="text-align: center;"><strong>Winding order</strong></div>
+      <div class="col3 pad1" style="text-align: center;"><strong>Rendered</strong></div>
+    </div>
+    <div class="wo-block col12 clearfix">
+      <div class="col6 pad1">A single ring, in clockwise order is rendered as a single, solid polygon.
+      <pre><code>Ring 1: Clockwise</code></pre>
+      </div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 220 220">
+          <path d="M48.15,72.53L45.3,70.61l7.19-3.5-0.56,8L49.1,73.17A71.09,71.09,0,1,0,73.62,48.83l-0.59-1A72.36,72.36,0,1,1,48.15,72.53Z" class="ring outer cw" />
+        </svg>
+      </div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 400 400">
+          <circle cx="204.02" cy="200" r="126.77" class="ring outer render" />
+        </svg>
+      </div>
+    </div>
+    <div class="wo-block col12 clearfix">
+      <div class="col6 pad1">Two rings with the same winding order will render as two unique polygons overlapping.<pre><code>Ring 1: Clockwise
+Ring 2: Clockwise</code></pre></div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 220 220">
+          <path d="M48.15,72.53L45.3,70.61l7.19-3.5-0.56,8L49.1,73.17A71.09,71.09,0,1,0,73.62,48.83l-0.59-1A72.36,72.36,0,1,1,48.15,72.53Z" class="ring outer cw" />
+          <path d="M122.35,65L123,62.9l3.44,3.85-5.05,1.06,0.69-2.09a45.87,45.87,0,1,0,19.43,10.92l0.51-.54A46.69,46.69,0,1,1,122.35,65Z" class="ring outer cw" />
+        </svg>
+      </div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 220 220">
+          <circle cx="110" cy="110" r="45.78" class="ring outer render" />
+          <circle cx="110" cy="110" r="71.63" class="ring outer render" />
+        </svg>
+      </div>
+    </div>
+    <div class="wo-block col12 clearfix">
+      <div class="col6 pad1">Two rings, the first (exterior) ring is in clockwise order, while the second is counter-clockwise. This results in a "hole" in the final render.<pre><code>Ring 1: Clockwise
+Ring 2: Counter-Clockwise</code></pre></div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 220 220">
+          <path d="M48.15,72.53L45.3,70.61l7.19-3.5-0.56,8L49.1,73.17A71.09,71.09,0,1,0,73.62,48.83l-0.59-1A72.36,72.36,0,1,1,48.15,72.53Z" class="ring outer cw" />
+          <path d="M63.65,106.85l-2.22,0,2.51,4.51,2.65-4.43-2.2,0a45.87,45.87,0,1,1,4,21.93l-0.67.3A46.69,46.69,0,1,0,63.65,106.85Z" class="ring inner ccw" />
+        </svg>
+      </div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 220 220">
+          <path d="M110,38.37A71.63,71.63,0,1,0,181.63,110,71.63,71.63,0,0,0,110,38.37Zm0,117.41A45.78,45.78,0,1,1,155.78,110,45.78,45.78,0,0,1,110,155.78Z" class="ring outer render" />
+        </svg>
+      </div>
+    </div>
+    <div class="wo-block col12 clearfix">
+      <div class="col6 pad1">
+        Partially overlapping rings in a multipolygon with different winding orders. The second, counter-clockwise ring will be filled outside of the polygon, but not within. This is a result of <strong>even-odd filling</strong> style.<pre><code>Ring 1: Clockwise
+Ring 2: Counter-Clockwise</code></pre>
+      </div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 220 220">
+          <path d="M29.12,69.5l-2.85-1.92,7.19-3.5-0.56,8-2.83-1.91A71.09,71.09,0,1,0,54.58,45.8l-0.59-1A72.36,72.36,0,1,1,29.12,69.5Z" class="ring outer cw" />
+          <path d="M112.06,104l-2.22,0,2.51,4.51L115,104l-2.2,0a45.87,45.87,0,1,1,4,21.93l-0.67.3A46.69,46.69,0,1,0,112.06,104Z" class="ring inner ccw" />
+        </svg>
+      </div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 220 220">
+          <path d="M112.17,107A46.39,46.39,0,0,1,146.8,62.13a71.64,71.64,0,1,0,0,89.73A46.39,46.39,0,0,1,112.17,107Z" class="ring outer render" />
+          <path d="M158.54,60.63a46.44,46.44,0,0,0-11.74,1.5,71.58,71.58,0,0,1,0,89.73A46.37,46.37,0,1,0,158.54,60.63Z" class="ring outer render" />
+        </svg>
+      </div>
+    </div>
+    <div class="wo-block col12 clearfix">
+      <div class="col6 pad1">
+        Three rings in a multipolygon that alternate winding order.<pre><code>Ring 1: Clockwise
+Ring 2: Counter-Clockwise
+Ring 3: Clockwise</code></pre>
+      </div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 220 220">
+          <path d="M41.08,68.25L37.91,66.1l8-3.91L45.3,71.09,42.14,69A79.21,79.21,0,1,0,69.46,41.83l-0.65-1.1A80.63,80.63,0,1,1,41.08,68.25Z" class="ring outer cw" />
+          <path d="M43,106.48l-2.61,0,3,5.3,3.11-5.21-2.59,0a53.9,53.9,0,1,1,4.68,25.77l-0.79.36A54.86,54.86,0,1,0,43,106.48Z" class="ring inner ccw" />
+          <path d="M98.93,80.81l0.61-1.49,2.3,3-3.71.51,0.6-1.48a33.24,33.24,0,1,0,13.5,8.87l0.39-.36A33.83,33.83,0,1,1,98.93,80.81Z" class="ring outer cw" />
+        </svg>
+      </div>
+      <div class="col3 pad1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewbox="0 0 220 220">
+          <path d="M110.19,30.67A79.33,79.33,0,1,0,189.53,110,79.33,79.33,0,0,0,110.19,30.67ZM97.43,164.81A54.81,54.81,0,1,1,152.24,110,54.81,54.81,0,0,1,97.43,164.81Z" class="ring outer render" />
+          <circle cx="87.73" cy="112.71" r="33.81" class="ring outer render" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+  </section>
+  
+  <section id="implementations">
+    
+    <h2 class="section-header">Implementations</h2>
+    
+    <div class="post-content"><p>Implementations of the Mapbox Vector Tile Specification are far and wide. Many of them fall into one of the following categories:</p>
+
+<ul>
+  <li>Parsers &amp; generators: libraries that read and/or encode vector tiles, some also have command line utilities</li>
+  <li>Clients: web-based tools that render vector tiles that conform to the specification</li>
+  <li>Applications: browser-based tools for creating and visualizing vector tiles</li>
+  <li>Servers: support rendering and serving up vector tiles (<em>note: the specification doesn’t go into how to do this explicitly</em>)</li>
+</ul>
+
+<p>A great list of tools implementing Mapbox Vector Tiles can be found at <a href="https://github.com/mapbox/vector-tile-spec/">github.com/mapbox/awesome-vector-tiles</a>.</p>
+</div>
+  </section>
+  
+  <section id="not-included">
+    
+    <h2 class="section-header">What the spec doesn't cover</h2>
+    
+    <div class="post-content"><p>This specification is very explicit in the way a vector tile should pack data. However, there are some related concepts that this specification does not cover.</p>
+
+<h3 id="how-to-use-vector-tiles-as-a-dataset">How to use vector tiles as a dataset</h3>
+
+<p>This specification IS NOT intended to explain how to use vector tiles as a dataset. This is something that has been considered for the future, but it will likely be a separate specification. This specification does not cover how to store, request, or share vector tiles. Consider this specification similar to how the PNG spec explains how to <em>pack data</em>.</p>
+
+<h3 id="clipping">Clipping</h3>
+
+<p>The specification does not explain how geographic data should be clipped between vector tiles since clipping, like simplification, can be executed in many ways. Mapbox specifically clips features at a buffer around the tile (see the encoding example above). Any geometry within this buffer is assumed to carry over to another tile. This is up for consideration for a future release.</p>
+
+<p><em>Note: encoded geometry in vector tiles can actually extend beyond the bound of the tile. This means features are not required to be clipped.</em></p>
+
+<p>A common question, when it comes to clipping is “how do renderers know which lines to connect for clipped geometry?”. This is the very reason Mapbox adds a buffer to vector tiles and clipped geometry. When it is time to render the canvas is set to the exact tile size, which sets the edges outside of the visual frame, thus the tiles all line up. Therefore, there is no need to know which nodes are part of others for rendering purposes. That being said, one <em>could</em> use the <code class="highlighter-rouge">id</code> field in the protobuf to store information necessary for reconstructing polygons.</p>
+
+<h3 id="simplification">Simplification</h3>
+
+<p>The conversion from geographic coordinates (latitude and longitude) to vector tile coordinates (x, y) is an important step, but can be implemted in many different ways prior to vector tile encoding. It is not included in this specification, but there are some important GOTCHAs we’d like to point out.</p>
+
+<div class="js-example clearfix">
+  <div class="js-example-header pad2">
+    <h3>Simplification &amp; Rounding GOTCHAs</h3>
+    <p>Even though simplification is not a part of the specification, these are some tricky situations to keep in mind as you implement a simplification or rounding algorithm.</p>
+  </div>
+  <div class="js-example-body pad2">
+    <div class="col12 clearfix">
+      <div class="col6">
+        <p>Simplification can cause <strong>invalid polygons</strong> according to the OGC standards by oversimplifying polygon rings to the point where their edges overlap. See below how simplifying one line changes the rendering of a polygon by pushing the interior ring outside of the exterior ring.</p>
+      </div>
+      <div class="col5 fr">
+        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewbox="0 0 300 300" class="simplification-example">
+          <g id="simp1" class="show">
+            <text x="0" y="10" font-size="12">1 / 4</text>
+            <text x="0" y="24" font-size="12">Polygon with a "hole"</text>
+            <path d="M267.53,102.13L220.72,45.34,172,29.73,42.27,65.48,25.69,189.32l84.46,34.2L182,273.12,254.42,240,275,177ZM171.81,219.89l-83.94-45.6L54.71,76.88,206,74.29l18.65,118.66Z" class="simp-geom simp-poly" />
+          </g>
+          <g id="simp2">
+            <text x="0" y="10" font-size="12">2 / 4</text>
+            <text x="0" y="24" font-size="12">Exterior (blue) and interior (red) rings</text>
+            <polygon points="42.27 65.48 172.05 29.73 220.72 45.34 267.53 102.13 275.02 177.01 254.42 240.05 182.03 273.12 110.15 223.51 25.69 189.32 42.27 65.48" class="simp-geom simp-ring simp-ring-outer hide" />
+            <polygon points="54.71 76.88 87.87 174.29 171.81 219.89 224.66 192.94 206.01 74.29 54.71 76.88" class="simp-geom simp-ring simp-ring-inner hide" />
+          </g>
+          <g id="simp3">
+            <text x="0" y="10" font-size="12">3 / 4</text>
+            <text x="0" y="24" font-size="12">Simplified exterior ring</text>
+            <line x1="26.92" y1="180.14" x2="41.46" y2="71.56" class="simp-geom simp-dashed" />
+            <polyline points="41.87 68.45 42.27 65.48 45.16 64.68" class="simp-geom simp-dashed" />
+            <line x1="51.07" y1="63.06" x2="166.2" y2="31.34" class="simp-geom simp-dashed" />
+            <polygon points="172.05 29.73 220.72 45.34 267.53 102.13 275.02 177.01 254.42 240.05 182.03 273.12 110.15 223.51 25.69 189.32 172.05 29.73" class="simp-geom simp-ring simp-ring-outer hide" />
+            <polygon points="54.71 76.88 87.87 174.29 171.81 219.89 224.66 192.94 206.01 74.29 54.71 76.88" class="simp-geom simp-ring simp-ring-inner hide" />
+          </g>
+          <g id="simp4">
+            <text x="0" y="10" font-size="12">4 / 4</text>
+            <text x="0" y="24" font-size="12">Invalid geometry</text>
+            <line x1="26.92" y1="180.14" x2="41.46" y2="71.56" class="simp-geom simp-dashed" />
+            <polyline points="41.87 68.45 42.27 65.48 45.16 64.68" class="simp-geom simp-dashed" />
+            <line x1="51.07" y1="63.06" x2="166.2" y2="31.34" class="simp-geom simp-dashed" />
+            <polygon points="267.53 102.13 220.72 45.34 172.05 29.73 129.99 75.59 206.01 74.29 224.66 192.94 171.81 219.89 87.87 174.29 74.77 135.81 25.69 189.32 110.15 223.51 182.03 273.12 254.42 240.05 275.02 177.01 267.53 102.13" class="simp-geom simp-poly hide" />
+            <polygon points="54.71 76.88 74.77 135.81 129.99 75.59 54.71 76.88" class="simp-geom simp-poly hide" />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="col12 clearfix">
+      <div class="col6">
+        <p>When spatial coordaintes are converted to tile coordaintes, they are rounded to integers. Simplifying (rounding) the coordinates can <strong>reverse the winding order</strong>. Consider a triangle polygon that is simplified to the vector tile grid. The rounded point can cross over the polygon and "flip" it, rendering its winding order reversed.</p>
+      </div>
+      <div class="col5 fr">
+        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewbox="0 0 300 300" class="flip-example">
+          <g id="flip-grid" class="show">
+            <path class="flip-grid" d="M242.41,0h1m-63,0h1m-63,0h1m-63,0h1M0,57.59v-1m0,63v-1m0,63v-1m0,63v-1M57.59,300h-1m63,0h-1m63,0h-1m63,0h-1M300,242.41v1m0-63v1m0-63v1m0-63v1" />
+            <path class="flip-grid" d="M243.45,0h-1V56.55H181.49V0h-1V56.55H119.54V0h-1V56.55H57.59V0h-1V56.55H0v1H56.55v60.92H0v1H56.55v60.92H0v1H56.55v60.92H0v1H56.55V300h1V243.45h60.92V300h1V243.45h60.92V300h1V243.45h60.92V300h1V243.45H300v-1H243.45V181.49H300v-1H243.45V119.54H300v-1H243.45V57.59H300v-1H243.45V0ZM118.51,242.41H57.59V181.49h60.92v60.92Zm0-62H57.59V119.54h60.92v60.92Zm0-62H57.59V57.59h60.92v60.92Zm62,123.91H119.54V181.49h60.92v60.92Zm0-62H119.54V119.54h60.92v60.92Zm0-62H119.54V57.59h60.92v60.92Zm62,123.91H181.49V181.49h60.92v60.92Zm0-62H181.49V119.54h60.92v60.92Zm0-62H181.49V57.59h60.92v60.92Z" />
+          </g>
+          <g id="flip1" class="show">
+            <text x="0" y="10" font-size="12">1 / 4</text>
+            <text x="0" y="24" font-size="12">Polygon pre-simplification</text>
+            <polygon points="36.06 204.47 219.82 83.96 153.8 155.53 36.06 204.47" class="flip-ring flip-outer" />
+          </g>
+          <g id="flip2">
+            <text x="0" y="10" font-size="12">2 / 4</text>
+            <text x="0" y="24" font-size="12">Simplify a point to the grid</text>
+            <polygon points="36.06 204.47 219.82 83.96 153.8 155.53 36.06 204.47" class="flip-ring flip-dashed" />
+            <polygon points="56.55 181.49 219.82 83.96 153.8 155.53 56.55 181.49" class="flip-ring flip-outer" />
+          </g>
+          <g id="flip3">
+            <text x="0" y="10" font-size="12">3 / 4</text>
+            <text x="0" y="24" font-size="12">Simplify the second point to the grid</text>
+            <polygon points="36.06 204.47 219.82 83.96 153.8 155.53 36.06 204.47" class="flip-ring flip-dashed" />
+            <polygon points="56.55 181.49 180.46 118.51 153.8 155.53 56.55 181.49" class="flip-ring flip-outer" />
+          </g>
+          <g id="flip4">
+            <text x="0" y="10" font-size="12">4 / 4</text>
+            <text x="0" y="24" font-size="12">Simplifying the final point flips the triangle</text>
+            <text x="0" y="38" font-size="12">and reverses the winding order</text>
+            <polygon points="36.06 204.47 219.82 83.96 153.8 155.53 36.06 204.47" class="flip-ring flip-dashed" />
+            <polygon points="56.55 181.49 180.46 118.51 119.54 119.54 56.55 181.49" class="flip-ring flip-inner" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="open-specification">Open Specification</h2>
+
+<p>Interested in diving into the complete specification? Take a look at the <a href="https://github.com/mapbox/vector-tile-spec/tree/master/2.1">repository on Github</a>. If you have any questions or notice anything incorrect with this page or the specification, you can <a href="https://github.com/mapbox/vector-tile-spec/issues/">submit an issue</a> and we’ll work through it.</p>
+
+<p><a href="icon prev">Back to vector tiles</a></p>
+</div>
+  </section>
+  
+</div>
+  </div>
+</div>
+
+<script src="/developers/vector-tiles/specification/js/site.js"></script></div>
+
+
+<div class='footer footer-in-docs clearfix contain hide-mobile noprint fill-light' data-swiftype-index='false'>
+  <div class='limiter clearfix'>
+    <div class='footer-in-docs footer-cols-in-docs clearfix col12 pad8y small'>
+      <div class='hide-in-docs col2'>
+        <h3 class='space-bottom1'>Overview</h3>
+        
+        <a id='footer-products' class='space-bottom0 quiet col12 strong' href='https://www.mapbox.com/products/'>Products</a>
+        
+        <a id='footer-data' class='space-bottom0 quiet col12 strong' href='https://www.mapbox.com/data-platform/'>Data</a>
+        
+        <a id='footer-pricing' class='space-bottom0 quiet col12 strong' href='https://www.mapbox.com/pricing/'>Pricing</a>
+        
+        <a id='footer-blog' class='space-bottom0 quiet col12 strong' href='https://www.mapbox.com/blog/'>Blog</a>
+        
+        <a id='footer-showcase' class='space-bottom0 quiet col12 strong' href='https://www.mapbox.com/showcase/'>Showcase</a>
+        
+        <a id='footer-platform' class='space-bottom0 quiet col12 strong' href='https://www.mapbox.com/platform/'>Platform</a>
+        
+        <a id='footer-telemetry' class='space-bottom0 quiet col12 strong' href='https://www.mapbox.com/telemetry/'>Telemetry</a>
+        
+      </div>
+      <div class='col2 footer-col-in-docs'>
+        <h3 class='space-bottom1'>About us</h3>
+        
+        <a id='footer-our-story' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/about/'>Our story</a>
+        
+        <a id='footer-team' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/about/team/'>Team</a>
+        
+        <a id='footer-jobs' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/jobs/'>Jobs</a>
+        
+        <a id='footer-press' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/about/press/'>Press</a>
+        
+        <a id='footer-green' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/about/green/'>Green</a>
+        
+        <a id='footer-open-source' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/about/open/'>Open source</a>
+        
+        <a id='footer-board-and-investors' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/about/board/'>Board and investors</a>
+        
+      </div>
+      <div class='col2 footer-col-in-docs'>
+        <h3 class='space-bottom1'>Help</h3>
+        
+        <a id='footer-help/faq' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/help/'>Help/FAQ</a>
+        
+        <a id='footer-status' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/status/'>Status</a>
+        
+        <a id='footer-map-feedback' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/map-feedback/'>Map feedback</a>
+        
+        <a id='footer-contact-us' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/contact/'>Contact us</a>
+        
+        <a id='footer-education' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/education/'>Education</a>
+        
+        <a id='footer-security' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/security/'>Security</a>
+        
+      </div>
+       <div class='col2 footer-col-in-docs'>
+        <h3 class='space-bottom1'>Map design</h3>
+        
+        <a id='footer-maps' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/maps/'>Maps</a>
+        
+        <a id='footer-mapbox-studio' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/mapbox-studio/'>Mapbox Studio</a>
+        
+        <a id='footer-map-gallery' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/gallery/'>Map Gallery</a>
+        
+        <a id='footer-vector-tiles' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/developers/vector-tiles/'>Vector tiles</a>
+        
+        <a id='footer-maki-icons' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/maki/'>Maki icons</a>
+        
+      </div>
+      <div class='col2 footer-col-in-docs'>
+        <h3 class='space-bottom1'>Developers</h3>
+        
+        <a id='footer-mapbox-api' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/developers/api/'>Mapbox API</a>
+        
+        <a id='footer-mapbox.js' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/mapbox.js/'>Mapbox.js</a>
+        
+        <a id='footer-ios-sdk' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/ios-sdk/'>iOS SDK</a>
+        
+        <a id='footer-android-sdk' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/android-sdk/'>Android SDK</a>
+        
+        <a id='footer-mapbox-gl-for-js' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/mapbox-gl-js/'>Mapbox GL for JS</a>
+        
+        <a href='https://www.mapbox.com/developers/' class='small rcon next quiet'>All developers</a>
+      </div>
+      <div class='hide-in-docs col2 footer-col-in-docs'>
+        <h3 class='space-bottom1'>Industries</h3>
+        
+        <a id='footer-real-estate' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/industries/realestate/'>Real estate</a>
+        
+        <a id='footer-transportation' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/industries/transportation/'>Transportation</a>
+        
+        <a id='footer-agriculture' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/industries/agriculture/'>Agriculture</a>
+        
+        <a id='footer-social' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/industries/social/'>Social</a>
+        
+        <a id='footer-government' class='space-bottom0 col12 quiet strong' href='https://www.mapbox.com/industries/government/'>Government</a>
+        
+        <a href='https://www.mapbox.com/industries/' class='small rcon next quiet'>All industries</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class='limiter newsletter-copyright hide-in-docs clearfix'>
+    <div class='contain col4 footer-social'>
+      <div class='animate footer-animation col6'></div>
+      <div class='footer-dialog fr small strong pad2 col6 contain round fill-darken0'>
+      Follow Mapbox on <a href='https://twitter.com/mapbox'>Twitter</a>, <a href='https://www.facebook.com/Mapbox'>Facebook</a>, and <a href='https://instagram.com/mapbox'>Instagram</a>.
+      </div>
+    </div>
+    <div class='margin1 col7 pad2 fill-darken0 round contain'>
+      <form id='newsletter' method='post'>
+        <h3 class='space-bottom1'>Sign up for our newsletter</h3>
+        <p class='quiet'>Keep up with Mapbox product announcements, events, and walkthroughs.</p>
+        <fieldset class='clearfix newsletter-in-docs input-pill col12 pill with-icon'>
+          <span class='icon mail quiet'></span>
+          <input type='text' value='' placeholder='Email address' name='email' class='col9 required email'>
+          <input type='submit' value='Subscribe' class='button col3'>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class='footer-in-docs terms-in-docs col12 center footer-copyright small pad4 noprint fill-light contain' data-swiftype-index='false'>
+  <a href='https://www.mapbox.com/tos'>Terms</a> +
+  <a href='https://www.mapbox.com/privacy'>Privacy</a>
+  &copy; Mapbox
+</div>
+
+
+
+
+
+<div id='modal-content' class='animate modal modal-content'></div>
+</div>
+
+<script>
+var $dropdownTriggers = $('.dropdown');
+var $dropdownArea = $('.main-subnav');
+var $dropdownZone = $('.hover-area');
+
+$dropdownTriggers.each(function() {
+  var $this = $(this);
+  window.hoverintent(this, function() {
+    $dropdownTriggers.removeClass('show');
+    $('.subnav-group').removeClass('show');
+    $dropdownArea.addClass('show');
+    $('.subnav-' + $this.data('category')).addClass('show');
+    $this.addClass('show');
+  }, function() {
+    if (!$dropdownZone.hasClass('hovered') && $('.dropdown:hover').length === 0) {
+      $dropdownArea.removeClass('show');
+      $dropdownTriggers.removeClass('show');
+    }
+  });
+});
+
+$dropdownZone.mouseover(function() {
+  $(this).addClass('hovered');
+  return false;
+}).mouseleave(function() {
+  $(this).removeClass('hovered');
+  window.setTimeout(function() {
+    if ($('.dropdown:hover').length === 0) {
+      $dropdownArea.removeClass('show');
+      $dropdownTriggers.removeClass('show');
+    }
+  }, 300);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<link href='{{site.baseurl}}/css/site.css' rel='stylesheet' />
+
+{% include nav.html %}
+
+<div class='col12 clearfix'>
+  <div class='sidebar col3 pad2 small'>
+    {% include sidebar.html %}
+  </div>
+  <div class='content contain col9'>
+    {% include main.html %}
+  </div>
+</div>
+
+<script src="{{site.baseurl}}/js/site.js"></script>
