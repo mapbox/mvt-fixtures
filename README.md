@@ -54,7 +54,6 @@ You can access all of the fixtures and their metadata in the /fixtures directory
 ```
 git clone git@github.com:mapbox/mvt-fixtures.git
 cd mvt-fixtures
-git submodule update --init
 npm install
 npm install -g documentation
 ```
