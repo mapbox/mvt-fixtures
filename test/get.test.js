@@ -20,7 +20,7 @@ test('[get] failure, throws error if fixture does not exist', (assert) => {
     assert.fail();
   } catch(err) {
     assert.ok(err);
-    assert.ok(/Error loading fixture \/src\/beep-boop\.js: Error: Cannot find module \'\.\/src\/beep-boop\.js\'/.test(err.message));
+    assert.ok(/Error loading fixture/.test(err.message));
     assert.end();
   }
 });

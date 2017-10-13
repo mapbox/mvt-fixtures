@@ -29,11 +29,11 @@ function get(id) {
   let final = {};
   let fixture;
 
+  const fixturePath = path.join(__dirname, 'src', `${id}.js`);
   try {
-    fixture = require(`./src/${id}.js`);
+    fixture = require(fixturePath);
   } catch(err) {
-
-    throw new Error(`Error loading fixture /src/${id}.js: ${err}`);
+    throw new Error(`Error loading fixture ${fixturePath}: ${err}`);
   }
 
   final.id = id;
@@ -70,7 +70,8 @@ function each(fn) {
   if (!fn) throw new Error('must provide a function argument in .each()');
   if (typeof fn !== 'function') throw new Error('argument is not a function');
 
-  const files = fs.readdirSync('./src');
+  const sourcePath = path.join(__dirname, 'src');
+  const files = fs.readdirSync(sourcePath);
   const queue = d3.queue(1);
   files.forEach(function(file) {
     queue.defer(function(next) {
