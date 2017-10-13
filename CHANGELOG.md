@@ -1,3 +1,7 @@
+## 3.0.0-beta4
+
+- Revert 3.0.0-beta3 removal of submodule, fix paths instead
+
 ## 3.0.0-beta3
 
 - Vendorize vector-tile-spec repository so it packages with npm publishes [#61](https://github.com/mapbox/mvt-fixtures/issues/61)
