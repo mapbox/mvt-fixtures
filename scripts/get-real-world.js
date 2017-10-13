@@ -30,13 +30,14 @@ q.awaitAll(function(err, data) {
 
 function getAndWriteTile(name, tileset, z, x, y, callback) {
   let url = `https://api.mapbox.com/v4/${tileset}/${z}/${x}/${y}.vector.pbf?access_token=${process.env.MapboxAccessToken}`;
-  got(url)
-    .then(response => {
+  got.stream(url)
+    .on('error', (err) => {
+      console.log(err);
+      return callback(new Error(`error getting ${url}: ${err}`));
+    })
+    .on('response', (res) => {
       console.log(`writing ${name}/${z}-${x}-${y}.mvt`);
-      fs.writeFileSync(path.join(__dirname, '..', 'real-world', name, `${z}-${x}-${y}.mvt`), response.body);
+      fs.writeFileSync(path.join(__dirname, '..', 'real-world', name, `${z}-${x}-${y}.mvt`), res.body);
       return callback();
-  	})
-    .catch(err => {
-  		return callback(new Error(`error getting ${url}: ${err}`));
-  	});
+    });
 };
