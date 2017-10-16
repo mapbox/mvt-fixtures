@@ -35,11 +35,15 @@ npm install @mapbox/mvt-fixtures --save-dev
 const mvtf = require('@mapbox/mvt-fixtures');
 const decoder = require('your-mvt-decoder');
 
+// assert on every single buffer
 mvtf.each(function(fixture) {
   let output = decoder(fixture.buffer);
   assert.equal(output.layers.length, fixture.json.layers.length, 'expected number of layers');
   // ... more tests
 });
+
+// or you can get individual fixtures
+const output = decoder(mvtf.get('043').buffer);
 ```
 
 ### Non-JS interface
@@ -49,6 +53,10 @@ You can access all of the fixtures and their metadata in the /fixtures directory
 1. tile.mvt - the protocol buffer that represents (or intentionally breaks) the Mapbox Vector Tile specification
 1. tile.json - a JSON representation of the tile and its properties
 1. info.json - information about the fixture including `name`, `description`, and `specification_reference`.
+
+# Real-world fixtures
+
+While the bulk of mvt-fixtures is focused on minimal unit tests with very specific features, it also includes a set of real-world tiles that are useful for benchmarking and running your decoder through more realistic tiles. Learn more about each real world extent in [REAL-WORLD.md](REAL-WORLD.md).
 
 # Develop
 
