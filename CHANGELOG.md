@@ -1,3 +1,8 @@
+## 3.0.0-beta5
+
+- Add real-world fixtures from mapbox-streets and mapbox-terrain tilesets [#49](https://github.com/mapbox/mvt-fixtures/issues/49)
+- Another path fix [#65](https://github.com/mapbox/mvt-fixtures/pull/65)
+
 ## 3.0.0-beta4
 
 - Revert 3.0.0-beta3 removal of submodule, fix paths instead
