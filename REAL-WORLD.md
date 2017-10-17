@@ -6,3 +6,4 @@ nepal|terrain|mapbox.mapbox-streets-v7,mapbox.mapbox-terrain-v2|z13|`real-world/
 uruguay|complex water feature|mapbox.mapbox-streets-v7,mapbox.mapbox-terrain-v2|z9|`real-world/uruguay/{z}-{x}-{y}.mvt`|12
 bangkok|urban and suburban|mapbox.mapbox-streets-v7,mapbox.mapbox-terrain-v2|z12|`real-world/bangkok/{z}-{x}-{y}.mvt`|40
 norway|many little islands|mapbox.mapbox-streets-v7,mapbox.mapbox-terrain-v2|z12|`real-world/norway/{z}-{x}-{y}.mvt`|32
+compressed|gzip compressed tiles in a light urban area|mapbox.mapbox-streets-v7|z14|`real-world/compressed/{z}-{x}-{y}.mvt`|4
