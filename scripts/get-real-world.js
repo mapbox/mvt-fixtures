@@ -4,6 +4,7 @@ const SM = require('@mapbox/sphericalmercator');
 const d3 = require('d3-queue');
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 const extents = require('../lib/real-world-extents.js');
 
 const sm = new SM();
@@ -30,11 +31,14 @@ q.awaitAll(function(err, data) {
 
 function getAndWriteTile(name, tileset, z, x, y, callback) {
   let url = `https://api.mapbox.com/v4/${tileset}/${z}/${x}/${y}.vector.pbf?access_token=${process.env.MapboxAccessToken}`;
-  request.get(url, function(err, res, data) {
+  // console.log(url);
+  request.get(url, {encoding: null}, function(err, res, data) {
     if (err) return callback(err);
     if (res.statusCode !== 200) return callback(new Error(`status code error ${res.statusCode}`));
-    console.log(`writing ${name}/${z}-${x}-${y}.mvt`);
-    fs.writeFileSync(path.join(__dirname, '..', 'real-world', name, `${z}-${x}-${y}.mvt`), data);
-    return callback();
+    zlib.gunzip(data, function(err, deflated) {
+      console.log(`writing ${name}/${z}-${x}-${y}.mvt`);
+      fs.writeFileSync(path.join(__dirname, '..', 'real-world', name, `${z}-${x}-${y}.mvt`), deflated);
+      return callback();
+    });
   });
 };
