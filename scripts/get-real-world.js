@@ -19,7 +19,6 @@ for (let e in extents) {
 
   for (let x = xyz.minX; x <= xyz.maxX; x++) {
     for (let y = xyz.minY; y <= xyz.maxY; y++) {
-      // q.defer(getAndWriteTile, e, extents[e].tileset, extents[e].zoom, x, y);
       q.defer(getAndWriteTile, e, extents[e], x, y);
     }
   }
