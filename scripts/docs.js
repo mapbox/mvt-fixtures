@@ -37,7 +37,12 @@ for (let e in rw) {
   let ex = rw[e];
   let xyz = sm.xyz(ex.bbox, ex.zoom);
   let numTiles = (xyz.maxX - (xyz.minX-1)) * (xyz.maxY - (xyz.minY-1));
-  docsrw+=`${e}|${ex.type}|${ex.tileset}|z${ex.zoom}|\`real-world/${e}/{z}-{x}-{y}.mvt\`|${numTiles}\n`;
+  let fpath = `\`real-world/${e}/{z}-{x}-{y}.mvt\``;
+  if (ex.gzip) {
+    fpath = `\`real-world/${e}/{z}-{x}-{y}.mvt.gz\``;
+  }
+
+  docsrw+=`${e}|${ex.type}|${ex.tileset}|z${ex.zoom}|${fpath}|${numTiles}\n`;
 }
 
 fs.writeFileSync('./REAL-WORLD.md', docsrw);
