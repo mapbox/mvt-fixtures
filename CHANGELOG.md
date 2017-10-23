@@ -1,3 +1,7 @@
+## 3.0.0-beta6
+
+- gunzip and null encode all of the real-world fixtures, plus include some fixtures that _are_ gzipped. [#67](https://github.com/mapbox/mvt-fixtures/commits/master)
+
 ## 3.0.0-beta5
 
 - Add real-world fixtures from mapbox-streets and mapbox-terrain tilesets [#49](https://github.com/mapbox/mvt-fixtures/issues/49)
