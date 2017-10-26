@@ -1,3 +1,7 @@
+## 3.0.0-beta7
+
+- Fix some invalid fixtures [#69](https://github.com/mapbox/mvt-fixtures/pull/69)
+
 ## 3.0.0-beta6
 
 - gunzip and null encode all of the real-world fixtures, plus include some fixtures that _are_ gzipped. [#67](https://github.com/mapbox/mvt-fixtures/commits/master)
