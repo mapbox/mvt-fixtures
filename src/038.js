@@ -20,8 +20,7 @@ module.exports = {
               3, 3,
               4, 4,
               5, 5,
-              6, 6,
-              7, 7
+              6, 6
             ],
             type: 1,
             geometry: [ 9, 50, 34 ]
