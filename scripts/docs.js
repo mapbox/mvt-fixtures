@@ -30,7 +30,7 @@ fs.writeFileSync('./FIXTURES.md', docs);
  */
 const sm = new SM();
 let docsrw = `name|description|tileset|zoom|template|number of tiles
----|---|---|---|---
+---|---|---|---|---|---
 `;
 
 for (let e in rw) {
