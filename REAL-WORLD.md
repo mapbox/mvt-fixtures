@@ -1,5 +1,5 @@
 name|description|tileset|zoom|template|number of tiles
----|---|---|---|---
+---|---|---|---|---|---
 chicago|urban|mapbox.mapbox-streets-v7|z13|`real-world/chicago/{z}-{x}-{y}.mvt`|30
 sanfrancisco|urban|mapbox.mapbox-streets-v7|z14|`real-world/sanfrancisco/{z}-{x}-{y}.mvt`|49
 nepal|terrain|mapbox.mapbox-streets-v7,mapbox.mapbox-terrain-v2|z13|`real-world/nepal/{z}-{x}-{y}.mvt`|60
