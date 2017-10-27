@@ -21,31 +21,31 @@ module.exports = {
             id: 2,
             tags: [0, 1],
             type: 1,
-            geometry: [ 9, 23, 43 ]
+            geometry: [ 9, 52, 38 ]
           },
           {
             id: 3,
             tags: [0, 2],
             type: 1,
-            geometry: [ 9, 15, 86 ]
+            geometry: [ 9, 54, 30 ]
           },
           {
             id: 4,
             tags: [0, 3],
             type: 1,
-            geometry: [ 9, 123, 433 ]
+            geometry: [ 9, 120, 20 ]
           },
           {
             id: 5,
             tags: [0, 4],
             type: 1,
-            geometry: [ 9, 23, 11 ]
+            geometry: [ 9, 88, 40 ]
           },
           {
             id: 6,
             tags: [0, 5],
             type: 1,
-            geometry: [ 9, 46, 99 ]
+            geometry: [ 9, 46, 98 ]
           }
         ],
         keys: ['poi'],
