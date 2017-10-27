@@ -1,4 +1,4 @@
-# mvt-fixtures
+![mvt-fixtures crew](https://c1.staticflickr.com/5/4495/24124229798_b82cd97858_o.png)
 
 [![Build Status](https://travis-ci.org/mapbox/mvt-fixtures.svg?branch=master)](https://travis-ci.org/mapbox/mvt-fixtures)
 

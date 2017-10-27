@@ -1,32 +1,42 @@
-## 3.0.0-beta7
+## 3.0.0
+
+Complete restructure of mvt-fixtures using pbf and protocol-buffers-schema, focused on maintainability and tools for quickly generating new fixtures. :tada: Major improvements:
+
+* All fixtures have their own source file (by ID) that contains information including a description, validity specs, and a JSON representation of the fixture used to generate a protocol buffer. All fixtures are described in FIXTURES.md
+* Include a javascript API with `get` and `each` methods, described in API.md
+* Add real-world fixtures from mapbox-streets and mapbox-terrain tilesets. All real world fixtures are described in REAL-WORLD.md
+* Add protoc scripts to dump raw text form of buffers to stdout for debugging
+* Automated API and fixture documentation
+
+#### 3.0.0-beta7
 
 - Fix some invalid fixtures [#69](https://github.com/mapbox/mvt-fixtures/pull/69)
 
-## 3.0.0-beta6
+#### 3.0.0-beta6
 
 - gunzip and null encode all of the real-world fixtures, plus include some fixtures that _are_ gzipped. [#67](https://github.com/mapbox/mvt-fixtures/commits/master)
 
-## 3.0.0-beta5
+#### 3.0.0-beta5
 
 - Add real-world fixtures from mapbox-streets and mapbox-terrain tilesets [#49](https://github.com/mapbox/mvt-fixtures/issues/49)
 - Another path fix [#65](https://github.com/mapbox/mvt-fixtures/pull/65)
 
-## 3.0.0-beta4
+#### 3.0.0-beta4
 
 - Revert 3.0.0-beta3 removal of submodule, fix paths instead
 
-## 3.0.0-beta3
+#### 3.0.0-beta3
 
 - Vendorize vector-tile-spec repository so it packages with npm publishes [#61](https://github.com/mapbox/mvt-fixtures/issues/61)
 
-## 3.0.0-beta2
+#### 3.0.0-beta2
 
 - Recreate all fixtures that previously existed in 2.x
 - Add protoc scripts to dump raw text form of buffers to stdout for debugging
 - Update generateBuffer to run specific versions of the Mapbox Vector Tile Specification, or custom proto files
 - Generate with proto2 syntax by default instead of proto3 syntax to avoid situations where default values confusion
 
-## 3.0.0-beta1
+#### 3.0.0-beta1
 
 - Create source files for all fixtures in the src/ directory - these are node modules which include information about the fixture, including a description, validity specs, and a JSON representation of the fixture.
 - Rely on `pbf` and `protocol-buffers-schema` modules to generate fixtures based on the Mapbox Vector Tile Specification, which is now a submodule to this repository.
