@@ -1,3 +1,7 @@
+## 3.0.1
+
+* Fix San Francisco real-world fixtures to z15 so we include buildings. Also reduces the number of fixtures dramatically to save on size. [#72](https://github.com/mapbox/mvt-fixtures/pull/72)
+
 ## 3.0.0
 
 Complete restructure of mvt-fixtures using pbf and protocol-buffers-schema, focused on maintainability and tools for quickly generating new fixtures. :tada: Major improvements:
