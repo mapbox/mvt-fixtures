@@ -34,6 +34,10 @@ function getAndWriteTile(name, set, x, y, callback) {
   let url = `https://api.mapbox.com/v4/${set.tileset}/${set.zoom}/${x}/${y}.vector.pbf?access_token=${process.env.MapboxAccessToken}`;
   request.get(url, {encoding: null}, function(err, res, data) {
     if (err) return callback(err);
+    if (res.statusCode === 404) {
+      console.log(`${url} does not exist... skipping.`);
+      return callback();
+    }
     if (res.statusCode !== 200) return callback(new Error(`status code error ${res.statusCode}`));
     if (set.gzip) {
       let p = path.join(__dirname, '..', 'real-world', name, `${set.zoom}-${x}-${y}.mvt.gz`);
