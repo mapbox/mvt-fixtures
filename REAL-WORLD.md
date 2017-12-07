@@ -7,5 +7,5 @@ uruguay|complex water feature|mapbox.mapbox-streets-v7,mapbox.mapbox-terrain-v2|
 bangkok|urban and suburban|mapbox.mapbox-streets-v7,mapbox.mapbox-terrain-v2|z12|`real-world/bangkok/{z}-{x}-{y}.mvt`|40
 norway|many little islands|mapbox.mapbox-streets-v7,mapbox.mapbox-terrain-v2|z12|`real-world/norway/{z}-{x}-{y}.mvt`|32
 compressed|gzip compressed tiles in a light urban area|mapbox.mapbox-streets-v7|z14|`real-world/compressed/{z}-{x}-{y}.mvt.gz`|4
-osm-qa-barbados|OSM QA tiles of urban Barbados (Bridgetown & Holetown)|mapsam.osm-qa-barbados|z12|`real-world/osm-qa-barbados/{z}-{x}-{y}.mvt`|6
-osm-qa-andorra|OSM QA tiles of Andorra|mapsam.osm-qa-andorra|z12|`real-world/osm-qa-andorra/{z}-{x}-{y}.mvt`|8
+osm-qa-astana|OSM QA tiles of Astana, kazakhstan (urban)|false|z12|`real-world/osm-qa-astana/{z}-{x}-{y}.mvt`|16
+osm-qa-montevideo|OSM QA tiles of Montevideo, Uruguay (urban)|false|z12|`real-world/osm-qa-montevideo/{z}-{x}-{y}.mvt`|8

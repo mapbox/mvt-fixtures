@@ -11,15 +11,19 @@ const sm = new SM();
 const q = d3.queue(5);
 
 for (let e in extents) {
-  let xyz = sm.xyz(extents[e].bbox, extents[e].zoom);
+  if (!extents[e].tileset) {
+    console.log('skipping ', e);
+  } else {
+    let xyz = sm.xyz(extents[e].bbox, extents[e].zoom);
 
-  if (!fs.existsSync(path.join(__dirname, '..', 'real-world', e))) {
-    fs.mkdirSync(path.join(__dirname, '..', 'real-world', e));
-  }
+    if (!fs.existsSync(path.join(__dirname, '..', 'real-world', e))) {
+      fs.mkdirSync(path.join(__dirname, '..', 'real-world', e));
+    }
 
-  for (let x = xyz.minX; x <= xyz.maxX; x++) {
-    for (let y = xyz.minY; y <= xyz.maxY; y++) {
-      q.defer(getAndWriteTile, e, extents[e], x, y);
+    for (let x = xyz.minX; x <= xyz.maxX; x++) {
+      for (let y = xyz.minY; y <= xyz.maxY; y++) {
+        q.defer(getAndWriteTile, e, extents[e], x, y);
+      }
     }
   }
 }
