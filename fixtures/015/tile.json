@@ -6,7 +6,10 @@
       "features": [
         {
           "id": 1,
-          "tags": [],
+          "tags": [
+            0,
+            0
+          ],
           "type": 1,
           "geometry": [
             9,
@@ -15,8 +18,14 @@
           ]
         }
       ],
-      "keys": [],
-      "values": [],
+      "keys": [
+        "name"
+      ],
+      "values": [
+        {
+          "string_value": "layer-one"
+        }
+      ],
       "extent": 4096
     },
     {
@@ -25,7 +34,10 @@
       "features": [
         {
           "id": 1,
-          "tags": [],
+          "tags": [
+            0,
+            0
+          ],
           "type": 1,
           "geometry": [
             9,
@@ -34,8 +46,14 @@
           ]
         }
       ],
-      "keys": [],
-      "values": [],
+      "keys": [
+        "name"
+      ],
+      "values": [
+        {
+          "string_value": "layer-two"
+        }
+      ],
       "extent": 4096
     }
   ]
