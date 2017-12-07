@@ -1,3 +1,8 @@
+## 3.1.0
+
+* Add OSM QA tiles for more diverse real-world examples [#76](https://github.com/mapbox/mvt-fixtures/issues/76)
+* Update fixture 015 (duplicate layers) to include unique tags, which simplifies asserting on expected features [#78](https://github.com/mapbox/mvt-fixtures/pull/78)
+
 ## 3.0.1
 
 * Fix San Francisco real-world fixtures to z15 so we include buildings. Also reduces the number of fixtures dramatically to save on size. [#72](https://github.com/mapbox/mvt-fixtures/pull/72)
