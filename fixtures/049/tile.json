@@ -1,0 +1,38 @@
+{
+  "layers": [
+    {
+      "version": 2,
+      "name": "hello",
+      "features": [
+        {
+          "id": 123,
+          "tags": [
+            0,
+            0
+          ],
+          "type": 4,
+          "geometry": [
+            9,
+            6,
+            12,
+            -6,
+            10,
+            12,
+            24,
+            44,
+            15
+          ]
+        }
+      ],
+      "keys": [
+        "name"
+      ],
+      "values": [
+        {
+          "string_value": "big line_to command integer for this polygon"
+        }
+      ],
+      "extent": 4096
+    }
+  ]
+}

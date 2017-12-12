@@ -1,5 +1,5 @@
 module.exports = {
-  description: ':warning: polygon very large CommandInteger count for move_to command',
+  description: ':warning: polygon geometry has a very large CommandInteger count for move_to command',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {
     v1: true,

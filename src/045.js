@@ -1,5 +1,5 @@
 module.exports = {
-  description: ':warning: point with very large CommandInteger count for move_to command - decoders should account for this otherwise the risk pre-allocating high memory',
+  description: ':warning: point geometry has a CommandInteger count for move_to command - decoders should account for this otherwise the risk pre-allocating high memory',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L46',
   validity: {
     v1: true,
