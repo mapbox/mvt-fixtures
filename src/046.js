@@ -1,3 +1,5 @@
+const util = require('../lib/util');
+
 module.exports = {
   description: ':warning: linestring geometry has a very large CommandInteger count for move_to command',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
@@ -30,5 +32,6 @@ module.exports = {
       }
     ]
   },
-  proto: '2.1'
+  proto: '2.1',
+  proto: util.replace('2.1', 'optional uint32 extent = 5 [ default = 4096 ];', 'required uint32 extent = 5;')
 };
