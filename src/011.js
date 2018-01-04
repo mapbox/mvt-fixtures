@@ -100,7 +100,7 @@ module.exports = {
         features: [
           {
             id: 1,
-            tags: [0,1],
+            tags: [0,0],
             type: 1,
             geometry: [ 9, 50, 34 ]
           }

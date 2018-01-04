@@ -1,3 +1,7 @@
+## 3.1.1
+
+* Fix fixture `011` to throw expected error per https://github.com/mapbox/mvt-fixtures/pull/82 
+
 ## 3.1.0
 
 * Add OSM QA tiles for more diverse real-world examples [#76](https://github.com/mapbox/mvt-fixtures/issues/76)
