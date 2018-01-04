@@ -1,5 +1,5 @@
 module.exports = {
-  description: 'A fixure with all possible value types',
+  description: 'A fixure with all possible property value types',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L19-L25',
   validity: {
     v1: true,
