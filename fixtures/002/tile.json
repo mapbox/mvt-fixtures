@@ -5,7 +5,10 @@
       "name": "hello",
       "features": [
         {
-          "tags": [],
+          "tags": [
+            0,
+            0
+          ],
           "type": 1,
           "geometry": [
             9,
@@ -14,8 +17,14 @@
           ]
         }
       ],
-      "keys": [],
-      "values": [],
+      "keys": [
+        "hello"
+      ],
+      "values": [
+        {
+          "string_value": "world"
+        }
+      ],
       "extent": 4096
     }
   ]
