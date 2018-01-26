@@ -14,13 +14,19 @@ module.exports = {
           {
             // without id
             // id: 1,
-            tags: [],
+            tags: [
+              0, 0
+            ],
             type: 1,
             geometry: [ 9, 50, 34 ]
           }
         ],
-        keys: [],
-        values: [],
+        keys: [
+          'hello'
+        ],
+        values: [
+          { string_value: 'world' }
+        ],
         extent: 4096
       }
     ]
