@@ -1,6 +1,11 @@
+## 3.2.0
+
+* Update fixture `002` to include a set of tags. This makes it more "testable" since the ID does not exist. [#85](https://github.com/mapbox/mvt-fixtures/pull/85)
+* Mark fixture `009` as valid [#64](https://github.com/mapbox/mvt-fixtures/issues/64)
+
 ## 3.1.1
 
-* Fix fixture `011` to throw expected error per https://github.com/mapbox/mvt-fixtures/pull/82 
+* Fix fixture `011` to throw expected error per https://github.com/mapbox/mvt-fixtures/pull/82
 
 ## 3.1.0
 
