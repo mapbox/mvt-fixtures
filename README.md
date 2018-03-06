@@ -138,7 +138,14 @@ $ ./scripts/dump fixtures/002/tile.mvt --raw
   }
   5: 4096
 }
-````
+```
+
+**[vtvalidate](https://github.com/mapbox/vtvalidate)** is a node C++ addon that can be installed via npm separately. This uses vtzero to parse a vector tile buffer and has a CLI available for quick use.
+
+```bash
+$ vtvalidate fixtures/003/tile.mvt
+unknown geometry type
+```
 
 ### Building docs
 

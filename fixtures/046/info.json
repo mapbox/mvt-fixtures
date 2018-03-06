@@ -1,0 +1,10 @@
+{
+  "description": "Invalid linestring geometry that includes two points in the same position, which is not OGC valid",
+  "specification_reference": "https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding",
+  "validity": {
+    "v1": false,
+    "v2": false,
+    "error": "recoverable"
+  },
+  "proto": "2.1"
+}
