@@ -13,14 +13,14 @@
           "type": 3,
           "geometry": [
             9,
-            0,
-            0,
+            399,
+            399,
             26,
-            8192,
+            8992,
             0,
             0,
-            8192,
-            8191,
+            8992,
+            8991,
             0,
             15
           ]
@@ -31,7 +31,7 @@
       ],
       "values": [
         {
-          "string_value": "exact extent"
+          "string_value": "large 200 coordinate buffer"
         }
       ],
       "extent": 4096

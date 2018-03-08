@@ -13,14 +13,14 @@
           "type": 3,
           "geometry": [
             9,
-            0,
-            0,
+            2,
+            2,
             26,
-            8192,
+            8188,
             0,
             0,
-            8192,
-            8191,
+            8188,
+            8187,
             0,
             15
           ]
@@ -31,7 +31,7 @@
       ],
       "values": [
         {
-          "string_value": "exact extent"
+          "string_value": "almost a clipped-square minus one coordinate"
         }
       ],
       "extent": 4096
