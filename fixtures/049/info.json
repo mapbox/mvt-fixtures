@@ -1,0 +1,9 @@
+{
+  "description": "linestring with int32 overflow in x coordinate. This should not happen in real tiles since the coordinates should be between 0 and the extent. These are helpful for allowing decoders to figure out what to do in these cases.",
+  "specification_reference": "https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding",
+  "validity": {
+    "v1": true,
+    "v2": true
+  },
+  "proto": "2.1"
+}

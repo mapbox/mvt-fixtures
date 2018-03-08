@@ -1,0 +1,26 @@
+{
+  "layers": [
+    {
+      "version": 2,
+      "name": "hello",
+      "features": [
+        {
+          "id": 1,
+          "tags": [],
+          "type": 2,
+          "geometry": [
+            9,
+            0,
+            4294967295,
+            10,
+            1,
+            1
+          ]
+        }
+      ],
+      "keys": [],
+      "values": [],
+      "extent": 4096
+    }
+  ]
+}
