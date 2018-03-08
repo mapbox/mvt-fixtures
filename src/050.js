@@ -1,7 +1,7 @@
 // emulating https://github.com/mapbox/vtzero/blob/088ec096dd115fa82b7e0f9cadaca26ef9c592e5/test/t/test_geometry.cpp#L293-L312
 // for building limits: http://www.cppshell.com/8iwit
 module.exports = {
-  description: 'decoding linestring with int32 overflow in y coordinate',
+  description: 'linestring with int32 overflow in y coordinate, useful for testing memory allocation in decoders',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {
     v1: true,
@@ -17,7 +17,7 @@ module.exports = {
             id: 1,
             tags: [],
             type: 2,
-            geometry: [ 9, 0, 4294967295, 9, 1, 1 ]
+            geometry: [ 9, 0, 4294967295, 10, 1, 1 ]
           }
         ],
         keys: [],
