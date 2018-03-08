@@ -1,5 +1,5 @@
 {
-  "description": "decoding linestring with int32 overflow in y coordinate",
+  "description": "linestring with int32 overflow in y coordinate, useful for testing memory allocation in decoders",
   "specification_reference": "https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding",
   "validity": {
     "v1": true,
