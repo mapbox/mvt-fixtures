@@ -17,9 +17,11 @@
 *                             *
 * * * * * * * * * * * * * * * *
 
+./vtzero-encode-geom M1 -200 -200 L3 4496 0 0 4494 -4494 0 C
+
 */
 module.exports = {
-  description: 'clipped square (large buffer): a polygon that covers the entire tile plus a 200 coordinate buffer',
+  description: 'clipped square (large buffer): a polygon that covers the entire tile plus a 200 unit buffer',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {
     v1: true,
@@ -35,7 +37,7 @@ module.exports = {
             id: 1,
             tags: [ 0, 0 ],
             type: 3,
-            geometry: [ 9, 399, 399, 26, 8992, 0, 0, 8992, 8991, 0, 15 ]
+            geometry: [ 9, 399, 399, 26, 8992, 0, 0, 8988, 8987, 0, 15 ]
           }
         ],
         keys: [ 'type' ],

@@ -11,6 +11,8 @@
 | * * * * * * * |
 └- - - - - - - -┘
 
+./vtzero-encode-geom M1 1 1 L3 4094 0 0 4094 -4094 0 C
+
 */
 module.exports = {
   description: 'clipped square (negative one coordinate buffer): a polygon that almost covers the entire tile minus one coordinate buffer',

@@ -11,6 +11,8 @@
 *               *
 └*-*-*-*-*-*-*-*┘
 
+./vtzero-encode-geom M1 0 0 L3 4096 0 0 4096 -4096 0 C
+
 */
 module.exports = {
   description: 'clipped square (exact extent): a polygon that covers the entire tile to the exact boundary',
