@@ -42,7 +42,7 @@ module.exports = {
         ],
         keys: [ 'type' ],
         values: [
-          { string_value: 'large 200 coordinate buffer' }
+          { string_value: 'large 200 unit buffer' }
         ],
         extent: 4096
       }

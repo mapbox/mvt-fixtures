@@ -38,7 +38,7 @@ module.exports = {
         ],
         keys: [ 'type' ],
         values: [
-          { string_value: 'one coordinate buffer' }
+          { string_value: 'one unit buffer' }
         ],
         extent: 4096
       }

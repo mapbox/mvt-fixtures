@@ -15,7 +15,7 @@
 
 */
 module.exports = {
-  description: 'clipped square (negative one coordinate buffer): a polygon that almost covers the entire tile minus one coordinate buffer',
+  description: 'clipped square (minus one unit buffer): a polygon that almost covers the entire tile minus one unit buffer',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {
     v1: true,
@@ -36,7 +36,7 @@ module.exports = {
         ],
         keys: [ 'type' ],
         values: [
-          { string_value: 'almost a clipped-square minus one coordinate' }
+          { string_value: 'almost a clipped-square minus one unit' }
         ],
         extent: 4096
       }

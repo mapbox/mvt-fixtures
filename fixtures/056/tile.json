@@ -19,8 +19,8 @@
             8992,
             0,
             0,
-            8992,
-            8991,
+            8988,
+            8987,
             0,
             15
           ]
@@ -31,7 +31,7 @@
       ],
       "values": [
         {
-          "string_value": "large 200 coordinate buffer"
+          "string_value": "large 200 unit buffer"
         }
       ],
       "extent": 4096
