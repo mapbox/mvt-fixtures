@@ -1,0 +1,9 @@
+{
+  "description": "clipped square (exact extent): a polygon that covers the entire tile to the exact boundary",
+  "specification_reference": "https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding",
+  "validity": {
+    "v1": true,
+    "v2": true
+  },
+  "proto": "2.1"
+}

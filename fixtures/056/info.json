@@ -1,0 +1,9 @@
+{
+  "description": "clipped square (large buffer): a polygon that covers the entire tile plus a 200 unit buffer",
+  "specification_reference": "https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding",
+  "validity": {
+    "v1": true,
+    "v2": true
+  },
+  "proto": "2.1"
+}

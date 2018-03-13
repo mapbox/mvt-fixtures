@@ -1,0 +1,40 @@
+{
+  "layers": [
+    {
+      "version": 2,
+      "name": "clipped-square",
+      "features": [
+        {
+          "id": 1,
+          "tags": [
+            0,
+            0
+          ],
+          "type": 3,
+          "geometry": [
+            9,
+            0,
+            0,
+            26,
+            8192,
+            0,
+            0,
+            8192,
+            8191,
+            0,
+            15
+          ]
+        }
+      ],
+      "keys": [
+        "type"
+      ],
+      "values": [
+        {
+          "string_value": "exact extent"
+        }
+      ],
+      "extent": 4096
+    }
+  ]
+}
