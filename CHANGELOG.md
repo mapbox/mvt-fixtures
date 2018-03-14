@@ -1,3 +1,9 @@
+## 3.3.0
+
+* add broken geometry fixtures [#86](https://github.com/mapbox/mvt-fixtures/pull/86)
+* clipped square fixtures [#87](https://github.com/mapbox/mvt-fixtures/pull/87)
+* large MoveTo and LineTo command fixtures [#88](https://github.com/mapbox/mvt-fixtures/pull/88)
+
 ## 3.2.0
 
 * Update fixture `002` to include a set of tags. This makes it more "testable" since the ID does not exist. [#85](https://github.com/mapbox/mvt-fixtures/pull/85)
