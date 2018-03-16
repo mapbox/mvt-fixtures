@@ -1,3 +1,8 @@
+## 3.3.1
+
+* Fix 056 coordinates [#89](https://github.com/mapbox/mvt-fixtures/issues/89)
+* Fix 058 MoveTo command [#90](https://github.com/mapbox/mvt-fixtures/issues/90)
+
 ## 3.3.0
 
 * add broken geometry fixtures [#86](https://github.com/mapbox/mvt-fixtures/pull/86)
