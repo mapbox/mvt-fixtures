@@ -17,7 +17,7 @@
 *                             *
 * * * * * * * * * * * * * * * *
 
-./vtzero-encode-geom M1 -200 -200 L3 4496 0 0 4494 -4494 0 C
+./vtzero-encode-geom M1 -200 -200 L3 4496 0 0 4496 -4496 0 C
 
 */
 module.exports = {
@@ -37,7 +37,7 @@ module.exports = {
             id: 1,
             tags: [ 0, 0 ],
             type: 3,
-            geometry: [ 9, 399, 399, 26, 8992, 0, 0, 8988, 8987, 0, 15 ]
+            geometry: [ 9, 399, 399, 26, 8992, 0, 0, 8992, 8991, 0, 15 ]
           }
         ],
         keys: [ 'type' ],

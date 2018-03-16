@@ -11,7 +11,7 @@ Get a fixture by name
 
 **Parameters**
 
--   `id` **([String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number))** the id of the fixture as specified in [FIXTURES.md](FIXTURES.md)
+-   `id` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number))** the id of the fixture as specified in [FIXTURES.md](FIXTURES.md)
 
 **Examples**
 
@@ -26,7 +26,7 @@ console.log(fixture.buffer); // => Buffer object
 console.log(fixture.json); // => json representation of the fixture
 ```
 
-Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** fixture - a fixture object
+Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** fixture - a fixture object
 
 ## each
 
@@ -35,7 +35,7 @@ Loops through all fixtures and provides the fixture object from get()
 **Parameters**
 
 -   `fn`  
--   `function` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a synchronously running function to execute on each fixture
+-   `function` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** a synchronously running function to execute on each fixture
 
 **Examples**
 
