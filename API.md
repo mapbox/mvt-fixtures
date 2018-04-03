@@ -2,8 +2,8 @@
 
 ### Table of Contents
 
--   [get](#get)
--   [each](#each)
+-   [get][1]
+-   [each][2]
 
 ## get
 
@@ -11,7 +11,7 @@ Get a fixture by name
 
 **Parameters**
 
--   `id` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number))** the id of the fixture as specified in [FIXTURES.md](FIXTURES.md)
+-   `id` **([String][3] \| [Number][4])** the id of the fixture as specified in [FIXTURES.md][5]
 
 **Examples**
 
@@ -26,7 +26,7 @@ console.log(fixture.buffer); // => Buffer object
 console.log(fixture.json); // => json representation of the fixture
 ```
 
-Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** fixture - a fixture object
+Returns **[Object][6]** fixture - a fixture object
 
 ## each
 
@@ -35,7 +35,7 @@ Loops through all fixtures and provides the fixture object from get()
 **Parameters**
 
 -   `fn`  
--   `function` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** a synchronously running function to execute on each fixture
+-   `function` **[Function][7]** a synchronously running function to execute on each fixture
 
 **Examples**
 
@@ -47,3 +47,17 @@ mvtf.each(function(fixture) {
   assert.ok(Buffer.isBuffer(fixture.buffer), 'is a buffer');
 });
 ```
+
+[1]: #get
+
+[2]: #each
+
+[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[5]: FIXTURES.md
+
+[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
