@@ -66,6 +66,7 @@ While the bulk of mvt-fixtures is focused on minimal unit tests with very specif
 ```
 git clone git@github.com:mapbox/mvt-fixtures.git
 cd mvt-fixtures
+git submodule update --init
 npm install
 npm install -g documentation
 ```
