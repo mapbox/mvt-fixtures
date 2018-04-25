@@ -22,7 +22,8 @@ module.exports = {
         ],
         keys: [],
         values: [],
-        extent: 4096
+        extent: 4096,
+        dimensions: 3
       }
     ]
   },
