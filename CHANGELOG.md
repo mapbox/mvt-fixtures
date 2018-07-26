@@ -1,3 +1,7 @@
+## 3.4.0
+
+* Add two new fixtures used for layer compositing tests [#97](https://github.com/mapbox/mvt-fixtures/pull/97)
+
 ## 3.3.1
 
 * Fix 056 coordinates [#89](https://github.com/mapbox/mvt-fixtures/issues/89)
