@@ -1,3 +1,8 @@
+## 3.5.0
+
+* Update fixture `011` to use a larger, less-likely-to-come-into-future-conflict number for the custom value type [#99](https://github.com/mapbox/mvt-fixtures/pull/99)
+* Add a new fixture `061` with with a linestring geometry that contains a ClosePath command [#94](https://github.com/mapbox/mvt-fixtures/pull/94)
+
 ## 3.4.0
 
 * Add two new fixtures used for layer compositing tests [#97](https://github.com/mapbox/mvt-fixtures/pull/97)
