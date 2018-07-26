@@ -28,7 +28,7 @@ message Tile {
                 optional uint64 uint_value = 5;
                 optional sint64 sint_value = 6;
                 optional bool bool_value = 7;
-                optional NewMessageInValue custom_value = 8; // THIS IS NEW
+                optional NewMessageInValue custom_value = 4242; // THIS IS NEW
         }
 
         // Features are described in section 4.2 of the specification
