@@ -1,3 +1,7 @@
+## 3.5.1
+
+* Remove mason_packages from NPM publish - remove .npmignore all together and use .gitignore
+
 ## 3.5.0
 
 * Update fixture `011` to use a larger, less-likely-to-come-into-future-conflict number for the custom value type [#99](https://github.com/mapbox/mvt-fixtures/pull/99)
