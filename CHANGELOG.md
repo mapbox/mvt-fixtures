@@ -1,3 +1,9 @@
+## 3.6.0
+
+* Add new fixture `062` which has a set of features with different property values, which is helpful for testing filtering functionality downstream [#102](https://github.com/mapbox/mvt-fixtures/pull/102)
+* Test on Node.js v10 + v8, remove testing for Node.js v4 + v6
+* Use `Buffer.from()` instead of `Buffer()`
+
 ## 3.5.1
 
 * Remove mason_packages from NPM publish - remove .npmignore all together and use .gitignore
