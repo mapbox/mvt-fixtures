@@ -17,7 +17,6 @@ test('[fixtures] validate all raw fixtures are present', (assert) => {
 
 test('[fixtures] validate all raw fixtures info matches that of the source fixture', (assert) => {
   mvtf.each(function(f) {
-    console.log(f.id);
     // read info file and check name, description, and spec url match
     let info = JSON.parse(fs.readFileSync(path.resolve(`${__dirname}/../fixtures/${f.id}/info.json`)));
     assert.equal(info.description, f.description, 'descriptions match');
