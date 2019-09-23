@@ -1,0 +1,9 @@
+{
+  "description": "points with different values for the same property - helpful for filtering tests",
+  "specification_reference": "https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md",
+  "validity": {
+    "v1": true,
+    "v2": true
+  },
+  "proto": "2.1"
+}

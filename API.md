@@ -3,17 +3,21 @@
 ### Table of Contents
 
 -   [get][1]
--   [each][2]
+    -   [Parameters][2]
+    -   [Examples][3]
+-   [each][4]
+    -   [Parameters][5]
+    -   [Examples][6]
 
 ## get
 
 Get a fixture by name
 
-**Parameters**
+### Parameters
 
--   `id` **([String][3] \| [Number][4])** the id of the fixture as specified in [FIXTURES.md][5]
+-   `id` **([String][7] \| [Number][8])** the id of the fixture as specified in [FIXTURES.md][9]
 
-**Examples**
+### Examples
 
 ```javascript
 const mvtf = require('mvt-fixtures');
@@ -26,18 +30,18 @@ console.log(fixture.buffer); // => Buffer object
 console.log(fixture.json); // => json representation of the fixture
 ```
 
-Returns **[Object][6]** fixture - a fixture object
+Returns **[Object][10]** fixture - a fixture object
 
 ## each
 
 Loops through all fixtures and provides the fixture object from get()
 
-**Parameters**
+### Parameters
 
 -   `fn`  
--   `function` **[Function][7]** a synchronously running function to execute on each fixture
+-   `function` **[Function][11]** a synchronously running function to execute on each fixture
 
-**Examples**
+### Examples
 
 ```javascript
 const mvtf = require('mvt-fixtures');
@@ -50,14 +54,22 @@ mvtf.each(function(fixture) {
 
 [1]: #get
 
-[2]: #each
+[2]: #parameters
 
-[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[3]: #examples
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[4]: #each
 
-[5]: FIXTURES.md
+[5]: #parameters-1
 
-[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[6]: #examples-1
 
-[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[9]: FIXTURES.md
+
+[10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
