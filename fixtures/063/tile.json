@@ -1,0 +1,113 @@
+{
+  "layers": [
+    {
+      "version": 2,
+      "name": "props",
+      "features": [
+        {
+          "id": 1,
+          "tags": [
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            3,
+            3,
+            4,
+            4,
+            5,
+            5,
+            6,
+            6,
+            7,
+            7
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            50,
+            34
+          ]
+        },
+        {
+          "id": 2,
+          "tags": [
+            0,
+            0
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            51,
+            35
+          ]
+        },
+        {
+          "id": 3,
+          "tags": [
+            4,
+            4
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            52,
+            36
+          ]
+        },
+        {
+          "id": 4,
+          "tags": [
+            7,
+            7
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            53,
+            37
+          ]
+        }
+      ],
+      "keys": [
+        "xx_a",
+        "xx_b",
+        "xx_c",
+        "xx_d",
+        "xx_e",
+        "xx_f",
+        "xx_g",
+        "yy_1"
+      ],
+      "values": [
+        {
+          "string_value": "letter A"
+        },
+        {
+          "string_value": "letter B"
+        },
+        {
+          "string_value": "letter C"
+        },
+        {
+          "string_value": "letter D"
+        },
+        {
+          "string_value": "letter E"
+        },
+        {
+          "string_value": "letter F"
+        },
+        {
+          "string_value": "letter G"
+        },
+        {
+          "string_value": "letter Y"
+        }
+      ],
+      "extent": 4096
+    }
+  ]
+}

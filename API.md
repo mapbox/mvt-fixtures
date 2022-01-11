@@ -2,12 +2,12 @@
 
 ### Table of Contents
 
--   [get][1]
-    -   [Parameters][2]
-    -   [Examples][3]
--   [each][4]
-    -   [Parameters][5]
-    -   [Examples][6]
+*   [get][1]
+    *   [Parameters][2]
+    *   [Examples][3]
+*   [each][4]
+    *   [Parameters][5]
+    *   [Examples][6]
 
 ## get
 
@@ -15,7 +15,7 @@ Get a fixture by name
 
 ### Parameters
 
--   `id` **([String][7] \| [Number][8])** the id of the fixture as specified in [FIXTURES.md][9]
+*   `id` **([String][7] | [Number][8])** the id of the fixture as specified in [FIXTURES.md][9]
 
 ### Examples
 
@@ -38,8 +38,8 @@ Loops through all fixtures and provides the fixture object from get()
 
 ### Parameters
 
--   `fn`  
--   `function` **[Function][11]** a synchronously running function to execute on each fixture
+*   `fn`  
+*   `function` **[Function][11]** a synchronously running function to execute on each fixture
 
 ### Examples
 
