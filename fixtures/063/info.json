@@ -1,5 +1,5 @@
 {
-  "description": "Point features with all properties suffixed with \"xx_\". Helpful for testing search/dropping of properties based on a particular syntax. Also includes one value with a different suffix in the case where only some data is intended to be read/dropped.",
+  "description": "Point features with added language properties suffixed with \"_mbx_name\" and \"name_\".",
   "specification_reference": "https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md",
   "validity": {
     "v1": true,

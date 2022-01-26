@@ -1,5 +1,5 @@
 module.exports = {
-  description: 'Point features with all properties suffixed with "xx_". Helpful for testing search/dropping of properties based on a particular syntax. Also includes one value with a different suffix in the case where only some data is intended to be read/dropped.',
+  description: 'Point features with added language properties suffixed with "_mbx_name" and "name_".',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {
     v1: true,
@@ -9,67 +9,121 @@ module.exports = {
     layers: [
       {
         version: 2,
-        name: 'props',
+        name: 'top',
         features: [
           {
             id: 1,
             tags: [
-              0, 0, // xx_a: letter A
-              1, 1, // xx_b: letter B
-              2, 2, // xx_c: letter C
-              3, 3, // xx_d: letter D
-              4, 4, // xx_e: letter E
-              5, 5, // xx_f: letter F
-              6, 6, // xx_g: letter G
-              7, 7  // yy_1: letter Y
+              0, 0, // population: 20
+            ],
+            type: 1, // point
+            geometry: [ 9, 50, 32 ]
+          },
+          {
+            id: 2,
+            tags: [
+              0, 0, // population: 20
+            ],
+            type: 1, // point
+            geometry: [ 9, 51, 33 ]
+          }
+        ],
+        keys: [
+          'population'
+        ],
+        values: [
+          { int_value: 20 }
+        ],
+        extent: 4096
+      },
+      {
+        version: 2,
+        name: 'bottom',
+        features: [
+          {
+            id: 11,
+            tags: [
+              0, 0, // name: Germany
+              1, 0, // name_local: Germany
+              2, 0, // name_en: Germany
+              3, 2, // name_fr: Allemagne
+              4, 2, // _mbx_name_fr: Allemagne
+              5, 3, // _mbx_name_gr: Deutschland
+              6, 1, // _mbx_other: Alemania
+              7, 8  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 50, 34 ]
           },
           {
-            id: 2,
+            id: 12,
             tags: [
-              0, 0 // xx_a: letter A
+              0, 0, // name: Germany
+              1, 0, // name_local: Germany
+              2, 0, // name_en: Germany
+              3, 2, // name_fr: Allemagne
+              7, 8  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 51, 35 ]
           },
           {
-            id: 3,
+            id: 13,
             tags: [
-              4, 4, // xx_e: letter E
+              0, 0, // name: Germany
+              1, 0, // name_local: Germany
+              4, 2, // _mbx_name_fr: Allemagne
+              5, 3, // _mbx_name_gr: Deutschland
+              7, 8  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 52, 36 ]
           },
           {
-            id: 4,
+            id: 14,
             tags: [
-              7, 7  // yy_1: letter Y
+              0, 0, // name: Germany
+              1, 0, // name_local: Germany
+              7, 8  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 53, 37 ]
+          },
+          {
+            id: 15,
+            tags: [
+              0, 4, // name: Spain
+              1, 4, // name_local: Spain
+              2, 4, // name_en: Spain
+              3, 6, // name_fr: Espagne
+              4, 6, // _mbx_name_fr: Espagne
+              5, 5, // _mbx_name_gr: Spanien
+              6, 7 // _mbx_other: Espana
+            ],
+            type: 1, // point
+            geometry: [ 9, 54, 38 ]
           }
         ],
         keys: [
-          'xx_a',
-          'xx_b',
-          'xx_c',
-          'xx_d',
-          'xx_e',
-          'xx_f',
-          'xx_g',
-          'yy_1'
+          'name',
+          'name_local',
+          'name_en',
+          'name_fr',
+          '_mbx_name_fr',
+          '_mbx_name_gr',
+          '_mbx_other',
+          'population'
         ],
         values: [
-          { string_value: 'letter A' },
-          { string_value: 'letter B' },
-          { string_value: 'letter C' },
-          { string_value: 'letter D' },
-          { string_value: 'letter E' },
-          { string_value: 'letter F' },
-          { string_value: 'letter G' },
-          { string_value: 'letter Y' }
+          { string_value: 'Germany' },
+          { string_value: 'Alemania' },
+          { string_value: 'Allemagne' },
+          { string_value: 'Deutschland' },
+          { string_value: 'Spain' },
+          { string_value: 'Spanien' },
+          { string_value: 'Espagne' },
+          { string_value: 'Espana' },
+          { int_value: 20 }
         ],
         extent: 4096
       }
