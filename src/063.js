@@ -44,13 +44,12 @@ module.exports = {
             id: 11,
             tags: [
               0, 0, // name: Germany
-              1, 0, // name_local: Germany
-              2, 0, // name_en: Germany
-              3, 2, // name_fr: Allemagne
-              4, 2, // _mbx_name_fr: Allemagne
-              5, 3, // _mbx_name_gr: Deutschland
-              6, 1, // _mbx_other: Alemania
-              7, 8  // population: 20
+              1, 0, // name_en: Germany
+              2, 2, // name_fr: Allemagne
+              3, 2, // _mbx_name_fr: Allemagne
+              4, 3, // _mbx_name_gr: Deutschland
+              5, 1, // _mbx_other: Alemania
+              6, 8  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 50, 34 ]
@@ -59,10 +58,9 @@ module.exports = {
             id: 12,
             tags: [
               0, 0, // name: Germany
-              1, 0, // name_local: Germany
-              2, 0, // name_en: Germany
-              3, 2, // name_fr: Allemagne
-              7, 8  // population: 20
+              1, 0, // name_en: Germany
+              2, 2, // name_fr: Allemagne
+              6, 8  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 51, 35 ]
@@ -71,10 +69,9 @@ module.exports = {
             id: 13,
             tags: [
               0, 0, // name: Germany
-              1, 0, // name_local: Germany
-              4, 2, // _mbx_name_fr: Allemagne
-              5, 3, // _mbx_name_gr: Deutschland
-              7, 8  // population: 20
+              3, 2, // _mbx_name_fr: Allemagne
+              4, 3, // _mbx_name_gr: Deutschland
+              6, 8  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 52, 36 ]
@@ -83,8 +80,7 @@ module.exports = {
             id: 14,
             tags: [
               0, 0, // name: Germany
-              1, 0, // name_local: Germany
-              7, 8  // population: 20
+              6, 8  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 53, 37 ]
@@ -93,12 +89,11 @@ module.exports = {
             id: 15,
             tags: [
               0, 4, // name: Spain
-              1, 4, // name_local: Spain
-              2, 4, // name_en: Spain
-              3, 6, // name_fr: Espagne
-              4, 6, // _mbx_name_fr: Espagne
-              5, 5, // _mbx_name_gr: Spanien
-              6, 7 // _mbx_other: Espana
+              1, 4, // name_en: Spain
+              2, 6, // name_fr: Espagne
+              3, 6, // _mbx_name_fr: Espagne
+              4, 5, // _mbx_name_gr: Spanien
+              5, 7 // _mbx_other: Espana
             ],
             type: 1, // point
             geometry: [ 9, 54, 38 ]
@@ -106,7 +101,6 @@ module.exports = {
         ],
         keys: [
           'name',
-          'name_local',
           'name_en',
           'name_fr',
           '_mbx_name_fr',
