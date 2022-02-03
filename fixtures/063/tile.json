@@ -53,21 +53,42 @@
             1,
             0,
             2,
-            2,
-            3,
-            2,
-            4,
-            3,
-            5,
             1,
-            6,
-            8
+            3,
+            1,
+            4,
+            2,
+            5,
+            3
           ],
           "type": 1,
           "geometry": [
             9,
             50,
             34
+          ]
+        },
+        {
+          "id": 15,
+          "tags": [
+            0,
+            4,
+            4,
+            5,
+            2,
+            6,
+            3,
+            6,
+            1,
+            7,
+            6,
+            8
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            54,
+            38
           ]
         },
         {
@@ -78,7 +99,7 @@
             1,
             0,
             2,
-            2,
+            1,
             6,
             8
           ],
@@ -95,9 +116,9 @@
             0,
             0,
             3,
-            2,
+            1,
             4,
-            3,
+            2,
             6,
             8
           ],
@@ -122,29 +143,6 @@
             53,
             37
           ]
-        },
-        {
-          "id": 15,
-          "tags": [
-            0,
-            4,
-            1,
-            4,
-            2,
-            6,
-            3,
-            6,
-            4,
-            5,
-            5,
-            7
-          ],
-          "type": 1,
-          "geometry": [
-            9,
-            54,
-            38
-          ]
         }
       ],
       "keys": [
@@ -161,16 +159,16 @@
           "string_value": "Germany"
         },
         {
-          "string_value": "Alemania"
-        },
-        {
           "string_value": "Allemagne"
         },
         {
           "string_value": "Deutschland"
         },
         {
-          "string_value": "Spain"
+          "string_value": "Alemania"
+        },
+        {
+          "string_value": "Espana"
         },
         {
           "string_value": "Spanien"
@@ -179,7 +177,7 @@
           "string_value": "Espagne"
         },
         {
-          "string_value": "Espana"
+          "string_value": "Spain"
         },
         {
           "int_value": 20
