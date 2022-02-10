@@ -1,0 +1,192 @@
+{
+  "layers": [
+    {
+      "version": 2,
+      "name": "top",
+      "features": [
+        {
+          "id": 1,
+          "tags": [
+            0,
+            0
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            50,
+            32
+          ]
+        },
+        {
+          "id": 2,
+          "tags": [
+            0,
+            0
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            51,
+            33
+          ]
+        }
+      ],
+      "keys": [
+        "population"
+      ],
+      "values": [
+        {
+          "int_value": 20
+        }
+      ],
+      "extent": 4096
+    },
+    {
+      "version": 2,
+      "name": "bottom",
+      "features": [
+        {
+          "id": 11,
+          "tags": [
+            0,
+            0,
+            1,
+            0,
+            2,
+            1,
+            3,
+            2,
+            4,
+            3,
+            5,
+            4
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            50,
+            34
+          ]
+        },
+        {
+          "id": 15,
+          "tags": [
+            0,
+            5,
+            4,
+            6,
+            2,
+            7,
+            3,
+            7,
+            1,
+            8,
+            6,
+            9
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            54,
+            38
+          ]
+        },
+        {
+          "id": 12,
+          "tags": [
+            0,
+            0,
+            1,
+            0,
+            2,
+            1,
+            6,
+            9
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            51,
+            35
+          ]
+        },
+        {
+          "id": 13,
+          "tags": [
+            0,
+            0,
+            3,
+            1,
+            4,
+            3,
+            6,
+            9
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            52,
+            36
+          ]
+        },
+        {
+          "id": 14,
+          "tags": [
+            0,
+            0,
+            6,
+            9
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            53,
+            37
+          ]
+        }
+      ],
+      "keys": [
+        "name",
+        "name_en",
+        "name_fr",
+        "_mbx_name_fr",
+        "_mbx_name_de",
+        "_mbx_other",
+        "population"
+      ],
+      "values": [
+        {
+          "string_value": "Germany"
+        },
+        {
+          "string_value": "Allemagne"
+        },
+        {
+          "string_value": "La Allemagne"
+        },
+        {
+          "string_value": "Deutschland"
+        },
+        {
+          "string_value": "Alemania"
+        },
+        {
+          "string_value": "Espana"
+        },
+        {
+          "string_value": "Spanien"
+        },
+        {
+          "string_value": "Espagne"
+        },
+        {
+          "string_value": "Spain"
+        },
+        {
+          "int_value": 20
+        }
+      ],
+      "extent": 4096
+    }
+  ]
+}

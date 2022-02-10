@@ -1,3 +1,7 @@
+## 3.7.0
+* Add new fixture `063` which has a set of features with different language values, which is helpful for testing internationalization functionality downstream [#103](https://github.com/mapbox/mvt-fixtures/pull/103)
+* Test on Node.js v16 + v14, remove testing for Node.js v8
+
 ## 3.6.0
 
 * Add new fixture `062` which has a set of features with different property values, which is helpful for testing filtering functionality downstream [#102](https://github.com/mapbox/mvt-fixtures/pull/102)
