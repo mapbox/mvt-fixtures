@@ -1,5 +1,5 @@
 module.exports = {
-  description: 'Point features with added language properties suffixed with "_mbx_name" and "name_".',
+  description: 'Point features with added language properties prefixed with "_mbx_name" and "name_".',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {
     v1: true,
@@ -46,9 +46,9 @@ module.exports = {
               0, 0, // name: Germany
               1, 0, // name_en: Germany
               2, 1, // name_fr: Allemagne
-              3, 1, // _mbx_name_fr: Allemagne
-              4, 2, // _mbx_name_gr: Deutschland
-              5, 3, // _mbx_other: Alemania
+              3, 2, // _mbx_name_fr: La Allemagne
+              4, 3, // _mbx_name_de: Deutschland
+              5, 4, // _mbx_other: Alemania
             ],
             type: 1, // point
             geometry: [ 9, 50, 34 ]
@@ -56,12 +56,12 @@ module.exports = {
           {
             id: 15,
             tags: [
-              0, 4, // name: Espana
-              4, 5, // _mbx_name_gr: Spanien
-              2, 6, // name_fr: Espagne
-              3, 6, // _mbx_name_fr: Espagne
-              1, 7, // name_en: Spain
-              6, 8  // population: 20
+              0, 5, // name: Espana
+              4, 6, // _mbx_name_de: Spanien
+              2, 7, // name_fr: Espagne
+              3, 7, // _mbx_name_fr: Espagne
+              1, 8, // name_en: Spain
+              6, 9  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 54, 38 ]
@@ -72,7 +72,7 @@ module.exports = {
               0, 0, // name: Germany
               1, 0, // name_en: Germany
               2, 1, // name_fr: Allemagne
-              6, 8  // population: 20
+              6, 9  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 51, 35 ]
@@ -82,8 +82,8 @@ module.exports = {
             tags: [
               0, 0, // name: Germany
               3, 1, // _mbx_name_fr: Allemagne
-              4, 2, // _mbx_name_gr: Deutschland
-              6, 8  // population: 20
+              4, 3, // _mbx_name_de: Deutschland
+              6, 9  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 52, 36 ]
@@ -92,7 +92,7 @@ module.exports = {
             id: 14,
             tags: [
               0, 0, // name: Germany
-              6, 8  // population: 20
+              6, 9  // population: 20
             ],
             type: 1, // point
             geometry: [ 9, 53, 37 ]
@@ -103,13 +103,14 @@ module.exports = {
           'name_en',
           'name_fr',
           '_mbx_name_fr',
-          '_mbx_name_gr',
+          '_mbx_name_de',
           '_mbx_other',
           'population'
         ],
         values: [
           { string_value: 'Germany' },
           { string_value: 'Allemagne' },
+          { string_value: 'La Allemagne' },
           { string_value: 'Deutschland' },
           { string_value: 'Alemania' },
           { string_value: 'Espana' },
