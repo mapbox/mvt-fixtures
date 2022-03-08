@@ -42,7 +42,7 @@ module.exports = {
           name: 'bottom',
           features: [
             {
-              id: 11,
+              id: 10,
               tags: [
                 0, 0, // name: Germany
                 1, 0, // name_en: Germany
@@ -70,7 +70,7 @@ module.exports = {
               geometry: [ 9, 54, 38 ]
             },
             {
-              id: 12,
+              id: 20,
               tags: [
                 0, 0, // name: Germany
                 1, 0, // name_en: Germany
@@ -82,7 +82,7 @@ module.exports = {
               geometry: [ 9, 51, 35 ]
             },
             {
-              id: 13,
+              id: 25,
               tags: [
                 0, 0, // name: Germany
                 3, 1, // _mbx_name_fr: Allemagne
@@ -94,7 +94,7 @@ module.exports = {
               geometry: [ 9, 52, 36 ]
             },
             {
-              id: 14,
+              id: 30,
               tags: [
                 0, 0, // name: Germany
                 6, 9,  // population: 100
@@ -102,7 +102,27 @@ module.exports = {
               ],
               type: 1, // point
               geometry: [ 9, 53, 37 ]
-            }
+            },
+            {
+              id: 35,
+              tags: [
+                0, 5, // name: España
+                6, 9, // population: 100
+                8, 14 // _mbx_worldview: CN,AD,IN
+              ],
+              type: 1, // point
+              geometry: [ 9, 54, 38 ]
+            },
+            {
+              id: 40,
+              tags: [
+                0, 5, // name: España
+                6, 9, // population: 100
+                8, 9 // _mbx_worldview: 100
+              ],
+              type: 1, // point
+              geometry: [ 9, 54, 38 ]
+            },
           ],
           keys: [
             'name',
@@ -129,7 +149,8 @@ module.exports = {
             { string_value: 'all' },          // 10
             { string_value: 'AD' },
             { string_value: 'CN' },
-            { string_value: 'IN' }
+            { string_value: 'IN' },
+            { string_value: 'CN,AD,IN' }
           ],
           extent: 4096
         }
