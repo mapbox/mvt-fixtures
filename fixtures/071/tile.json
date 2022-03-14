@@ -1,0 +1,161 @@
+{
+  "layers": [
+    {
+      "version": 2,
+      "name": "admin",
+      "features": [
+        {
+          "id": 10,
+          "tags": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            54,
+            38
+          ]
+        },
+        {
+          "id": 11,
+          "tags": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            55,
+            39
+          ]
+        },
+        {
+          "id": 12,
+          "tags": [
+            0,
+            2,
+            1,
+            2
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            56,
+            40
+          ]
+        },
+        {
+          "id": 13,
+          "tags": [
+            0,
+            3,
+            1,
+            3
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            57,
+            41
+          ]
+        },
+        {
+          "id": 14,
+          "tags": [
+            0,
+            4,
+            1,
+            4
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            58,
+            42
+          ]
+        },
+        {
+          "id": 15,
+          "tags": [
+            0,
+            5,
+            1,
+            5
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            59,
+            43
+          ]
+        },
+        {
+          "id": 16,
+          "tags": [
+            0,
+            6,
+            1,
+            6
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            60,
+            44
+          ]
+        },
+        {
+          "id": 17,
+          "tags": [
+            0,
+            7,
+            1,
+            7
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            61,
+            45
+          ]
+        }
+      ],
+      "keys": [
+        "name",
+        "_mbx_worldview"
+      ],
+      "values": [
+        {
+          "string_value": "US"
+        },
+        {
+          "string_value": "CN"
+        },
+        {
+          "string_value": "JP"
+        },
+        {
+          "string_value": "IN"
+        },
+        {
+          "string_value": "RU"
+        },
+        {
+          "string_value": "TR"
+        },
+        {
+          "string_value": "AR"
+        },
+        {
+          "string_value": "MA"
+        }
+      ],
+      "extent": 4096
+    }
+  ]
+}
