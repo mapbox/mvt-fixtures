@@ -61,3 +61,10 @@ id|description|valid v1|valid v2
 062|points with different values for the same property - helpful for filtering tests - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
 063|Point features with added language properties prefixed with "_mbx_name" and "name_". - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
 064|Point features with added language & worldview properties prefixed with "_mbx_xxx". - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+065|Worldviews: all legacy values - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+066|Worldviews: all legacy and new values - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+067|Worldviews: "all" values - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+068|Worldviews: mixture of features - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+069|Worldviews: _mbx_worldview is not a string - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+070|Worldviews: _mbx_worldview and worldview properties in same feature with conflicting values - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+071|Worldviews: all worldviews as separate features - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
