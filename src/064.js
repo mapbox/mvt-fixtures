@@ -50,7 +50,7 @@ module.exports = {
                 3, 2, // _mbx_name_fr: La Allemagne
                 4, 3, // _mbx_name_de: Deutschland
                 5, 4, // _mbx_other: Alemania
-                7, 10 // worldview: all
+                7, 10 // _mbx_worldview: all
               ],
               type: 1, // point
               geometry: [ 9, 50, 34 ]
@@ -64,7 +64,7 @@ module.exports = {
                 3, 7, // _mbx_name_fr: Espagne
                 1, 8, // name_en: Spain
                 6, 9, // population: 100
-                7, 13 // worldview: IN
+                7, 13 // _mbx_worldview: IN
               ],
               type: 1, // point
               geometry: [ 9, 54, 38 ]
@@ -76,7 +76,7 @@ module.exports = {
                 1, 0, // name_en: Germany
                 2, 1, // name_fr: Allemagne
                 6, 9, // population: 100
-                8, 10 // _mbx_worldview: all
+                7, 10 // _mbx_worldview: all
               ],
               type: 1, // point
               geometry: [ 9, 51, 35 ]
@@ -88,7 +88,7 @@ module.exports = {
                 3, 1, // _mbx_name_fr: Allemagne
                 4, 3, // _mbx_name_de: Deutschland
                 6, 9, // population: 100
-                8, 12 // _mbx_worldview: CN
+                7, 12 // _mbx_worldview: CN
               ],
               type: 1, // point
               geometry: [ 9, 52, 36 ]
@@ -98,7 +98,7 @@ module.exports = {
               tags: [
                 0, 0, // name: Germany
                 6, 9,  // population: 100
-                8, 11 // _mbx_worldview: AD
+                7, 11 // _mbx_worldview: AD
               ],
               type: 1, // point
               geometry: [ 9, 53, 37 ]
@@ -108,7 +108,7 @@ module.exports = {
               tags: [
                 0, 5, // name: España
                 6, 9, // population: 100
-                8, 14 // _mbx_worldview: CN,AD,IN
+                7, 14 // _mbx_worldview: CN,AD,IN
               ],
               type: 1, // point
               geometry: [ 9, 54, 38 ]
@@ -118,7 +118,7 @@ module.exports = {
               tags: [
                 0, 5, // name: España
                 6, 9, // population: 100
-                8, 9 // _mbx_worldview: 100
+                7, 9 // _mbx_worldview: 100
               ],
               type: 1, // point
               geometry: [ 9, 54, 38 ]
@@ -132,7 +132,6 @@ module.exports = {
             '_mbx_name_de',
             '_mbx_other',
             'population',
-            'worldview',
             '_mbx_worldview'
           ],
           values: [
