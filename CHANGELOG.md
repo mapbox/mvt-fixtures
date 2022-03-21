@@ -1,3 +1,16 @@
+## 3.8.0
+
+* Add new worldview fixtures:
+  * add new fixtures `064` Point features with added language & worldview properties prefixed with "_mbx_xxx".
+  * add new fixtures `065` Worldviews: all legacy values
+  * add new fixtures `066` Worldviews: all legacy and new values
+  * add new fixtures `067` Worldviews: "all" values
+  * add new fixtures `068` Worldviews: mixture of features
+  * add new fixtures `069` Worldviews: _mbx_worldview is not a string
+  * add new fixtures `070` Worldviews: _mbx_worldview and worldview properties in same feature with conflicting values
+  * add new fixtures `071` Worldviews: all worldviews as separate features
+  * add new fixtures `072` Worldviews: comma-separated list of non ISO 3166-1 alpha-2 codes
+
 ## 3.7.0
 * Add new fixture `063` which has a set of features with different language values, which is helpful for testing internationalization functionality downstream [#103](https://github.com/mapbox/mvt-fixtures/pull/103)
 * Test on Node.js v16 + v14, remove testing for Node.js v8
