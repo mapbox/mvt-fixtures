@@ -44,7 +44,7 @@ mvtf.each(function(fixture) {
 const output = decoder(mvtf.get('043').buffer);
 
 // or you can build a fixture inline
-const { buffer } mvtf.create({
+const { buffer } = mvtf.create({
   layers: [
     {
       version: 2,
