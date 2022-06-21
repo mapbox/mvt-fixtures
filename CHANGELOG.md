@@ -1,3 +1,7 @@
+## 3.9.0
+
+* Add `create` method to module, allowing inline fixtures to be created for faster iteration in downstream libraries.
+
 ## 3.8.0
 
 * Add new worldview fixtures:

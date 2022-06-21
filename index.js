@@ -88,7 +88,21 @@ function each(fn) {
   });
 }
 
+/**
+ * Create a tile buffer inline without referencing a pre-existing fixture
+ *
+ * @param {Object} definition - the JSON-style protocol buffer instructions
+ * @param {Object} [options]
+ * @param {string} [options.proto="2.1"] - optional vector tile spec version
+ */
+function create(definition, options) {
+  if (!definition) throw new Error('No definition provided to mvt-fixtures#create method.');
+  options = options || {};
+  return {
+    buffer: generateBuffer(definition, options.proto || '2.1', options)
+  }
+}
+
 module.exports = {
-  get: get,
-  each: each
+  get, each, create
 };
