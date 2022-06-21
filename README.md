@@ -42,6 +42,36 @@ mvtf.each(function(fixture) {
 
 // or you can get individual fixtures
 const output = decoder(mvtf.get('043').buffer);
+
+// or you can build a fixture inline
+const { buffer } = mvtf.create({
+  layers: [
+    {
+      version: 2,
+      name: 'parks',
+      features: [
+        {
+          id: 10,
+          tags: [ 0, 0 ], // name: Stanley Park
+          type: 1, // point
+          geometry: [ 9, 54, 38 ]
+        },
+        {
+          id: 10,
+          tags: [ 0, 0 ], // name: Olympic
+          type: 1, // point
+          geometry: [ 9, 2, 5 ]
+        }
+      ],
+      keys: [ 'name' ],
+      values: [
+        { string_value: 'Stanley Park' },
+        { string_value: 'Olympic' }
+      ],
+      extent: 4096
+    }
+  ]
+}); // ==> Buffer()
 ```
 
 ### Non-JS interface
