@@ -1,3 +1,10 @@
+## 3.10.0
+* Add new worldview/class fixtures:
+  * add new fixtures `073` Class: _mbx_worldview "all", _mbx_class "sea"
+  * add new fixtures `074` Class: _mbx_worldview "US,CN", _mbx_class "sea"
+  * add new fixtures `075` Class: _mbx_worldview "US", _mbx_class "sea"
+  * add new fixtures `076` Class: _mbx_worldview "US", _mbx_class not a string
+
 ## 3.9.0
 
 * Add `create` method to module, allowing inline fixtures to be created for faster iteration in downstream libraries.

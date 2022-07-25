@@ -1,0 +1,38 @@
+{
+  "layers": [
+    {
+      "version": 2,
+      "name": "admin",
+      "features": [
+        {
+          "id": 10,
+          "tags": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "type": 1,
+          "geometry": [
+            9,
+            54,
+            38
+          ]
+        }
+      ],
+      "keys": [
+        "_mbx_worldview",
+        "_mbx_class"
+      ],
+      "values": [
+        {
+          "string_value": "US"
+        },
+        {
+          "string_value": 613
+        }
+      ],
+      "extent": 4096
+    }
+  ]
+}
