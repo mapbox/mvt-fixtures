@@ -73,3 +73,4 @@ id|description|valid v1|valid v2
 074|Class: _mbx_worldview "US,CN", _mbx_class "sea" - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
 075|Class: _mbx_worldview "US", _mbx_class "sea" - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
 076|Class: _mbx_worldview "US", _mbx_class not a string - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+077|Class: name "France", _mbx_name_de "Frankreich", _mbx_class "sea" - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
