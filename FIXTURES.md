@@ -69,3 +69,8 @@ id|description|valid v1|valid v2
 070|Worldviews: _mbx_worldview and worldview properties in same feature with conflicting values - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
 071|Worldviews: all worldviews as separate features - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
 072|Worldviews: comma-separated list of non ISO 3166-1 alpha-2 codes - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+073|Class: _mbx_worldview "all", _mbx_class "sea" - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+074|Class: _mbx_worldview "US,CN", _mbx_class "sea" - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+075|Class: _mbx_worldview "US", _mbx_class "sea" - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+076|Class: _mbx_worldview "US", _mbx_class not a string - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
+077|Class: name "France", _mbx_name_de "Frankreich", _mbx_class "sea" - [spec source](https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md)|:white_check_mark:|:white_check_mark:
