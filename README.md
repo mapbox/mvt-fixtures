@@ -198,3 +198,7 @@ All tests can be run with:
 ```
 npm test
 ```
+
+# License
+
+This repository is dual-licensed. The repository and code are distributed by Mapbox under the [CC0 v1.0 Universal](/LICENSE-CC0.md) license. The fixtures, which include [Open Street Map](https://www.openstreetmap.org/copyright) data, are distributed under the [Open Data Commons ODbL v1.0](/LICENSE-ODBL.md) license. Both should be included when depending on this project.
