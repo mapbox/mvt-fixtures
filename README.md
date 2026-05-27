@@ -2,16 +2,16 @@
 
 [![Run tests](https://github.com/mapbox/mvt-fixtures/actions/workflows/test.yml/badge.svg)](https://github.com/mapbox/mvt-fixtures/actions/workflows/test.yml)
 
-A `require()`able suite of valid and invalid vector tile fixtures for testing [Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec) encoders and decoders. You can view a list of all fixtures at [FIXTURES.md](FIXTURES.md).
+An ESM suite of valid and invalid vector tile fixtures for testing [Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec) encoders and decoders. You can view a list of all fixtures at [FIXTURES.md](FIXTURES.md).
 
 # Usage
 
 mvt-fixtures can be used in two distinct ways
 
-1. **javascript interface**: use the javascript interface to generate fixtures on the fly
-1. **raw fixtures** use the raw fixtures directly via the /fixtures directory.
+1. **JavaScript interface**: use the ESM API to generate fixtures on the fly
+1. **raw fixtures**: use the pre-built files in the `/fixtures` directory
 
-The Javascript API is recommended if you are working in Javascript or Node.js. The raw fixtures are provided for those using this outside of a Javascript application. The recommended workflow is to have your encoder or decoder loop through every fixture and either expect to successfully decode/encode valid fixtures, or fail to decode/encode invalid fixtures. When new fixtures are added to this repository, you simply need to update the version of the module (or your submodule) to get the new fixtures and re-run tests.
+The JavaScript API is recommended if you are working in JavaScript or Node.js. The raw fixtures are provided for those using this outside of a JavaScript application. The recommended workflow is to have your encoder or decoder loop through every fixture and either expect to successfully decode/encode valid fixtures, or fail to decode/encode invalid fixtures. When new fixtures are added to this repository, you simply need to update the version of the module (or your submodule) to get the new fixtures and re-run tests.
 
 **Validity:** each fixture includes information about whether they are valid according to the specification versions and possible error outcomes if they are invalid. If any of the fixtures are invalid, they must include an `error` field describing how to recover (or not) from the error. These can be found in the `validity` field of the fixture and info.json files. The following checks:
 
@@ -30,12 +30,12 @@ npm install @mapbox/mvt-fixtures --save-dev
 ```
 
 ```javascript
-const mvtf = require('@mapbox/mvt-fixtures');
-const decoder = require('your-mvt-decoder');
+import * as mvtf from '@mapbox/mvt-fixtures';
+import decoder from 'your-mvt-decoder';
 
 // assert on every single buffer
-mvtf.each(function(fixture) {
-  let output = decoder(fixture.buffer);
+mvtf.each((fixture) => {
+  const output = decoder(fixture.buffer);
   assert.equal(output.layers.length, fixture.json.layers.length, 'expected number of layers');
   // ... more tests
 });
@@ -44,7 +44,7 @@ mvtf.each(function(fixture) {
 const output = decoder(mvtf.get('043').buffer);
 
 // or you can build a fixture inline
-const { buffer } = mvtf.create({
+const {buffer} = mvtf.create({
   layers: [
     {
       version: 2,
@@ -103,27 +103,35 @@ npm install -g documentation
 
 ### Adding a new fixture
 
-All fixtures have a source file in the /src directory. This file is a module that exports an object with the following parameters:
+All fixtures have a source file in the /src directory. Each is a JSON file with the following shape:
 
-```javascript
-module.exports = {
-  description: 'DESCRIPTION',
-  specification_reference: 'SPECIFICATION_URL',
-  validity: {
-    v1: false,
-    v2: false,
-    error: 'ERROR_TYPE'
+```json
+{
+  "description": "DESCRIPTION",
+  "specification_reference": "SPECIFICATION_URL",
+  "validity": {
+    "v1": false,
+    "v2": false,
+    "error": "ERROR_TYPE"
   },
-  json: {...},
-  proto: '2.1'
-};
+  "json": { },
+  "proto": "2.1"
+}
 ```
+
+The `proto` field can be:
+
+- a spec version string like `"2.1"` or `"1.0.1"` — the matching `vector-tile-spec/<version>/vector_tile.proto` is used as-is
+- a 3-element array `["2.1", "before", "after"]` — the spec proto for the given version is loaded and a single `replace(before, after)` is applied (useful for fixtures that intentionally violate the spec by tweaking field types)
+- a full `.proto` schema string — used directly
+
+A fixture may also set `"syntax": "3"` to encode with proto3 instead of the default proto2.
 
 A new fixture can be created by running the command, which will auto-increment the ID:
 
 ```shell
 npm run new
-# New file created: /src/003.js.
+# New file created: /src/003.json.
 ```
 
 ### Building fixtures

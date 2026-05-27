@@ -1,42 +1,43 @@
 import fs from 'fs';
 import path from 'path';
-import {pathToFileURL} from 'url';
-import {getID} from './lib/util.js';
-import generateBuffer from './lib/generateBuffer.js';
+import {generateBuffer, loadSchema} from './lib/generateBuffer.js';
 
 const srcDir = path.join(import.meta.dirname, 'src');
 
 /**
  * Get a fixture by name
  * @param {String|Number} id - the id of the fixture as specified in [FIXTURES.md](FIXTURES.md)
- * @returns {Promise<Object>} fixture - a fixture object
+ * @returns {Object} fixture - a fixture object
  * @example
  * import mvtf from '@mapbox/mvt-fixtures';
  *
- * const fixture = await mvtf.get('001');
+ * const fixture = mvtf.get('001');
  * console.log(fixture.id); // => '001'
  * console.log(fixture.description); // => ...
  * console.log(fixture.specification_reference); // => url to Mapbox Vector Tile specification reference
  * console.log(fixture.buffer); // => Buffer object
  * console.log(fixture.json); // => json representation of the fixture
  */
-export async function get(id) {
+export function get(id) {
   if (!id) throw new Error('No fixture id provided');
 
-  id = (typeof id === 'number') ? getID(id) : id;
+  id = (typeof id === 'number') ? String(id).padStart(3, '0') : id;
 
-  const fixturePath = path.join(srcDir, `${id}.js`);
+  const fixturePath = path.join(srcDir, `${id}.json`);
   let fixture;
   try {
-    fixture = (await import(pathToFileURL(fixturePath).href)).default;
+    fixture = JSON.parse(fs.readFileSync(fixturePath, 'utf8'));
   } catch (err) {
     throw new Error(`Error loading fixture ${fixturePath}: ${err}`);
   }
 
-  const options = {};
-  if (fixture.syntax) options.syntax = fixture.syntax;
-  let buffer = generateBuffer(fixture.json, fixture.proto, options);
-  if (fixture.manipulate) buffer = fixture.manipulate(buffer);
+  let proto = fixture.proto;
+  if (Array.isArray(proto)) {
+    const [version, before, after] = proto;
+    const schema = loadSchema(version);
+    if (schema.indexOf(before) === -1) throw new Error(`${before} not found in ${version} schema`);
+    proto = schema.replace(before, after);
+  }
 
   return {
     id,
@@ -45,31 +46,24 @@ export async function get(id) {
     json: fixture.json,
     proto: fixture.proto,
     validity: fixture.validity,
-    buffer
+    buffer: generateBuffer(fixture.json, proto, {syntax: fixture.syntax})
   };
 }
 
 /**
  * Loops through all fixtures and provides the fixture object from get()
- * @param {Function} fn - a function (sync or async) to execute on each fixture
+ * @param {Function} fn - a function to execute on each fixture
  * @example
  * import mvtf from '@mapbox/mvt-fixtures';
  * import assert from 'assert';
  *
- * await mvtf.each(fixture => {
+ * mvtf.each(fixture => {
  *   assert.ok(Buffer.isBuffer(fixture.buffer), 'is a buffer');
  * });
  */
-export async function each(fn) {
-  if (!fn) throw new Error('must provide a function argument in .each()');
-  if (typeof fn !== 'function') throw new Error('argument is not a function');
-
-  const files = fs.readdirSync(srcDir);
-  for (const file of files) {
-    const name = path.parse(file).name;
-    const fixture = await get(name);
-    await fn(fixture);
-  }
+export function each(fn) {
+  if (typeof fn !== 'function') throw new Error('must provide a function argument in .each()');
+  for (const file of fs.readdirSync(srcDir)) fn(get(path.parse(file).name));
 }
 
 /**
@@ -81,9 +75,5 @@ export async function each(fn) {
  */
 export function create(definition, options = {}) {
   if (!definition) throw new Error('No definition provided to mvt-fixtures#create method.');
-  return {
-    buffer: generateBuffer(definition, options.proto || '2.1', options)
-  };
+  return {buffer: generateBuffer(definition, options.proto || '2.1', options)};
 }
-
-export default {get, each, create};

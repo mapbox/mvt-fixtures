@@ -23,5 +23,9 @@
     "@mapbox/vector-tile": "^3.0.0",
     "pbf": "^5.0.0",
     "protocol-buffers-schema": "^3.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^10.4.0",
+    "eslint-config-mourner": "^4.1.0"
   }
 }

@@ -1,14 +1,14 @@
 import fs from 'fs';
 import path from 'path';
-import mvtf from '../index.js';
+import * as mvtf from '../index.js';
 
-await mvtf.each((fixture) => {
-  const dir = path.resolve('./fixtures/' + fixture.id);
+mvtf.each((fixture) => {
+  const dir = path.resolve(`./fixtures/${  fixture.id}`);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
-  const mvt = dir + '/tile.mvt';
-  const json = dir + '/tile.json';
-  const info = dir + '/info.json';
+  const mvt = `${dir  }/tile.mvt`;
+  const json = `${dir  }/tile.json`;
+  const info = `${dir  }/info.json`;
   if (fs.existsSync(mvt) && !fs.readFileSync(mvt).equals(fixture.buffer)) {
     console.log('updating', dir);
   }

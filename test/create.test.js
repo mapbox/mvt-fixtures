@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {VectorTile} from '@mapbox/vector-tile';
 import {PbfReader} from 'pbf';
-import mvtf from '../index.js';
+import * as mvtf from '../index.js';
 
 test('[create] failure, throws if no definition provided', () => {
   assert.throws(() => mvtf.create(), /No definition provided to mvt-fixtures#create method/);

@@ -24,7 +24,7 @@ import MBTiles from '@mapbox/mbtiles';
 const gunzip = promisify(zlib.gunzip);
 const file = process.argv[2];
 const bbox = JSON.parse(process.argv[3]);
-const dir = path.resolve(import.meta.dirname + '/../real-world/' + process.argv[4]);
+const dir = path.resolve(`${import.meta.dirname  }/../real-world/${  process.argv[4]}`);
 
 if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
@@ -33,7 +33,7 @@ const xyz = sm.xyz(bbox, 12);
 console.log(xyz);
 
 const mb = await new Promise((resolve, reject) => {
-  new MBTiles(file, (err, m) => err ? reject(err) : resolve(m));
+  new MBTiles(file, (err, m) => (err ? reject(err) : resolve(m))); // eslint-disable-line no-new
 });
 
 const getTile = promisify(mb.getTile.bind(mb));

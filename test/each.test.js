@@ -2,15 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'fs';
 import path from 'path';
-import mvtf from '../index.js';
+import * as mvtf from '../index.js';
 
 const srcDir = path.join(import.meta.dirname, '..', 'src');
 
-test('[each] loads all fixtures', async () => {
+test('[each] loads all fixtures', () => {
   const numFixtures = fs.readdirSync(srcDir).length;
 
   let count = 0;
-  await mvtf.each((fixture) => {
+  mvtf.each((fixture) => {
     count++;
     assert.ok(fixture.id);
     assert.ok(fixture.description);
@@ -22,6 +22,6 @@ test('[each] loads all fixtures', async () => {
   assert.equal(numFixtures, count, 'expected number of fixtures');
 });
 
-test('[each] failure, throws error if no function provided', async () => {
-  await assert.rejects(() => mvtf.each(), /must provide a function argument in \.each\(\)/);
+test('[each] failure, throws error if no function provided', () => {
+  assert.throws(() => mvtf.each(), /must provide a function argument in \.each\(\)/);
 });

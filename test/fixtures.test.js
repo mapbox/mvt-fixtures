@@ -2,13 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'fs';
 import path from 'path';
-import {pathToFileURL} from 'url';
-import mvtf from '../index.js';
+import * as mvtf from '../index.js';
 
 const root = path.join(import.meta.dirname, '..');
 
-test('[fixtures] validate all raw fixtures are present', async () => {
-  await mvtf.each((f) => {
+test('[fixtures] validate all raw fixtures are present', () => {
+  mvtf.each((f) => {
     assert.ok(fs.existsSync(path.resolve(`${root}/fixtures/${f.id}`)), 'directory exists');
     assert.ok(fs.existsSync(path.resolve(`${root}/fixtures/${f.id}/tile.mvt`)));
     assert.ok(fs.existsSync(path.resolve(`${root}/fixtures/${f.id}/tile.json`)));
@@ -16,12 +15,12 @@ test('[fixtures] validate all raw fixtures are present', async () => {
   });
 });
 
-test('[fixtures] validate all raw fixtures info matches that of the source fixture', async () => {
-  await mvtf.each((f) => {
+test('[fixtures] validate all raw fixtures info matches that of the source fixture', () => {
+  mvtf.each((f) => {
     const info = JSON.parse(fs.readFileSync(path.resolve(`${root}/fixtures/${f.id}/info.json`)));
     assert.equal(info.description, f.description, 'descriptions match');
     assert.equal(info.specification_reference, f.specification_reference, 'specification_references match');
-    assert.equal(info.proto, f.proto, 'protos match');
+    assert.deepEqual(info.proto, f.proto, 'protos match');
 
     const buffer = fs.readFileSync(path.resolve(`${root}/fixtures/${f.id}/tile.mvt`));
     assert.deepEqual(buffer, f.buffer, 'buffers are equal');
@@ -32,15 +31,13 @@ test('[fixtures] validate all raw fixtures info matches that of the source fixtu
   });
 });
 
-test('[fixtures] validate all source fixtures to make sure they have all required properties', async () => {
+test('[fixtures] validate all source fixtures to make sure they have all required properties', () => {
   const files = fs.readdirSync(path.resolve(`${root}/src`));
   for (const file of files) {
-    const fixture = (await import(pathToFileURL(path.resolve(`${root}/src/${file}`)).href)).default;
+    const fixture = JSON.parse(fs.readFileSync(path.resolve(`${root}/src/${file}`)));
     assert.ok(fixture.description, `${file} has property description`);
     assert.ok(fixture.specification_reference, `${file} has property specification_reference`);
     assert.ok(fixture.json, `${file} has property json`);
-    if (fixture.manipulate) {
-      assert.equal(typeof fixture.manipulate, 'function', `${file} property manipulate is a function`);
-    }
+    assert.ok(fixture.proto, `${file} has property proto`);
   }
 });
