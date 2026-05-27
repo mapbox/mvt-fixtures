@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
 import {promisify} from 'util';
-import extents from '../lib/real-world-extents.json' with {type: 'json'};
+import extents from './real-world-extents.json' with {type: 'json'};
 
 const gunzip = promisify(zlib.gunzip);
 const sm = new SphericalMercator();

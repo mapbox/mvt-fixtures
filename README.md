@@ -144,41 +144,6 @@ npm run build
 
 ### Debugging fixtures
 
-There are couple scripts included for debugging the fixtures as you create them.
-
-**protoc specification dump** allows you to dump mvt fixtures to the text-based representation supported by the google protoc tool. This can be very useful for debugging fixtures to ensure you've created what you expected (particularly for tiles designed to be invalid to parse).
-
-```bash
-$ ./scripts/dump fixtures/002/tile.mvt
-layers {
-  name: "hello"
-  features {
-    type: POINT
-    geometry: 9
-    geometry: 50
-    geometry: 34
-  }
-  extent: 4096
-  version: 2
-}
-```
-
-**raw protoc dump** allows you to dump the raw contents of a buffer. This particularly useful for tiles that don't match the vector_tile.proto format and you want to view which tags are generated
-
-```bash
-$ ./scripts/dump fixtures/002/tile.mvt --raw
-3 {
-  15: 2
-  1: "hello"
-  2 {
-    2: ""
-    3: 1
-    4: "\t2\""
-  }
-  5: 4096
-}
-```
-
 **[vtvalidate](https://github.com/mapbox/vtvalidate)** is a node C++ addon that can be installed via npm separately. This uses vtzero to parse a vector tile buffer and has a CLI available for quick use.
 
 ```bash

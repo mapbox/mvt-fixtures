@@ -6,10 +6,12 @@
   "main": "index.js",
   "scripts": {
     "test": "node --test test/*.test.js",
+    "lint": "eslint .",
     "docs": "node scripts/docs.js && documentation build index.js -f md > API.md --shallow",
     "new": "node scripts/new.js",
     "build": "node scripts/build.js",
-    "real-world": "node scripts/get-real-world.js"
+    "real-world": "node scripts/get-real-world.js",
+    "prepublishOnly": "npm run lint && npm run build && npm test"
   },
   "homepage": "https://github.com/mapbox/mvt-fixtures",
   "repository": {

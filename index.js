@@ -1,8 +1,36 @@
 import fs from 'fs';
 import path from 'path';
-import {generateBuffer, loadSchema} from './lib/generateBuffer.js';
+import schema from 'protocol-buffers-schema';
+import {PbfWriter} from 'pbf';
+import {compile} from 'pbf/compile';
 
-const srcDir = path.join(import.meta.dirname, 'src');
+const rootDir = import.meta.dirname;
+const srcDir = path.join(rootDir, 'src');
+const specDir = path.join(rootDir, 'vector-tile-spec');
+const SPEC_VERSIONS = new Set(fs.readdirSync(specDir).filter(s => fs.lstatSync(path.join(specDir, s)).isDirectory()));
+const schemaCache = new Map();
+
+function loadSchema(version) {
+  let s = schemaCache.get(version);
+  if (s === undefined) {
+    s = fs.readFileSync(path.join(specDir, version, 'vector_tile.proto'), 'utf8');
+    schemaCache.set(version, s);
+  }
+  return s;
+}
+
+function generateBuffer(json, proto, opts = {}) {
+  if (!proto) throw new Error('Please provide the proto file or version to generate this buffer from');
+
+  const replaceWith = `syntax = "proto${opts.syntax || '2'}";\n\npackage vector_tile;`;
+  const rawProto = SPEC_VERSIONS.has(proto) ? loadSchema(proto) : proto;
+  const protoString = rawProto.replace('package vector_tile;', replaceWith);
+
+  const mvt = compile(schema.parse(protoString));
+  const pbf = new PbfWriter();
+  mvt.writeTile(json, pbf);
+  return Buffer.from(pbf.finish());
+}
 
 /**
  * Get a fixture by name
@@ -34,9 +62,9 @@ export function get(id) {
   let proto = fixture.proto;
   if (Array.isArray(proto)) {
     const [version, before, after] = proto;
-    const schema = loadSchema(version);
-    if (schema.indexOf(before) === -1) throw new Error(`${before} not found in ${version} schema`);
-    proto = schema.replace(before, after);
+    const spec = loadSchema(version);
+    if (spec.indexOf(before) === -1) throw new Error(`${before} not found in ${version} schema`);
+    proto = spec.replace(before, after);
   }
 
   return {

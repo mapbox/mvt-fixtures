@@ -1,7 +1,7 @@
 import fs from 'fs';
 import {SphericalMercator} from '@mapbox/sphericalmercator';
 import * as mvtf from '../index.js';
-import extents from '../lib/real-world-extents.json' with {type: 'json'};
+import extents from './real-world-extents.json' with {type: 'json'};
 
 export function generateFixturesDoc() {
   let docs = `id|description|valid v1|valid v2
