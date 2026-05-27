@@ -14,7 +14,7 @@
 ./vtzero-encode-geom M1 1 1 L3 4094 0 0 4094 -4094 0 C
 
 */
-module.exports = {
+export default {
   description: 'clipped square (minus one unit buffer): a polygon that almost covers the entire tile minus one unit buffer',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {

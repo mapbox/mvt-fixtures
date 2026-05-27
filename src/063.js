@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Point features with added language properties prefixed with "_mbx_name" and "name_".',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {

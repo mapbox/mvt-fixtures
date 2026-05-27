@@ -1,6 +1,6 @@
-const util = require('../lib/util');
+import * as util from '../lib/util.js';
 
-module.exports = {
+export default {
   description: 'No Layer Name',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#41-layers',
   validity: {

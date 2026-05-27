@@ -1,6 +1,6 @@
-const util = require('../lib/util');
+import * as util from '../lib/util.js';
 
-module.exports = {
+export default {
   description: 'Missing layer version property. Proto2 parsers will default to 1, assuming they are using a .proto file. Proto3 will default to zero (since this is an int), which is invalid.',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md#41-layers',
   validity: {

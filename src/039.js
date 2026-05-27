@@ -79,7 +79,7 @@ message Tile {
 }
 `;
 
-module.exports = {
+export default {
   description: 'All tags with a user-defined custom default are actually encoded, even if the value of the tag is the default (this is how proto3 would handle this situation). Fields include "version", "id", "type - GeomType", and "extent".',
   specification_reference: 'https://github.com/mapbox/mvt-fixtures/pull/48',
   validity: {

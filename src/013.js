@@ -1,6 +1,6 @@
-const util = require('../lib/util');
+import * as util from '../lib/util.js';
 
-module.exports = {
+export default {
   description: 'Has a key property incorrectly encoded as a type std::uint32_t.',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L63',
   validity: {

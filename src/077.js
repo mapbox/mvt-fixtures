@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Class: name "France", _mbx_name_de "Frankreich", _mbx_class "sea"',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {

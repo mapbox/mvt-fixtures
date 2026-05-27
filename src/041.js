@@ -1,6 +1,6 @@
-const util = require('../lib/util');
+import * as util from '../lib/util.js';
 
-module.exports = {
+export default {
   description: 'Tile message has an unknown tag value, tags are encoded as floats instead of integers. Not that this is not detectable from the protobuf encoding alone. A decoder will interpret these floats as varints (which succeeds in this case) and only notice later that they point to non-existing indexes.',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L38',
   validity: {

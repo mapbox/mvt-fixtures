@@ -1,14 +1,16 @@
-'use strict';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'fs';
+import path from 'path';
+import mvtf from '../index.js';
 
-const test = require('tape');
-const fs = require('fs');
-const mvtf = require('..');
+const srcDir = path.join(import.meta.dirname, '..', 'src');
 
-test('[each] loads all fixtures', (assert) => {
-  const numFixtures = fs.readdirSync(__dirname + '/../src').length;
+test('[each] loads all fixtures', async () => {
+  const numFixtures = fs.readdirSync(srcDir).length;
 
   let count = 0;
-  mvtf.each(function(fixture) {
+  await mvtf.each((fixture) => {
     count++;
     assert.ok(fixture.id);
     assert.ok(fixture.description);
@@ -18,16 +20,8 @@ test('[each] loads all fixtures', (assert) => {
   });
 
   assert.equal(numFixtures, count, 'expected number of fixtures');
-  assert.end();
 });
 
-test('[each] failure, throws error if no function provided', (assert) => {
-  try {
-    mvtf.each();
-    assert.fail();
-  } catch(err) {
-    assert.ok(err);
-    assert.ok(/must provide a function argument in \.each()/.test(err.message), 'expected error message');
-    assert.end();
-  }
+test('[each] failure, throws error if no function provided', async () => {
+  await assert.rejects(() => mvtf.each(), /must provide a function argument in \.each\(\)/);
 });

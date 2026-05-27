@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'A layer named "water" with a single feature and unique properties (used as a layer compositing test with fixture 060)',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {

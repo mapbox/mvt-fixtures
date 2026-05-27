@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Geometry field begins with a ClosePath command, which is invalid',
   specification_reference: 'https://github.com/mapbox/mapbox-gl-js/issues/1019',
   validity: {

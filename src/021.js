@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'valid multi-linestring geometry',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4354-example-multi-linestring',
   validity: {

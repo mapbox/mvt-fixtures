@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Class: _mbx_worldview "US,CN", _mbx_class "sea"',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {

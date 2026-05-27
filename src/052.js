@@ -1,5 +1,5 @@
 // to generate commands: http://www.cppshell.com/7gvnr
-module.exports = {
+export default {
   description: 'multipoint with not enough points',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {

@@ -1,4 +1,3 @@
-'use strict';
 /*
 
 Extract tiles from an MBTiles
@@ -15,43 +14,46 @@ Example
 
 */
 
-const fs = require('fs');
-const path = require('path');
-const SM = require('@mapbox/sphericalmercator');
-const queue = require('d3-queue').queue;
-const MBTiles = require('@mapbox/mbtiles');
-const zlib = require('zlib');
+import fs from 'fs';
+import path from 'path';
+import zlib from 'zlib';
+import {promisify} from 'util';
+import {SphericalMercator} from '@mapbox/sphericalmercator';
+import MBTiles from '@mapbox/mbtiles';
 
+const gunzip = promisify(zlib.gunzip);
 const file = process.argv[2];
 const bbox = JSON.parse(process.argv[3]);
-const dir = path.resolve(__dirname + '/../real-world/' + process.argv[4]);
+const dir = path.resolve(import.meta.dirname + '/../real-world/' + process.argv[4]);
 
-if (!fs.existsSync(dir)) {
-  fs.mkdirSync(dir);
-}
+if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
-const sm = new SM();
-const q = new queue(10);
-const xyz = sm.xyz(bbox, 12); // all osm qa tiles are at z12
+const sm = new SphericalMercator();
+const xyz = sm.xyz(bbox, 12);
 console.log(xyz);
 
+const mb = await new Promise((resolve, reject) => {
+  new MBTiles(file, (err, m) => err ? reject(err) : resolve(m));
+});
+
+const getTile = promisify(mb.getTile.bind(mb));
+
+const tasks = [];
 for (let x = xyz.minX; x <= xyz.maxX; x++) {
   for (let y = xyz.minY; y <= xyz.maxY; y++) {
-    q.defer(getAndWriteTile, 12, x, y);
+    tasks.push({z: 12, x, y});
   }
 }
 
-q.awaitAll(function(err, tiles) {
-  console.log('Done!');
-});
-
-function getAndWriteTile(z, x, y, callback) {
-  new MBTiles(file, function(err, mb) {
-    mb.getTile(z, x, y, function(err, tile) {
-      zlib.gunzip(tile, function(err, buf) {
-        fs.writeFileSync(`${dir}/${z}-${x}-${y}.mvt`, buf);
-        return callback(null);
-      });
-    });
-  });
+const CONCURRENCY = 10;
+let i = 0;
+async function worker() {
+  while (i < tasks.length) {
+    const {z, x, y} = tasks[i++];
+    const tile = await getTile(z, x, y);
+    const buf = await gunzip(tile);
+    fs.writeFileSync(`${dir}/${z}-${x}-${y}.mvt`, buf);
+  }
 }
+await Promise.all(Array.from({length: CONCURRENCY}, worker));
+console.log('Done!');

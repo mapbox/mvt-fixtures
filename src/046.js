@@ -1,6 +1,6 @@
 // testing https://github.com/mapbox/vtzero/blob/088ec096dd115fa82b7e0f9cadaca26ef9c592e5/test/t/test_geometry.cpp#L112-L131
 
-module.exports = {
+export default {
   description: 'Invalid linestring geometry that includes two points in the same position, which is not OGC valid',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {

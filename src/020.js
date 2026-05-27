@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'valid multi-point geometry',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#4352-example-multi-point',
   validity: {

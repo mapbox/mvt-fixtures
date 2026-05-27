@@ -1,21 +1,16 @@
-'use strict';
+import fs from 'fs';
+import path from 'path';
+import mvtf from '../index.js';
 
-const fs = require('fs');
-const path = require('path');
-const mvtf = require('..');
+await mvtf.each((fixture) => {
+  const dir = path.resolve('./fixtures/' + fixture.id);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
-mvtf.each(function(fixture) {
-
-  let dir = path.resolve('./fixtures/' + fixture.id);
-  if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
-  }
-
-  let mvt = dir + '/tile.mvt';
-  let json = dir + '/tile.json';
-  let info = dir + '/info.json';
+  const mvt = dir + '/tile.mvt';
+  const json = dir + '/tile.json';
+  const info = dir + '/info.json';
   if (fs.existsSync(mvt) && !fs.readFileSync(mvt).equals(fixture.buffer)) {
-    console.log('updating',dir);
+    console.log('updating', dir);
   }
   fs.writeFileSync(mvt, fixture.buffer);
   fs.writeFileSync(json, JSON.stringify(fixture.json, null, 2));

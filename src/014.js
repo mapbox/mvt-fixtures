@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'A layer without a name field. "A layer MUST contain a name field."',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L57',
   validity: {

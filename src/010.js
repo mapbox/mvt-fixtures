@@ -1,6 +1,6 @@
-const util = require('../lib/util');
+import * as util from '../lib/util.js';
 
-module.exports = {
+export default {
   description: 'A Layer value property is listed as "string" but encoded as std::int64_t',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {

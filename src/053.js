@@ -14,7 +14,7 @@
 ./vtzero-encode-geom M1 0 0 L3 4096 0 0 4096 -4096 0 C
 
 */
-module.exports = {
+export default {
   description: 'clipped square (exact extent): a polygon that covers the entire tile to the exact boundary',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {

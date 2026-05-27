@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Feature has tags that point to non-existent Key in the layer.',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L38',
   validity: {

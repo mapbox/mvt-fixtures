@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'A single point feature with a missing geometry type. From the spec, "A feature MUST contain a type field as described in the Geometry Types section." Proto2 decoders will interpret this missing tag as a default UNKNOWN.',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L41',
   validity: {

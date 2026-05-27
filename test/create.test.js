@@ -1,23 +1,20 @@
-const test = require('tape');
-const vt = require('@mapbox/vector-tile').VectorTile;
-const pbf = require('pbf');
-const mvtf = require('..');
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {VectorTile} from '@mapbox/vector-tile';
+import {PbfReader} from 'pbf';
+import mvtf from '../index.js';
 
-test('[create] failure, throws if no definition provided', (assert) => {
-  assert.throws(() => {
-    mvtf.create();
-  }, /No definition provided to mvt-fixtures#create method/);
-  assert.end();
+test('[create] failure, throws if no definition provided', () => {
+  assert.throws(() => mvtf.create(), /No definition provided to mvt-fixtures#create method/);
 });
 
-test('[create] success, returns buffer even if not valid', (assert) => {
-  const { buffer } = mvtf.create({ waka: 'flocka' });
+test('[create] success, returns buffer even if not valid', () => {
+  const {buffer} = mvtf.create({waka: 'flocka'});
   assert.equal(buffer.toString(), '');
-  assert.end();
 });
 
-test('[create] success, creates valid mvt', (assert) => {
-  const { buffer } = mvtf.create({
+test('[create] success, creates valid mvt', () => {
+  const {buffer} = mvtf.create({
     layers: [
       {
         version: 2,
@@ -25,28 +22,27 @@ test('[create] success, creates valid mvt', (assert) => {
         features: [
           {
             id: 10,
-            tags: [ 0, 0 ], // name: Stanley Park
-            type: 1, // point
-            geometry: [ 9, 54, 38 ]
+            tags: [0, 0],
+            type: 1,
+            geometry: [9, 54, 38]
           },
           {
             id: 10,
-            tags: [ 0, 0 ], // name: Olympic
-            type: 1, // point
-            geometry: [ 9, 2, 5 ]
+            tags: [0, 0],
+            type: 1,
+            geometry: [9, 2, 5]
           }
         ],
-        keys: [ 'name' ],
+        keys: ['name'],
         values: [
-          { string_value: 'Stanley Park' },
-          { string_value: 'Olympic' }
+          {string_value: 'Stanley Park'},
+          {string_value: 'Olympic'}
         ],
         extent: 4096
       }
     ]
   });
 
-  const info = new vt(new pbf(buffer));
+  const info = new VectorTile(new PbfReader(buffer));
   assert.equal(info.layers.parks.length, 2);
-  assert.end();
 });

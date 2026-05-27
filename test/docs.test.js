@@ -1,15 +1,14 @@
-'use strict';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'fs';
+import path from 'path';
+import {exec} from 'child_process';
 
-const test = require('tape');
-const fs = require('fs');
-const path = require('path');
-const exec = require('child_process').exec;
-
-test('[docs] FIXTURES.md and API.md have been generated', (assert) => {
+test('[docs] FIXTURES.md and API.md have been generated', (t, done) => {
   const apiBefore = fs.readFileSync(path.resolve('./API.md'));
   const fixBefore = fs.readFileSync(path.resolve('./FIXTURES.md'));
   const script = path.resolve('./scripts/docs.js');
-  exec(`node ${script}`, function(err, stdin, stdout) {
+  exec(`node ${script}`, (err) => {
     assert.ifError(err);
     const apiAfter = fs.readFileSync(path.resolve('./API.md'));
     const fixAfter = fs.readFileSync(path.resolve('./FIXTURES.md'));
@@ -17,6 +16,6 @@ test('[docs] FIXTURES.md and API.md have been generated', (assert) => {
     assert.deepEqual(apiBefore, apiAfter, 'API.md buffers are equal');
     assert.equal(fixBefore.toString(), fixAfter.toString(), 'FIXTURE.md strings match regenerated docs');
     assert.equal(apiBefore.toString(), apiAfter.toString(), 'API.md strings match regenerated docs');
-    assert.end();
+    done();
   });
 });

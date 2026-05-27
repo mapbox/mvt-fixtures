@@ -84,7 +84,7 @@ message Tile {
 
 
 
-module.exports = {
+export default {
   description: 'Has a value type not described in the spec. Should be easy for decoders to skip',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {

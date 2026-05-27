@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Single Value with double type and a single Point feature',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L21',
   validity: {

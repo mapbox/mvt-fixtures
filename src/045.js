@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Invalid point geometry that includes a MoveTo command and only half of the xy coordinates',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {

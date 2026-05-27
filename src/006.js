@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: '[feature:geometry] A single point feature with an invalid GeomType enum in the "type" field.',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L8-L13',
   validity: {

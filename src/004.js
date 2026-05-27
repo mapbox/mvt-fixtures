@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: '[feature:geometry] A single point feature without a geometry field. The spec says, "A feature MUST contain a geometry field."',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/vector_tile.proto#L46',
   validity: {

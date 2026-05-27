@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Worldviews: comma-separated list of non ISO 3166-1 alpha-2 codes',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {

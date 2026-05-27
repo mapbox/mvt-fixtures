@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Invalid polygon with wrong ClosePath count 0 (must be count 1)',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {

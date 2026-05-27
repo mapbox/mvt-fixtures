@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'Worldviews: "all" values',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {

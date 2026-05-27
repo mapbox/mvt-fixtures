@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   description: 'A linestring fixture with a gigantic LineTo command that does not have the equal number of commands after. This can be used to test decoders for memory overallocation situations',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/tree/master/2.1#43-geometry-encoding',
   validity: {

@@ -1,11 +1,11 @@
-const fs = require('fs');
-const getID = require('../lib/util').getID;
+import fs from 'fs';
+import {getID} from '../lib/util.js';
 
 const files = fs.readdirSync('./src');
-const rawID = parseInt(files[files.length-1].replace('.js', '')) + 1;
+const rawID = parseInt(files[files.length - 1].replace('.js', '')) + 1;
 const id = getID(rawID);
 
-const template = `module.exports = {
+const template = `export default {
   description: 'DESCRIPTION',
   specification_reference: 'https://github.com/mapbox/vector-tile-spec/blob/master/2.1/README.md',
   validity: {
