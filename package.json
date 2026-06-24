@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/mvt-fixtures",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A require-able test fixture suite of valid and invalid Mapbox Vector Tiles",
   "type": "module",
   "main": "index.js",
@@ -29,5 +29,8 @@
   "devDependencies": {
     "eslint": "^10.4.0",
     "eslint-config-mourner": "^4.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
